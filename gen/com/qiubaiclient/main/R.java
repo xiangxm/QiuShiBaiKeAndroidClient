@@ -145,24 +145,29 @@ containing a value of this type.
         public static final int transparent=0x7f02000a;
     }
     public static final class id {
-        public static final int download=0x7f090002;
-        public static final int imageView1=0x7f090004;
-        public static final int list=0x7f090000;
-        public static final int name=0x7f090001;
-        public static final int pager=0x7f090007;
-        public static final int pagerindicator=0x7f090006;
-        public static final int tab_title=0x7f090008;
-        public static final int tab_title_sum=0x7f090009;
-        public static final int tab_title_tips=0x7f09000a;
-        public static final int textView1=0x7f090005;
-        public static final int titlebar=0x7f090003;
+        public static final int content_img=0x7f090001;
+        public static final int content_txt=0x7f090002;
+        public static final int download=0x7f090005;
+        public static final int imageView1=0x7f090007;
+        public static final int list=0x7f090003;
+        public static final int name=0x7f090004;
+        public static final int pager=0x7f09000a;
+        public static final int pagerindicator=0x7f090009;
+        public static final int tab_title=0x7f09000b;
+        public static final int tab_title_sum=0x7f09000c;
+        public static final int tab_title_tips=0x7f09000d;
+        public static final int textView1=0x7f090008;
+        public static final int titlebar=0x7f090006;
+        public static final int user_img=0x7f090000;
     }
     public static final class layout {
-        public static final int fragment_one=0x7f030000;
-        public static final int listview_item=0x7f030001;
-        public static final int qiubaiclient_main_activity=0x7f030002;
-        public static final int title_flow_indicator=0x7f030003;
-        public static final int title_flow_indicator_v2=0x7f030004;
+        public static final int content_item_img_layout=0x7f030000;
+        public static final int content_item_without_img_layout=0x7f030001;
+        public static final int fragment_one=0x7f030002;
+        public static final int listview_item=0x7f030003;
+        public static final int qiubaiclient_main_activity=0x7f030004;
+        public static final int title_flow_indicator=0x7f030005;
+        public static final int title_flow_indicator_v2=0x7f030006;
     }
     public static final class string {
         public static final int app_name=0x7f070000;
