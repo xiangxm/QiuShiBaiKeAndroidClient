@@ -3,7 +3,7 @@
 
     <drawable name="transparent">#00000000</drawable>
 
-    <color name="common_white">#ffffff</color>
+    <color name="common_white">#ffffff</color> 
     <color name="common_white_shadow">#414141</color>
     <color name="common_white_disabled">#e7e7e7</color>
     <!-- For main texts -->

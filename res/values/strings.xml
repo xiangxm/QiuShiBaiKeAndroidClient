@@ -6,4 +6,12 @@
     <string name="fragment_two">精华</string>
     <string name="fragment_three">最新</string>
     <string name="fragment_four">真相</string>
+    <!-- PullToRefreshListView -->
+    <string name="refresh">刷新</string>
+    <string name="search">搜索</string>
+    <string name="sliding_title">SlidingMenu Demo</string>
+    <string name="desc_list_item_icon">SlidingMenu</string>
+    <string name="pull_to_refresh_pull_label">下拉刷新…</string>
+    <string name="pull_to_refresh_release_label">松开以刷新…</string>
+    <string name="pull_to_refresh_refreshing_label">数据加载中…</string>
 </resources>

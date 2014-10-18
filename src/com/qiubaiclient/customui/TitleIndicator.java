@@ -151,13 +151,14 @@ public class TitleIndicator extends LinearLayout implements
 		float offset = 0;
 		// 各个坐标
 		float left_x = mSelectedTab * mPerItemWidth + offset + scroll_x;
-		float bottom_y = getHeight() - 10;
+		float bottom_y = getHeight() - 15;
 
 		// 实心圆画笔
 		mPaint = new Paint();
 		mPaint.setColor(Color.parseColor("#FFFFFF"));
 		mPaint.setAntiAlias(true);
-		canvas.drawCircle(left_x + mPerItemWidth / 2f, bottom_y, 6, mPaint);
+		canvas.drawCircle(left_x + mPerItemWidth / 2f, bottom_y, mContext
+				.getResources().getDimension(R.dimen.circle_r), mPaint);
 	}
 
 	/**
