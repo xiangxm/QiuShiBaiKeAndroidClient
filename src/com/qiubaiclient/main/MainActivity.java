@@ -9,6 +9,11 @@ import com.qiubaiclient.fragment.FragmentThree;
 import com.qiubaiclient.fragment.FragmentTwo;
 import com.qiubaiclient.main.R;
 
+/**
+ * just for test .
+ * @author xiangxm
+ *
+ */
 public class MainActivity extends IndicatorFragmentActivity {
 
     public static final int FRAGMENT_ONE = 0;
