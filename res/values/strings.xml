@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FuLaiRy Client</string>
+    <string name="fragment_one">热门</string>
+    <string name="fragment_two">精华</string>
+    <string name="fragment_three">最新</string>
+    <string name="fragment_four">真相</string>
+</resources>
