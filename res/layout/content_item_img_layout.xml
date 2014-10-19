@@ -3,8 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/common_white"
-    android:padding="5dp"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:padding="10dp" >
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -39,8 +39,7 @@
             android:id="@+id/content_img"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:src="@drawable/ic_launcher" />
+            android:layout_alignParentLeft="true" />
 
         <TextView
             android:id="@+id/content_txt"
@@ -52,7 +51,13 @@
             android:singleLine="false"
             android:text="昨晚选修下课路经湖边，看见一对情侣坐在石桌旁边，女的哭得声嘶力竭，大喊“你骗我！”正在我揣摩她是被骗了贞操还是真钞的时候，她第二句话“你今晚根本没有给我买吃的。”我脚一软差点给跪了…"
             android:textColor="#000000"
-            android:textSize="14sp" />
+            android:textSize="18sp" />
     </RelativeLayout>
-
+	
+    <View 
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="#000000"
+        />
 </LinearLayout>

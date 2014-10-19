@@ -6,30 +6,30 @@ public class AppConfig {
 	 * 
 	 * 服务器地址
 	 */
-	public static final String SERVER_ADDRESS = "http://m2.qiushibaike.com/article/list/" ;
+//	public static final String SERVER_ADDRESS = "http://m2.qiushibaike.com/article/list/" ;
 	
     /**
-     * 最新
+     * 最热
      */
-    public static final String MOST_HOT_ARTICLE = "suggest?" ;
+    public static final String MOST_HOT = "http://m2.qiushibaike.com/article/list/suggest?/" ;
 	
 	/**
 	 * 精华
 	 */
-	public static final String MOST_ESSONCE = "day?" ;
+	public static final String MOST_ESSONCE = "http://m2.qiushibaike.com/article/list/day?/" ;
 	/**
 	 * 最新
 	 */
-	public static final String LATEST ="latest?" ;
+	public static final String LATEST ="http://m2.qiushibaike.com/article/list/latest?/" ;
 	/**
 	 * 真相
 	 */
-	public static final String TRUTH ="images?" ; 
+	public static final String TRUTH ="http://m2.qiushibaike.com/article/list/images?/" ; 
 	
 	/**
 	 * 页数和条数
 	 */
-	public static final String PAGE_COUNT = "page=?&count=?" ;
+	public static final String PAGE_COUNT = "page=%d&count=%d" ;
 	
 	/**
 	 * 用户头像

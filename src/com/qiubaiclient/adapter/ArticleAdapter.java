@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.qiubaiclient.app.MyApplication;
 import com.qiubaiclient.main.R;
 import com.qiubaiclient.model.ItemBean;
+import com.qiubaiclient.model.UserBean;
 import com.qiubaiclient.utils.AppConfig;
 
 /**
@@ -36,6 +37,14 @@ public class ArticleAdapter extends BaseAdapter {
 		this.mContext = mContext;
 		this.inflater = (LayoutInflater) mContext
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+	}
+
+	public List<ItemBean> getDataList() {
+		return dataList;
+	}
+
+	public void setDataList(List<ItemBean> dataList) {
+		this.dataList = dataList;
 	}
 
 	@Override
@@ -71,48 +80,47 @@ public class ArticleAdapter extends BaseAdapter {
 		TextView userLogin = get(convertView, R.id.tv_user_login);
 		TextView txtContent = get(convertView, R.id.content_txt);
 
+		userImg.setVisibility(View.VISIBLE) ;
+		contentImg.setVisibility(View.VISIBLE) ;
 		ItemBean itemBean = (ItemBean) getItem(position);
-		String userImgUrl;
-		String articleImgUrl;
 		if (null != itemBean) {
 
-			// 设置头像
-			if (null != itemBean.getImage() && !itemBean.getImage().equals("")) {
-
-				userImgUrl = AppConfig.USER_IMG
-						+ "1317/13174147/thumb/20140514222317.jpg";
-
-				Log.i(TAG, userImgUrl);
-				com.qiubaiclient.app.MyApplication.imageLoader.displayImage(
-						userImgUrl, userImg, MyApplication.options);
-
-			}
-			// 显示用户登录名
-			if (null != itemBean.getUser()) {
-
-				userLogin.setText(itemBean.getUser().getLogin());
-			} else {
-
-				userLogin.setText("");
-			}
-
 			// 有图片则显示图片
-
 			if (null != itemBean.getImage() && !itemBean.getImage().equals("")) {
-				articleImgUrl = AppConfig.ARTICLE_BIG_IMG
+				String articleImgUrl = AppConfig.ARTICLE_BIG_IMG
 						+ itemBean.getId().substring(0, 4) + "/"
-						+ itemBean.getId() + "/medium" + itemBean.getImage();
+						+ itemBean.getId() + "/medium/" + itemBean.getImage();
 				Log.i(TAG, articleImgUrl);
 				com.qiubaiclient.app.MyApplication.imageLoader.displayImage(
 						articleImgUrl, contentImg, MyApplication.options);
 
+			}else{
+				
+				contentImg.setVisibility(View.GONE) ;
+			}
+			// 设置头像
+			UserBean user = itemBean.getUser();
+			if (user != null) {
+
+				String userImgUrl = AppConfig.USER_IMG
+						+ user.getId().substring(0, 4) + "/" + user.getId()
+						+ "/thumb/" + user.getIcon();
+
+				Log.i(TAG, userImgUrl);
+				com.qiubaiclient.app.MyApplication.imageLoader.displayImage(
+						userImgUrl, userImg, MyApplication.options);
+				userLogin.setText(itemBean.getUser().getLogin());
+			} else {
+
+				userImg.setVisibility(View.GONE) ;
+				userLogin.setText("糗百大神");
 			}
 
 			// 显示文章内容
 			txtContent.setText(itemBean.getContent());
 
 		}
-		return null;
+		return convertView;
 	}
 
 	// I added a generic return type to reduce the casting noise in client

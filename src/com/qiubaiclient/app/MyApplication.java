@@ -29,8 +29,6 @@ public class MyApplication extends Application {
 	 */
 	public static DisplayImageOptions options;
 
-	private MyApplication() {
-	}
 
 	/**
 	 * 单例模式获取Application 对象昂
