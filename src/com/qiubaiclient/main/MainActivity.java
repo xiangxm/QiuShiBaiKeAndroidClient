@@ -4,7 +4,7 @@ import java.util.List;
 
 import android.os.Bundle;
 
-import com.qiubaiclient.fragment.FragQiuShi_MostHost;
+import com.qiubaiclient.fragment.FragQiuShiMostHost;
 import com.qiubaiclient.fragment.FragmentThree;
 import com.qiubaiclient.fragment.FragmentTwo;
 import com.qiubaiclient.main.R;
@@ -29,14 +29,14 @@ public class MainActivity extends IndicatorFragmentActivity {
     @Override
     protected int supplyTabs(List<TabInfo> tabs) {
         tabs.add(new TabInfo(FRAGMENT_ONE, getString(R.string.fragment_one),
-                FragQiuShi_MostHost.class));
+                FragQiuShiMostHost.class));
         tabs.add(new TabInfo(FRAGMENT_TWO, getString(R.string.fragment_two),
                 FragmentTwo.class));
         tabs.add(new TabInfo(FRAGMENT_THREE, getString(R.string.fragment_three),
                 FragmentThree.class));
         tabs.add(new TabInfo(FRAGMENT_FOUR, getString(R.string.fragment_four),
                 FragmentThree.class));
-        return FRAGMENT_TWO;
+        return FRAGMENT_ONE;
     }
 
 }

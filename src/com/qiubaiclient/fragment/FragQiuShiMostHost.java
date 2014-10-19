@@ -1,20 +1,21 @@
 package com.qiubaiclient.fragment;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.UnsupportedEncodingException;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 
+import com.alibaba.fastjson.JSON;
 import com.qiubaiclient.main.R;
+import com.qiubaiclient.model.ArticleBean;
 import com.qiubaiclient.pulltorefresh.PullToRefreshBase;
 import com.qiubaiclient.pulltorefresh.PullToRefreshBase.Mode;
 import com.qiubaiclient.pulltorefresh.PullToRefreshListView;
+import com.qiubaiclient.utils.Common;
 
 /**
  * 
@@ -22,11 +23,12 @@ import com.qiubaiclient.pulltorefresh.PullToRefreshListView;
  * @author xiangxm
  *
  */
-public class FragQiuShi_MostHost extends BaseFragment {
+public class FragQiuShiMostHost extends BaseFragment {
 
-	protected static ArrayList<Map<String, Object>> mlistItems;
-
-	public FragQiuShi_MostHost() {
+	private static final String TAG = "FragQiuShi_MostHost" ;
+	
+	
+	public FragQiuShiMostHost() {
 		super();
 	}
 
@@ -41,8 +43,8 @@ public class FragQiuShi_MostHost extends BaseFragment {
 	@Override
 	public void onViewCreated(View view, Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
-		 initView() ;
 		super.onViewCreated(view, savedInstanceState);
+		initView() ;
 	}
 
 	private PullToRefreshListView refreshListView;
@@ -52,29 +54,26 @@ public class FragQiuShi_MostHost extends BaseFragment {
 	 */
 	private void initView() {
 
-		// TODO Auto-generated method stub
-
 		View view = getView();
 		refreshListView = (PullToRefreshListView) view
 				.findViewById(R.id.content_listview);
 		refreshListView.setMode(Mode.BOTH);
 		refreshListView.setOnRefreshListener(this);
-		SimpleAdapter adapter = new SimpleAdapter(mContext, mlistItems,
-				R.layout.listview_item, new String[] { "name", "sex" },
-				new int[] { R.id.name, R.id.download });
-		refreshListView.setAdapter(adapter);
 
+		String testStr = Common.readData(mContext, R.raw.json) ;
+		
+		try {
+			String str = new String(testStr.getBytes(),"GBK") ;
+			ArticleBean articleBean = JSON.parseObject(str, ArticleBean.class) ;
+			Log.i(TAG, articleBean.getItems().toString()) ;
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		Log.i(TAG,testStr) ;
+		
 	}
-
-//	static {
-//		mlistItems = new ArrayList<Map<String, Object>>();
-//		for (int i = 0; i < 20; i++) {
-//			Map<String, Object> map = new HashMap<String, Object>();
-//			map.put("name", "name#" + i);
-//			map.put("sex", i % 2 == 0 ? "male" : "female");
-//			mlistItems.add(map);
-//		}
-//	}
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

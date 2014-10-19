@@ -232,62 +232,62 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class color {
         /**  For suggestions 
          */
-        public static final int common_blue=0x7f06000b;
+        public static final int common_blue=0x7f07000b;
         /**  For main texts 
          */
-        public static final int common_dark=0x7f060003;
-        public static final int common_dark_disabled=0x7f060005;
-        public static final int common_dark_shadow=0x7f060004;
+        public static final int common_dark=0x7f070003;
+        public static final int common_dark_disabled=0x7f070005;
+        public static final int common_dark_shadow=0x7f070004;
         /**  For safe cases 
          */
-        public static final int common_green=0x7f06000a;
+        public static final int common_green=0x7f07000a;
         /**  For secondary texts 
          */
-        public static final int common_grey=0x7f060006;
-        public static final int common_grey_disabled=0x7f060007;
+        public static final int common_grey=0x7f070006;
+        public static final int common_grey_disabled=0x7f070007;
         /**  For danger cases, such as virus, file delete... 
          */
-        public static final int common_red=0x7f060008;
-        public static final int common_white=0x7f060000;
-        public static final int common_white_disabled=0x7f060002;
-        public static final int common_white_shadow=0x7f060001;
+        public static final int common_red=0x7f070008;
+        public static final int common_white=0x7f070000;
+        public static final int common_white_disabled=0x7f070002;
+        public static final int common_white_shadow=0x7f070001;
         /**  For warning cases, such as trashes... 
          */
-        public static final int common_yellow=0x7f060009;
-        public static final int page_viewer_margin_color=0x7f06000e;
-        public static final int tab_indicator_text=0x7f06000f;
-        public static final int tab_indicator_text_selected=0x7f06000c;
-        public static final int tab_indicator_text_unselected=0x7f06000d;
+        public static final int common_yellow=0x7f070009;
+        public static final int page_viewer_margin_color=0x7f07000e;
+        public static final int tab_indicator_text=0x7f07000f;
+        public static final int tab_indicator_text_selected=0x7f07000c;
+        public static final int tab_indicator_text_unselected=0x7f07000d;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
          */
-        public static final int activity_horizontal_margin=0x7f070000;
-        public static final int activity_vertical_margin=0x7f070001;
+        public static final int activity_horizontal_margin=0x7f080000;
+        public static final int activity_vertical_margin=0x7f080001;
         /**  滑动指示圆点的半径 
          */
-        public static final int circle_r=0x7f070009;
+        public static final int circle_r=0x7f080009;
         /**  For buttons 
          */
-        public static final int common_text_size_large=0x7f070002;
+        public static final int common_text_size_large=0x7f080002;
         /**  For list texts (top line) 
          */
-        public static final int common_text_size_middle=0x7f070003;
-        public static final int common_text_size_middle_2=0x7f070004;
+        public static final int common_text_size_middle=0x7f080003;
+        public static final int common_text_size_middle_2=0x7f080004;
         /**  For list texts (bottom line), summary texts, icon texts, descriptions, tag texts 
          */
-        public static final int common_text_size_small=0x7f070005;
-        public static final int common_text_size_small_2=0x7f070006;
-        public static final int common_text_size_small_3=0x7f070007;
-        public static final int header_footer_left_right_padding=0x7f07000d;
-        public static final int header_footer_top_bottom_padding=0x7f07000e;
-        public static final int indicator_corner_radius=0x7f07000b;
-        public static final int indicator_internal_padding=0x7f07000c;
+        public static final int common_text_size_small=0x7f080005;
+        public static final int common_text_size_small_2=0x7f080006;
+        public static final int common_text_size_small_3=0x7f080007;
+        public static final int header_footer_left_right_padding=0x7f08000d;
+        public static final int header_footer_top_bottom_padding=0x7f08000e;
+        public static final int indicator_corner_radius=0x7f08000b;
+        public static final int indicator_internal_padding=0x7f08000c;
         /**  下拉 
          */
-        public static final int indicator_right_padding=0x7f07000a;
-        public static final int listview_divider_height=0x7f07000f;
-        public static final int page_margin_width=0x7f070008;
+        public static final int indicator_right_padding=0x7f08000a;
+        public static final int listview_divider_height=0x7f08000f;
+        public static final int page_margin_width=0x7f080008;
     }
     public static final class drawable {
         public static final int base_loading_large_icon=0x7f020000;
@@ -311,69 +311,70 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int transparent=0x7f020012;
     }
     public static final class id {
-        public static final int both=0x7f050003;
-        public static final int content_img=0x7f05000a;
-        public static final int content_listview=0x7f05000d;
-        public static final int content_txt=0x7f05000b;
-        public static final int disabled=0x7f050000;
-        public static final int download=0x7f05000f;
-        public static final int fl_inner=0x7f050010;
-        public static final int flip=0x7f050008;
-        public static final int list=0x7f05000c;
-        public static final int manualOnly=0x7f050004;
-        public static final int name=0x7f05000e;
-        public static final int pager=0x7f050016;
-        public static final int pagerindicator=0x7f050015;
-        public static final int pullDownFromTop=0x7f050005;
-        public static final int pullFromEnd=0x7f050002;
-        public static final int pullFromStart=0x7f050001;
-        public static final int pullUpFromBottom=0x7f050006;
-        public static final int pull_to_refresh_image=0x7f050011;
-        public static final int pull_to_refresh_progress=0x7f050012;
-        public static final int pull_to_refresh_sub_text=0x7f050014;
-        public static final int pull_to_refresh_text=0x7f050013;
-        public static final int rotate=0x7f050007;
-        public static final int tab_title=0x7f050017;
-        public static final int tab_title_sum=0x7f050018;
-        public static final int tab_title_tips=0x7f050019;
-        public static final int user_img=0x7f050009;
+        public static final int both=0x7f060003;
+        public static final int content_img=0x7f06000b;
+        public static final int content_listview=0x7f06000e;
+        public static final int content_txt=0x7f06000c;
+        public static final int disabled=0x7f060000;
+        public static final int fl_inner=0x7f06000f;
+        public static final int flip=0x7f060008;
+        public static final int list=0x7f06000d;
+        public static final int manualOnly=0x7f060004;
+        public static final int pager=0x7f060015;
+        public static final int pagerindicator=0x7f060014;
+        public static final int pullDownFromTop=0x7f060005;
+        public static final int pullFromEnd=0x7f060002;
+        public static final int pullFromStart=0x7f060001;
+        public static final int pullUpFromBottom=0x7f060006;
+        public static final int pull_to_refresh_image=0x7f060010;
+        public static final int pull_to_refresh_progress=0x7f060011;
+        public static final int pull_to_refresh_sub_text=0x7f060013;
+        public static final int pull_to_refresh_text=0x7f060012;
+        public static final int rotate=0x7f060007;
+        public static final int tab_title=0x7f060016;
+        public static final int tab_title_sum=0x7f060017;
+        public static final int tab_title_tips=0x7f060018;
+        public static final int tv_user_login=0x7f06000a;
+        public static final int user_img=0x7f060009;
     }
     public static final class layout {
         public static final int content_item_img_layout=0x7f030000;
         public static final int content_item_without_img_layout=0x7f030001;
         public static final int fragment_one=0x7f030002;
         public static final int fragment_with_listview_layout=0x7f030003;
-        public static final int listview_item=0x7f030004;
-        public static final int pull_to_refresh_header_horizontal=0x7f030005;
-        public static final int pull_to_refresh_header_vertical=0x7f030006;
-        public static final int qiubaiclient_main_activity=0x7f030007;
-        public static final int title_flow_indicator=0x7f030008;
-        public static final int title_flow_indicator_v2=0x7f030009;
+        public static final int pull_to_refresh_header_horizontal=0x7f030004;
+        public static final int pull_to_refresh_header_vertical=0x7f030005;
+        public static final int qiubaiclient_main_activity=0x7f030006;
+        public static final int title_flow_indicator=0x7f030007;
+        public static final int title_flow_indicator_v2=0x7f030008;
+    }
+    public static final class raw {
+        public static final int json=0x7f050000;
     }
     public static final class string {
-        public static final int app_name=0x7f080000;
-        public static final int desc_list_item_icon=0x7f080008;
-        public static final int fragment_four=0x7f080004;
-        public static final int fragment_one=0x7f080001;
-        public static final int fragment_three=0x7f080003;
-        public static final int fragment_two=0x7f080002;
-        public static final int pull_to_refresh_pull_label=0x7f080009;
-        public static final int pull_to_refresh_refreshing_label=0x7f08000b;
-        public static final int pull_to_refresh_release_label=0x7f08000a;
+        public static final int app_name=0x7f090000;
+        public static final int desc_list_item_icon=0x7f090008;
+        public static final int fragment_four=0x7f090004;
+        public static final int fragment_one=0x7f090001;
+        public static final int fragment_three=0x7f090003;
+        public static final int fragment_two=0x7f090002;
+        public static final int pull_to_refresh_pull_label=0x7f090009;
+        public static final int pull_to_refresh_refreshing_label=0x7f09000b;
+        public static final int pull_to_refresh_release_label=0x7f09000a;
         /**  PullToRefreshListView 
          */
-        public static final int refresh=0x7f080005;
-        public static final int search=0x7f080006;
-        public static final int sliding_title=0x7f080007;
+        public static final int refresh=0x7f090005;
+        public static final int search=0x7f090006;
+        public static final int sliding_title=0x7f090007;
     }
     public static final class style {
-        public static final int MainTheme=0x7f090003;
-        public static final int MyTheme=0x7f090004;
-        public static final int MyWidget=0x7f090000;
+        public static final int MainTheme=0x7f0a0003;
+        public static final int MyTheme=0x7f0a0004;
+        public static final int MyWidget=0x7f0a0000;
         /**  Common list view styles 
          */
-        public static final int MyWidget_ListView=0x7f090002;
-        public static final int MyWidget_TabText=0x7f090001;
+        public static final int MyWidget_ListView=0x7f0a0002;
+        public static final int MyWidget_TabText=0x7f0a0001;
     }
     public static final class styleable {
         /** Attributes that can be used with a PullToRefresh.
