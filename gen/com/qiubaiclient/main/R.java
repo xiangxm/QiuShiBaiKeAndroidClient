@@ -331,9 +331,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class id {
         public static final int both=0x7f060003;
-        public static final int content_img=0x7f06000b;
+        public static final int content_img=0x7f06000c;
         public static final int content_listview=0x7f060011;
-        public static final int content_txt=0x7f06000c;
+        public static final int content_txt=0x7f06000b;
         public static final int disabled=0x7f060000;
         public static final int fl_inner=0x7f060012;
         public static final int flip=0x7f060008;

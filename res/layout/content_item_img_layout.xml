@@ -44,24 +44,22 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="5dp" >
 
-            <ImageView
-                android:id="@+id/content_img"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_alignParentLeft="true"
-                android:layout_centerHorizontal="true"
-                android:src="@drawable/ic_launcher" />
-
             <TextView
                 android:id="@+id/content_txt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/content_img"
                 android:gravity="center_vertical|left"
                 android:singleLine="false"
                 android:text="Git的checkoutGit的checkout有两个作用，其一是在不同的branch之间进行切换有两个作用，其一是在不同的branch之间进行切换Git的checkout有两个作用，其一是在不同的branch之间进行切换"
                 android:textColor="#5F6162"
                 android:textSize="16sp" />
+            <ImageView
+                android:id="@+id/content_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/content_txt"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/ic_launcher" />
         </RelativeLayout>
 
         <View

@@ -11,6 +11,8 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -252,7 +254,24 @@ public class FragQiuShiMostHost extends BaseFragment {
 			}
 
 		});
-
 	}
 
+	/**
+	 * ListView单独点击
+	 * @author xiangxm
+	 *
+	 */
+	class MOnItemClickListener  implements OnItemClickListener{
+
+		@Override
+		public void onItemClick(AdapterView<?> adapter, View view, int position,
+				long arg3) {
+			
+			
+			
+			
+			
+		}
+	}
+	
 }
