@@ -23,6 +23,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 
 import com.qiubaiclient.customui.TitleIndicator;
+import com.qiubaiclient.fragment.FragQiuShiMostHost;
 
 @SuppressWarnings("static-access")
 public abstract class IndicatorFragmentActivity extends FragmentActivity implements OnPageChangeListener {
@@ -210,7 +211,7 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity impleme
      * @return layout id
      */
     protected int getMainViewResId() {
-        return R.layout.qiubaiclient_main_activity;
+        return R.layout.qiubaiclient_main_layout;
     }
 
     /**
@@ -302,6 +303,11 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity impleme
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
+            }
+            //设置模块id
+            if(fragment instanceof FragQiuShiMostHost){
+            	
+            	((FragQiuShiMostHost) fragment).setSectionName(this.id) ;
             }
             return fragment;
         }

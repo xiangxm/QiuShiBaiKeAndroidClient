@@ -10,6 +10,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="start"
+        android:scrollbars="vertical"
+        android:scrollbarSize="2dp"
         android:choiceMode="singleChoice"
         android:divider="@null"
         android:listSelector="#00000000"

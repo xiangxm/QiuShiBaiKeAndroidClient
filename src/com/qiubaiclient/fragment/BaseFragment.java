@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.text.format.DateUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
@@ -18,7 +19,7 @@ import com.qiubaiclient.pulltorefresh.PullToRefreshBase.OnRefreshListener2;
  */
 public abstract class BaseFragment extends Fragment implements
 		OnRefreshListener2<ListView> {
-	protected View mMainView;
+	private static final String TAG ="BaseFragment"  ;
 
 	/**
 	 * fragment绑定的上下文
@@ -47,6 +48,7 @@ public abstract class BaseFragment extends Fragment implements
 				System.currentTimeMillis(), DateUtils.FORMAT_SHOW_TIME
 						| DateUtils.FORMAT_SHOW_DATE
 						| DateUtils.FORMAT_ABBREV_ALL);
+		Log.i(TAG,"refresh time onPullDownToRefresh :" + label) ;
 		mRefreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
 	}
 
@@ -62,6 +64,7 @@ public abstract class BaseFragment extends Fragment implements
 				System.currentTimeMillis(), DateUtils.FORMAT_SHOW_TIME
 						| DateUtils.FORMAT_SHOW_DATE
 						| DateUtils.FORMAT_ABBREV_ALL);
+		Log.i(TAG,"refresh time onPullUpToRefresh :" + label) ;
 		mRefreshView.getLoadingLayoutProxy().setLastUpdatedLabel(label);
 	}
 

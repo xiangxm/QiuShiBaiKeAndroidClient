@@ -13,10 +13,12 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.qiubaiclient.app.MyApplication;
+import com.qiubaiclient.customui.CircleImageView;
 import com.qiubaiclient.main.R;
 import com.qiubaiclient.model.ItemBean;
 import com.qiubaiclient.model.UserBean;
 import com.qiubaiclient.utils.AppConfig;
+import com.qiubaiclient.utils.Common;
 
 /**
  * 自定义文章列表适配器
@@ -68,20 +70,30 @@ public class ArticleAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 
+		ViewHolder viewHolder = null;
+
 		if (null == convertView) {
 
 			convertView = this.inflater.inflate(
 					R.layout.content_item_img_layout, parent, false);
+			viewHolder = new ViewHolder();
+			viewHolder.userImageView = (CircleImageView) convertView
+					.findViewById(R.id.user_img);
+			viewHolder.txtLogin = (TextView) convertView
+					.findViewById(R.id.tv_user_login);
+			viewHolder.contentImageView = (ImageView) convertView
+					.findViewById(R.id.content_img);
+			viewHolder.txtContent = (TextView) convertView
+					.findViewById(R.id.content_txt);
+			convertView.setTag(viewHolder);
 
+		} else {
+
+			viewHolder = (ViewHolder) convertView.getTag();
 		}
-		ImageView userImg = get(convertView, R.id.user_img);
-		ImageView contentImg = get(convertView, R.id.content_img);
 
-		TextView userLogin = get(convertView, R.id.tv_user_login);
-		TextView txtContent = get(convertView, R.id.content_txt);
-
-		userImg.setVisibility(View.VISIBLE) ;
-		contentImg.setVisibility(View.VISIBLE) ;
+		viewHolder.userImageView.setVisibility(View.VISIBLE);
+		viewHolder.contentImageView.setVisibility(View.VISIBLE);
 		ItemBean itemBean = (ItemBean) getItem(position);
 		if (null != itemBean) {
 
@@ -92,11 +104,12 @@ public class ArticleAdapter extends BaseAdapter {
 						+ itemBean.getId() + "/medium/" + itemBean.getImage();
 				Log.i(TAG, articleImgUrl);
 				com.qiubaiclient.app.MyApplication.imageLoader.displayImage(
-						articleImgUrl, contentImg, MyApplication.options);
+						articleImgUrl, viewHolder.contentImageView,
+						MyApplication.options);
 
-			}else{
-				
-				contentImg.setVisibility(View.GONE) ;
+			} else {
+
+				viewHolder.contentImageView.setVisibility(View.GONE);
 			}
 			// 设置头像
 			UserBean user = itemBean.getUser();
@@ -108,16 +121,19 @@ public class ArticleAdapter extends BaseAdapter {
 
 				Log.i(TAG, userImgUrl);
 				com.qiubaiclient.app.MyApplication.imageLoader.displayImage(
-						userImgUrl, userImg, MyApplication.options);
-				userLogin.setText(itemBean.getUser().getLogin());
+						userImgUrl, viewHolder.userImageView,
+						MyApplication.options);
+				viewHolder.txtLogin.setText((itemBean
+						.getUser().getLogin()));
 			} else {
 
-				userImg.setVisibility(View.GONE) ;
-				userLogin.setText("糗百大神");
+				viewHolder.userImageView.setVisibility(View.GONE);
+				viewHolder.txtLogin.setText("糗百大神");
 			}
 
 			// 显示文章内容
-			txtContent.setText(itemBean.getContent());
+			viewHolder.txtContent.setText(itemBean
+					.getContent());
 
 		}
 		return convertView;
@@ -125,19 +141,29 @@ public class ArticleAdapter extends BaseAdapter {
 
 	// I added a generic return type to reduce the casting noise in client
 	// code
-	@SuppressWarnings("unchecked")
-	public static <T extends View> T get(View view, int id) {
-		SparseArray<View> viewHolder = (SparseArray<View>) view.getTag();
-		if (viewHolder == null) {
-			viewHolder = new SparseArray<View>();
-			view.setTag(viewHolder);
-		}
-		View childView = viewHolder.get(id);
-		if (childView == null) {
-			childView = view.findViewById(id);
-			viewHolder.put(id, childView);
-		}
-		return (T) childView;
+	// @SuppressWarnings("unchecked")
+	// public static <T extends View> T get(View view, int id) {
+	// SparseArray<View> viewHolder = (SparseArray<View>) view.getTag();
+	// if (viewHolder == null) {
+	// viewHolder = new SparseArray<View>();
+	// view.setTag(viewHolder);
+	// }
+	// View childView = viewHolder.get(id);
+	// if (childView == null) {
+	// childView = view.findViewById(id);
+	// viewHolder.put(id, childView);
+	// }
+	// return (T) childView;
+	// }
+
+	class ViewHolder {
+
+		CircleImageView userImageView;
+		ImageView contentImageView;
+
+		TextView txtContent;
+		TextView txtLogin;
+
 	}
 
 }

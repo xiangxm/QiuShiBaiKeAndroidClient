@@ -58,7 +58,7 @@ public class MyApplication extends Application {
 		mContext = this;
 		//初始化图片缓存工具
 		options = new DisplayImageOptions.Builder()
-				// .showStubImage(R.drawable.parkstyle_default_bg_top)
+				 .showStubImage(R.drawable.ic_launcher)
 				.showImageForEmptyUri(R.drawable.ic_launcher)
 				.showImageOnFail(R.drawable.ic_launcher)
 				.cacheInMemory().cacheOnDisc()
