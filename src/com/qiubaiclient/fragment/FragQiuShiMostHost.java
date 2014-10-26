@@ -266,9 +266,10 @@ public class FragQiuShiMostHost extends BaseFragment {
 		@Override
 		public void onItemClick(AdapterView<?> adapter, View view, int position,
 				long arg3) {
+			//position被点击的行数
+			int clickPosition  = position ;
 			
-			
-			
+			ItemBean itemBean = (ItemBean) adapter.getItemAtPosition(clickPosition) ;
 			
 			
 		}

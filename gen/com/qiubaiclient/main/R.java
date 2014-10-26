@@ -313,49 +313,57 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int base_loading_small_icon=0x7f020001;
         public static final int default_ptr_flip=0x7f020002;
         public static final int default_ptr_rotate=0x7f020003;
-        public static final int dx_main_screen_bkg=0x7f020004;
-        public static final int dx_new_bkg=0x7f020005;
-        public static final int dx_new_tips_small=0x7f020006;
-        public static final int flow_tab_bg=0x7f020007;
-        public static final int header_bg=0x7f020008;
-        public static final int ic_launcher=0x7f020009;
-        public static final int image_process_animation=0x7f02000a;
-        public static final int indicator_arrow=0x7f02000b;
-        public static final int indicator_bg_bottom=0x7f02000c;
-        public static final int indicator_bg_top=0x7f02000d;
-        public static final int item_point_bg=0x7f02000e;
-        public static final int list_item_bg=0x7f02000f;
-        public static final int main_header_background=0x7f020010;
-        public static final int tab_bg=0x7f020011;
-        public static final int transparent=0x7f020012;
+        public static final int default_users_avatar=0x7f020004;
+        public static final int down_img_btn=0x7f020005;
+        public static final int down_img_btn_pressed=0x7f020006;
+        public static final int dx_main_screen_bkg=0x7f020007;
+        public static final int dx_new_bkg=0x7f020008;
+        public static final int dx_new_tips_small=0x7f020009;
+        public static final int flow_tab_bg=0x7f02000a;
+        public static final int header_bg=0x7f02000b;
+        public static final int ic_launcher=0x7f02000c;
+        public static final int image_download_bg_selector=0x7f02000d;
+        public static final int image_process_animation=0x7f02000e;
+        public static final int indicator_arrow=0x7f02000f;
+        public static final int indicator_bg_bottom=0x7f020010;
+        public static final int indicator_bg_top=0x7f020011;
+        public static final int item_point_bg=0x7f020012;
+        public static final int list_item_bg=0x7f020013;
+        public static final int main_header_background=0x7f020014;
+        public static final int save_imageact_bg=0x7f020015;
+        public static final int tab_bg=0x7f020016;
+        public static final int transparent=0x7f020017;
     }
     public static final class id {
         public static final int both=0x7f060003;
-        public static final int content_img=0x7f06000c;
-        public static final int content_listview=0x7f060011;
-        public static final int content_txt=0x7f06000b;
+        public static final int btn_downloadimage=0x7f06001b;
+        public static final int content_img=0x7f06000d;
+        public static final int content_listview=0x7f060012;
+        public static final int content_txt=0x7f06000c;
         public static final int disabled=0x7f060000;
-        public static final int fl_inner=0x7f060012;
+        public static final int fl_inner=0x7f060013;
         public static final int flip=0x7f060008;
-        public static final int img_coments=0x7f060010;
-        public static final int img_down=0x7f06000e;
-        public static final int img_share=0x7f06000f;
-        public static final int img_up=0x7f06000d;
+        public static final int image=0x7f06001a;
+        public static final int img_coments=0x7f060011;
+        public static final int img_down=0x7f06000f;
+        public static final int img_share=0x7f060010;
+        public static final int img_up=0x7f06000e;
         public static final int manualOnly=0x7f060004;
-        public static final int pager=0x7f060018;
-        public static final int pagerindicator=0x7f060017;
+        public static final int pager=0x7f060019;
+        public static final int pagerindicator=0x7f060018;
         public static final int pullDownFromTop=0x7f060005;
         public static final int pullFromEnd=0x7f060002;
         public static final int pullFromStart=0x7f060001;
         public static final int pullUpFromBottom=0x7f060006;
-        public static final int pull_to_refresh_image=0x7f060013;
-        public static final int pull_to_refresh_progress=0x7f060014;
-        public static final int pull_to_refresh_sub_text=0x7f060016;
-        public static final int pull_to_refresh_text=0x7f060015;
+        public static final int pull_to_refresh_image=0x7f060014;
+        public static final int pull_to_refresh_progress=0x7f060015;
+        public static final int pull_to_refresh_sub_text=0x7f060017;
+        public static final int pull_to_refresh_text=0x7f060016;
         public static final int rotate=0x7f060007;
-        public static final int tab_title=0x7f060019;
-        public static final int tab_title_sum=0x7f06001a;
-        public static final int tab_title_tips=0x7f06001b;
+        public static final int tab_title=0x7f06001c;
+        public static final int tab_title_sum=0x7f06001d;
+        public static final int tab_title_tips=0x7f06001e;
+        public static final int tv_publish_date=0x7f06000b;
         public static final int tv_user_login=0x7f06000a;
         public static final int user_img=0x7f060009;
     }
@@ -365,8 +373,9 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int pull_to_refresh_header_horizontal=0x7f030002;
         public static final int pull_to_refresh_header_vertical=0x7f030003;
         public static final int qiubaiclient_main_layout=0x7f030004;
-        public static final int title_flow_indicator=0x7f030005;
-        public static final int title_flow_indicator_v2=0x7f030006;
+        public static final int save_image_activity=0x7f030005;
+        public static final int title_flow_indicator=0x7f030006;
+        public static final int title_flow_indicator_v2=0x7f030007;
     }
     public static final class raw {
         public static final int json=0x7f050000;
@@ -389,12 +398,13 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     }
     public static final class style {
         public static final int MainTheme=0x7f0a0003;
-        public static final int MyTheme=0x7f0a0004;
+        public static final int MyTheme=0x7f0a0005;
         public static final int MyWidget=0x7f0a0000;
         /**  Common list view styles 
          */
         public static final int MyWidget_ListView=0x7f0a0002;
         public static final int MyWidget_TabText=0x7f0a0001;
+        public static final int animationStyle=0x7f0a0004;
     }
     public static final class styleable {
         /**  圆形imageView 

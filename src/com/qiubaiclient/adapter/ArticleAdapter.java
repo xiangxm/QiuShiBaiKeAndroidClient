@@ -3,10 +3,11 @@ package com.qiubaiclient.adapter;
 import java.util.List;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
-import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
@@ -15,6 +16,7 @@ import android.widget.TextView;
 import com.qiubaiclient.app.MyApplication;
 import com.qiubaiclient.customui.CircleImageView;
 import com.qiubaiclient.main.R;
+import com.qiubaiclient.main.SaveImageActivity;
 import com.qiubaiclient.model.ItemBean;
 import com.qiubaiclient.model.UserBean;
 import com.qiubaiclient.utils.AppConfig;
@@ -85,6 +87,9 @@ public class ArticleAdapter extends BaseAdapter {
 					.findViewById(R.id.content_img);
 			viewHolder.txtContent = (TextView) convertView
 					.findViewById(R.id.content_txt);
+			viewHolder.txtPublishDate = (TextView) convertView
+					.findViewById(R.id.tv_publish_date);
+			
 			convertView.setTag(viewHolder);
 
 		} else {
@@ -103,9 +108,28 @@ public class ArticleAdapter extends BaseAdapter {
 						+ itemBean.getId().substring(0, 4) + "/"
 						+ itemBean.getId() + "/medium/" + itemBean.getImage();
 				Log.i(TAG, articleImgUrl);
+				//设置tag
+				viewHolder.contentImageView.setTag(articleImgUrl) ;
 				com.qiubaiclient.app.MyApplication.imageLoader.displayImage(
 						articleImgUrl, viewHolder.contentImageView,
 						MyApplication.options);
+				viewHolder.contentImageView.setOnClickListener(new OnClickListener() {
+					
+					@Override
+					public void onClick(View v) {
+						// TODO Auto-generated method stub
+					
+//						ToastUtil.show(mContext, "你点击了图片", Toast.LENGTH_SHORT) ;
+						
+//						String imgUrl = (String) (v.getTag()!=null ? v.getTag():"") ;
+//						Intent intent = new Intent() ;
+//						intent.setClass(mContext, SaveImageActivity.class) ;
+//						intent.putExtra("articleImgUrl", imgUrl) ;
+//						mContext.startActivity(intent) ;
+						
+						
+					}
+				}) ;
 
 			} else {
 
@@ -134,6 +158,9 @@ public class ArticleAdapter extends BaseAdapter {
 			// 显示文章内容
 			viewHolder.txtContent.setText(itemBean
 					.getContent());
+			
+			//显示文章发表时间
+			viewHolder.txtPublishDate.setText(Common.getDateFromLong(itemBean.getPublished_at(),"yyyy-MM-dd HH:mm:ss")) ;
 
 		}
 		return convertView;
@@ -163,6 +190,7 @@ public class ArticleAdapter extends BaseAdapter {
 
 		TextView txtContent;
 		TextView txtLogin;
+		TextView txtPublishDate ;
 
 	}
 

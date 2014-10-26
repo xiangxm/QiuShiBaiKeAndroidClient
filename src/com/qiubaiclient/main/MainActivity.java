@@ -5,9 +5,6 @@ import java.util.List;
 import android.os.Bundle;
 
 import com.qiubaiclient.fragment.FragQiuShiMostHost;
-import com.qiubaiclient.fragment.FragmentThree;
-import com.qiubaiclient.fragment.FragmentTwo;
-import com.qiubaiclient.main.R;
 import com.qiubaiclient.utils.AppConfig;
 
 /**

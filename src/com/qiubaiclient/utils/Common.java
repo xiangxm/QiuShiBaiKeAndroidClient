@@ -8,6 +8,7 @@ import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Field;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -475,6 +476,20 @@ public class Common {
 		// 根据计算出的 inSampleSize 来解码图片生成Bitmap
 		options.inJustDecodeBounds = false;
 		return BitmapFactory.decodeResource(res, resId, options);
+	}
+
+	/**
+	 * 获取年月日时间  根据传入的格式
+	 * @param time
+	 * @param pattern
+	 * @return
+	 */
+	public static String getDateFromLong(String time, String pattern) {
+
+		long timeMils = Long.parseLong(time) ;
+		SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
+		return dateFormat.format(new Date(timeMils*1000));
+
 	}
 
 }

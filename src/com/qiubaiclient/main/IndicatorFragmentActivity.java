@@ -134,7 +134,9 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity impleme
         mPager = (ViewPager) findViewById(R.id.pager);
         mPager.setAdapter(myAdapter);
         mPager.setOnPageChangeListener(this);
-        mPager.setOffscreenPageLimit(mTabs.size());
+//        mPager.setOffscreenPageLimit(mTabs.size());
+        //预先加载下一页，仅仅加载一页
+        mPager.setOffscreenPageLimit(0);
 
         mIndicator = (TitleIndicator) findViewById(R.id.pagerindicator);
         mIndicator.init(mCurrentTab, mTabs, mPager);
