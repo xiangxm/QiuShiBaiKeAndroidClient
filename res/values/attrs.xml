@@ -103,18 +103,24 @@
         <attr name="border_color" format="color" />
     </declare-styleable>
 
-    <!--自定义控件，滚动进度条，带数字  -->
-    <declare-styleable name="RoundProgressBar">  
-        <attr name="roundColor" format="color"/>
-        <attr name="roundProgressColor" format="color"/>
+    <!-- 自定义控件，滚动进度条，带数字 -->
+    <declare-styleable name="RoundProgressBar">
+        <attr name="roundColor" format="color" />
+        <attr name="roundProgressColor" format="color" />
         <attr name="roundWidth" format="dimension"></attr>
-        <attr name="process_textColor" format="color" />  
-        <attr name="textSize" format="dimension" /> 
-        <attr name="max" format="integer"></attr> 
+        <attr name="process_textColor" format="color" />
+        <attr name="textSize" format="dimension" />
+        <attr name="max" format="integer"></attr>
         <attr name="textIsDisplayable" format="boolean"></attr>
         <attr name="style">
             <enum name="STROKE" value="0"></enum>
             <enum name="FILL" value="1"></enum>
         </attr>
-    </declare-styleable> 
+    </declare-styleable>
+
+    <!-- 自定义带图片文字按钮 -->
+    <declare-styleable name="CustomImageButton">
+        <attr name="background_resource" format="reference" />
+    </declare-styleable>
+
 </resources>

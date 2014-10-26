@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:xiangxm="http://schemas.android.com/apk/res/com.qiubaiclient.main"
+    xmlns:custombtn="http://schemas.android.com/apk/res/com.qiubaiclient.main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#EAEAEA"
@@ -12,7 +12,9 @@
         android:layout_height="wrap_content"
         android:background="#FFFFFF"
         android:orientation="vertical"
-        android:padding="5dp" >
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:paddingTop="5dp" >
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -84,9 +86,9 @@
                 <com.qiubaiclient.customui.RoundProgressBar
                     android:id="@+id/round_progressbar"
                     android:layout_width="80dip"
-                    android:visibility="gone"
+                    android:layout_height="80dip"
                     android:layout_gravity="center_vertical|center_horizontal"
-                    android:layout_height="80dip"/>
+                    android:visibility="gone" />
             </FrameLayout>
         </RelativeLayout>
 
@@ -98,132 +100,63 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="35dp"
             android:gravity="center_vertical"
             android:orientation="horizontal" >
 
-            <RelativeLayout
-                android:id="@+id/operation_up"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_vertical|center_horizontal" >
+           
 
-                <ImageView
-                    android:id="@+id/img_operation_up"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:padding="3dp"
-                    android:src="@drawable/ic_launcher" />
+                <com.qiubaiclient.customui.CustomImageButton
+                    android:id="@+id/btn_opt_up"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="center_vertical|center_horizontal"
+                    android:gravity="center_vertical|center_horizontal"
+                    custombtn:background_resource="@drawable/ding_not_clicked" />
 
-                <TextView
-                    android:id="@+id/txt_operation_up"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/img_operation_up"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:text="" />
-            </RelativeLayout>
 
-            <View
+            <ImageView
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:background="#EAEAEA" />
+                android:src="@drawable/cmt_pop_divider" />
 
-            <RelativeLayout
-                android:id="@+id/operation_down"
+            <com.qiubaiclient.customui.CustomImageButton
+                android:id="@+id/btn_opt_down"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_weight="1"
-                android:gravity="center_vertical|center_horizontal" >
+                android:gravity="center_vertical|center_horizontal"
+                custombtn:background_resource="@drawable/ic_launcher" />
 
-                <ImageView
-                    android:id="@+id/img_operation_down"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:padding="3dp"
-                    android:src="@drawable/ic_launcher" />
-
-                <TextView
-                    android:id="@+id/txt_operation_down"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/img_operation_down"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:text="" />
-            </RelativeLayout>
-
-            <View
+            <ImageView
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:background="#EAEAEA" />
+                android:src="@drawable/cmt_pop_divider" />
 
-            <RelativeLayout
-                android:id="@+id/operation_share"
+            <com.qiubaiclient.customui.CustomImageButton
+                android:id="@+id/btn_opt_share"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_weight="1"
-                android:gravity="center_vertical|center_horizontal" >
+                android:gravity="center_vertical|center_horizontal"
+                custombtn:background_resource="@drawable/ding_not_clicked" />
 
-                <ImageView
-                    android:id="@+id/img_operation_share"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:padding="3dp"
-                    android:src="@drawable/ic_launcher" />
-
-                <TextView
-                    android:id="@+id/txt_operation_share"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/img_operation_share"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:text="" />
-            </RelativeLayout>
-
-            <View
+            <ImageView
                 android:layout_width="1dp"
                 android:layout_height="match_parent"
-                android:background="#EAEAEA" />
+                android:src="@drawable/cmt_pop_divider" />
 
-            <RelativeLayout
-                android:id="@+id/operation_coments"
+            <com.qiubaiclient.customui.CustomImageButton
+                android:id="@+id/btn_opt_coments"
                 android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_vertical|center_horizontal"
                 android:layout_weight="1"
-                android:gravity="center_vertical|center_horizontal" >
-
-                <ImageView
-                    android:id="@+id/img_operation_coments"
-                    android:layout_width="35dp"
-                    android:layout_height="35dp"
-                    android:layout_alignParentLeft="true"
-                    android:layout_alignParentTop="true"
-                    android:padding="3dp"
-                    android:src="@drawable/ic_launcher" />
-
-                <TextView
-                    android:id="@+id/txt_operation_coments"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_toRightOf="@id/img_operation_coments"
-                    android:ellipsize="end"
-                    android:singleLine="true"
-                    android:text="" />
-            </RelativeLayout>
+                android:gravity="center_vertical|center_horizontal"
+                custombtn:background_resource="@drawable/ding_not_clicked" />
         </LinearLayout>
     </LinearLayout>
 

@@ -6,11 +6,14 @@ import java.util.List;
 import org.apache.http.Header;
 import org.json.JSONObject;
 
+import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
@@ -20,7 +23,9 @@ import com.alibaba.fastjson.JSON;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.qiubaiclient.adapter.ArticleAdapter;
+import com.qiubaiclient.customui.CustomImageButton;
 import com.qiubaiclient.main.R;
+import com.qiubaiclient.main.SaveImageActivity;
 import com.qiubaiclient.model.ArticleBean;
 import com.qiubaiclient.model.ItemBean;
 import com.qiubaiclient.model.Page;
@@ -271,16 +276,51 @@ public class FragQiuShiMostHost extends BaseFragment {
 				int position, long arg3) {
 			// position被点击的行数
 			int clickPosition = position;
+			ItemBean itemBean = dataList.get(clickPosition-1);
 
+			if (null == itemBean) {
+
+				return;
+			}
+		long id = 	adapter.getItemIdAtPosition(clickPosition) ;
 			switch (view.getId()) {
 
-			case R.id.operation_up:
-				ToastUtil.show(mContext, "你点击了up", Toast.LENGTH_SHORT);
+			case R.id.content_img:
+
+				String imgUrl = itemBean.getImage();
+				if (null == imgUrl || imgUrl.equals("")) {
+
+					return;
+				}
+				Intent intent = new Intent();
+				intent.setClass(mContext, SaveImageActivity.class);
+				intent.putExtra("articleImgUrl", imgUrl);
+				mContext.startActivity(intent);
 				break;
 
+			case R.id.btn_opt_up:
+				// ToastUtil.show(mContext, "你点击了按钮", Toast.LENGTH_SHORT);
+				boolean bol = view instanceof CustomImageButton;
+				if (!bol) {
+					return;
+				}
+				String numStr = ((CustomImageButton) view).getOperationInfo();
+				numStr = String.valueOf(Integer.parseInt(numStr) + 1);
+				((CustomImageButton) view).setOperationInfo(numStr);
+				((CustomImageButton) view).setOptTextColor(Color
+						.parseColor("#F02D2B"));
+				((CustomImageButton) view).setImageResource(mContext
+						.getResources()
+						.getDrawable(R.drawable.ding_has_clicked));
+				break;
+			case R.id.btn_opt_down:
+				break;
+			case R.id.btn_opt_coments:
+				break;
+			case R.id.btn_opt_share:
+				break;
 			}
 
 		}
 	}
-
 }

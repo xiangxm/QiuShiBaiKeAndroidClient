@@ -4,6 +4,8 @@ import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
+import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,6 +17,7 @@ import android.widget.TextView;
 
 import com.qiubaiclient.app.MyApplication;
 import com.qiubaiclient.customui.CircleImageView;
+import com.qiubaiclient.customui.CustomImageButton;
 import com.qiubaiclient.main.R;
 import com.qiubaiclient.main.SaveImageActivity;
 import com.qiubaiclient.model.ItemBean;
@@ -34,9 +37,12 @@ public class ArticleAdapter extends BaseAdapter {
 	private List<ItemBean> dataList;
 	private Context mContext;
 	private LayoutInflater inflater;
+	private Resources rs;
+	private ViewHolder viewHolder = null;
 
 	public ArticleAdapter(Context mContext, List<ItemBean> dataList) {
 
+		this.rs = mContext.getResources();
 		this.dataList = dataList;
 		this.mContext = mContext;
 		this.inflater = (LayoutInflater) mContext
@@ -72,8 +78,6 @@ public class ArticleAdapter extends BaseAdapter {
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 
-		ViewHolder viewHolder = null;
-
 		if (null == convertView) {
 
 			convertView = this.inflater.inflate(
@@ -89,14 +93,25 @@ public class ArticleAdapter extends BaseAdapter {
 					.findViewById(R.id.content_txt);
 			viewHolder.txtPublishDate = (TextView) convertView
 					.findViewById(R.id.tv_publish_date);
-			viewHolder.buttonUp = (TextView) convertView
-					.findViewById(R.id.txt_operation_up);
-			viewHolder.buttonDown = (TextView) convertView
-					.findViewById(R.id.txt_operation_down);
-			viewHolder.buttonShare = (TextView) convertView
-					.findViewById(R.id.txt_operation_share);
-			viewHolder.buttonComents = (TextView) convertView
-					.findViewById(R.id.txt_operation_coments);
+			viewHolder.btn_opt_coments = (CustomImageButton) convertView
+					.findViewById(R.id.btn_opt_coments);
+			viewHolder.btn_opt_down = (CustomImageButton) convertView
+					.findViewById(R.id.btn_opt_down);
+			viewHolder.btn_opt_share = (CustomImageButton) convertView
+					.findViewById(R.id.btn_opt_share);
+			viewHolder.btn_opt_up = (CustomImageButton) convertView
+					.findViewById(R.id.btn_opt_up);
+
+			// 设置显示图片
+			viewHolder.btn_opt_down.setImageResource(this.rs
+					.getDrawable(R.drawable.cai_not_clicked));
+			viewHolder.btn_opt_up.setImageResource(this.rs
+					.getDrawable(R.drawable.ding_not_clicked));
+			viewHolder.btn_opt_share.setImageResource(this.rs
+					.getDrawable(R.drawable.forward));
+			viewHolder.btn_opt_coments.setImageResource(this.rs
+					.getDrawable(R.drawable.commend));
+
 			convertView.setTag(viewHolder);
 
 		} else {
@@ -170,14 +185,30 @@ public class ArticleAdapter extends BaseAdapter {
 			viewHolder.txtPublishDate.setText(Common.getDateFromLong(
 					itemBean.getPublished_at(), "yyyy-MM-dd HH:mm:ss"));
 			// 显示支持数
-			viewHolder.buttonUp.setText(String.valueOf(itemBean.getVotes()
-					.getUp()));
+			viewHolder.btn_opt_up.setOperationInfo(String.valueOf(itemBean
+					.getVotes().getUp()));
 			// 显示不支持数
-			viewHolder.buttonDown.setText(String.valueOf(itemBean.getVotes()
-					.getDown()));
+			viewHolder.btn_opt_down.setOperationInfo(String.valueOf(itemBean
+					.getVotes().getDown()));
 			// 显示评论数
-			viewHolder.buttonComents.setText(String.valueOf(itemBean
+			viewHolder.btn_opt_coments.setOperationInfo(String.valueOf(itemBean
 					.getComments_count()));
+
+			// 设置监听
+
+			viewHolder.btn_opt_up.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View arg0) {
+					// TODO Auto-generated method stub
+
+					String numStr = viewHolder.btn_opt_up.getOperationInfo();
+					numStr = String.valueOf(Integer.parseInt(numStr) + 1);
+					viewHolder.btn_opt_up.setOperationInfo(numStr) ;
+					viewHolder.btn_opt_up.setOptTextColor(Color.parseColor("#F02D2B")) ;
+					viewHolder.btn_opt_up.setImageResource(rs.getDrawable(R.drawable.ding_has_clicked)) ;
+				}
+			});
 
 		}
 		return convertView;
@@ -191,11 +222,11 @@ public class ArticleAdapter extends BaseAdapter {
 		TextView txtContent;
 		TextView txtLogin;
 		TextView txtPublishDate;
-		
-		TextView buttonUp;
-		TextView buttonDown;
-		TextView buttonShare;
-		TextView buttonComents;
+
+		CustomImageButton btn_opt_up;
+		CustomImageButton btn_opt_down;
+		CustomImageButton btn_opt_share;
+		CustomImageButton btn_opt_coments;
 
 	}
 
