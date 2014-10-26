@@ -3,7 +3,6 @@ package com.qiubaiclient.adapter;
 import java.util.List;
 
 import android.content.Context;
-import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +15,6 @@ import android.widget.TextView;
 import com.qiubaiclient.app.MyApplication;
 import com.qiubaiclient.customui.CircleImageView;
 import com.qiubaiclient.main.R;
-import com.qiubaiclient.main.SaveImageActivity;
 import com.qiubaiclient.model.ItemBean;
 import com.qiubaiclient.model.UserBean;
 import com.qiubaiclient.utils.AppConfig;

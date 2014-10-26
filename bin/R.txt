@@ -89,9 +89,10 @@ int drawable indicator_bg_top 0x7f020011
 int drawable item_point_bg 0x7f020012
 int drawable list_item_bg 0x7f020013
 int drawable main_header_background 0x7f020014
-int drawable save_imageact_bg 0x7f020015
-int drawable tab_bg 0x7f020016
-int drawable transparent 0x7f020017
+int drawable qr_cover3 0x7f020015
+int drawable save_imageact_bg 0x7f020016
+int drawable tab_bg 0x7f020017
+int drawable transparent 0x7f020018
 int id both 0x7f060003
 int id btn_downloadimage 0x7f06001b
 int id content_img 0x7f06000d
