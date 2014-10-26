@@ -151,6 +151,8 @@ public class FragQiuShiMostHost extends BaseFragment {
 				refreshListView.setRefreshing(true);// 显示或者隐藏进度view
 			}
 		}
+		// 设置监听
+//		refreshListView.setOnItemClickListener(new MOnItemClickListener());
 
 	}
 
@@ -258,21 +260,27 @@ public class FragQiuShiMostHost extends BaseFragment {
 
 	/**
 	 * ListView单独点击
+	 * 
 	 * @author xiangxm
-	 *
+	 * 
 	 */
-	class MOnItemClickListener  implements OnItemClickListener{
+	class MOnItemClickListener implements OnItemClickListener {
 
 		@Override
-		public void onItemClick(AdapterView<?> adapter, View view, int position,
-				long arg3) {
-			//position被点击的行数
-			int clickPosition  = position ;
-			
-			ItemBean itemBean = (ItemBean) adapter.getItemAtPosition(clickPosition) ;
-			
-			
+		public void onItemClick(AdapterView<?> adapter, View view,
+				int position, long arg3) {
+			// position被点击的行数
+			int clickPosition = position;
+
+			switch (view.getId()) {
+
+			case R.id.operation_up:
+				ToastUtil.show(mContext, "你点击了up", Toast.LENGTH_SHORT);
+				break;
+
+			}
+
 		}
 	}
-	
+
 }

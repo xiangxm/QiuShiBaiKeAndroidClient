@@ -23,4 +23,5 @@
     <dimen name="header_footer_left_right_padding">24dp</dimen>
     <dimen name="header_footer_top_bottom_padding">12dp</dimen>
     <dimen name="listview_divider_height">1dp</dimen>
+    <dimen name="text_size">6sp</dimen>
 </resources>

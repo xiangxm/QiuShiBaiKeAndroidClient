@@ -33,7 +33,7 @@ public abstract class BaseFragment extends Fragment implements
 	@Override
 	public void onAttach(Activity activity) {
 		super.onAttach(activity);
-		mContext = activity.getApplicationContext();
+		mContext = activity ;
 	}
 
 	/* (non-Javadoc)子类可能会调用

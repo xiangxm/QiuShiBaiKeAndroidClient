@@ -48,7 +48,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int clipPadding=0x7f010018;
+        public static final int clipPadding=0x7f010020;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -57,7 +57,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int footerColor=0x7f01001d;
+        public static final int footerColor=0x7f010025;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -67,7 +67,24 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int footerLineHeight=0x7f01001c;
+        public static final int footerLineHeight=0x7f010024;
+        /** <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int max=0x7f01001c;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int process_textColor=0x7f01001a;
         /**  BELOW HERE ARE DEPRECEATED. DO NOT USE. 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -202,12 +219,59 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
         public static final int ptrSubHeaderTextAppearance=0x7f01000c;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int roundColor=0x7f010017;
+        /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int roundProgressColor=0x7f010018;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int roundWidth=0x7f010019;
+        /** <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>STROKE</code></td><td>0</td><td></td></tr>
+<tr><td><code>FILL</code></td><td>1</td><td></td></tr>
+</table>
+         */
+        public static final int style=0x7f01001e;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int textColor=0x7f010019;
+        public static final int textColor=0x7f010021;
+        /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int textIsDisplayable=0x7f01001d;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -217,7 +281,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int textSizeNormal=0x7f01001a;
+        public static final int textSize=0x7f01001b;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -227,7 +291,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int textSizeSelected=0x7f01001b;
+        public static final int textSizeNormal=0x7f010022;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -237,7 +301,17 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int titlePadding=0x7f010017;
+        public static final int textSizeSelected=0x7f010023;
+        /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int titlePadding=0x7f01001f;
         /**  Style of the tab indicator's tabs. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
@@ -307,6 +381,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int indicator_right_padding=0x7f08000a;
         public static final int listview_divider_height=0x7f08000f;
         public static final int page_margin_width=0x7f080008;
+        public static final int text_size=0x7f080010;
     }
     public static final class drawable {
         public static final int base_loading_large_icon=0x7f020000;
@@ -330,43 +405,63 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int item_point_bg=0x7f020012;
         public static final int list_item_bg=0x7f020013;
         public static final int main_header_background=0x7f020014;
-        public static final int qr_cover3=0x7f020015;
-        public static final int save_imageact_bg=0x7f020016;
-        public static final int tab_bg=0x7f020017;
-        public static final int transparent=0x7f020018;
+        public static final int operation_support=0x7f020015;
+        public static final int operation_support_night=0x7f020016;
+        public static final int operation_support_press=0x7f020017;
+        public static final int operation_support_press_night=0x7f020018;
+        public static final int operation_unsupport=0x7f020019;
+        public static final int operation_unsupport_night=0x7f02001a;
+        public static final int operation_unsupport_press=0x7f02001b;
+        public static final int operation_unsupport_press_night=0x7f02001c;
+        public static final int qr_cover3=0x7f02001d;
+        public static final int save_imageact_bg=0x7f02001e;
+        public static final int tab_bg=0x7f02001f;
+        public static final int transparent=0x7f020021;
+        public static final int users_avatar_light=0x7f020020;
     }
     public static final class id {
+        public static final int FILL=0x7f06000a;
+        public static final int STROKE=0x7f060009;
         public static final int both=0x7f060003;
-        public static final int btn_downloadimage=0x7f06001b;
-        public static final int content_img=0x7f06000d;
-        public static final int content_listview=0x7f060012;
-        public static final int content_txt=0x7f06000c;
+        public static final int btn_downloadimage=0x7f060026;
+        public static final int content_img=0x7f06000f;
+        public static final int content_listview=0x7f06001d;
+        public static final int content_txt=0x7f06000e;
         public static final int disabled=0x7f060000;
-        public static final int fl_inner=0x7f060013;
+        public static final int fl_inner=0x7f06001e;
         public static final int flip=0x7f060008;
-        public static final int image=0x7f06001a;
-        public static final int img_coments=0x7f060011;
-        public static final int img_down=0x7f06000f;
-        public static final int img_share=0x7f060010;
-        public static final int img_up=0x7f06000e;
+        public static final int image=0x7f060025;
+        public static final int img_operation_coments=0x7f06001b;
+        public static final int img_operation_down=0x7f060015;
+        public static final int img_operation_share=0x7f060018;
+        public static final int img_operation_up=0x7f060012;
         public static final int manualOnly=0x7f060004;
-        public static final int pager=0x7f060019;
-        public static final int pagerindicator=0x7f060018;
+        public static final int operation_coments=0x7f06001a;
+        public static final int operation_down=0x7f060014;
+        public static final int operation_share=0x7f060017;
+        public static final int operation_up=0x7f060011;
+        public static final int pager=0x7f060024;
+        public static final int pagerindicator=0x7f060023;
         public static final int pullDownFromTop=0x7f060005;
         public static final int pullFromEnd=0x7f060002;
         public static final int pullFromStart=0x7f060001;
         public static final int pullUpFromBottom=0x7f060006;
-        public static final int pull_to_refresh_image=0x7f060014;
-        public static final int pull_to_refresh_progress=0x7f060015;
-        public static final int pull_to_refresh_sub_text=0x7f060017;
-        public static final int pull_to_refresh_text=0x7f060016;
+        public static final int pull_to_refresh_image=0x7f06001f;
+        public static final int pull_to_refresh_progress=0x7f060020;
+        public static final int pull_to_refresh_sub_text=0x7f060022;
+        public static final int pull_to_refresh_text=0x7f060021;
         public static final int rotate=0x7f060007;
-        public static final int tab_title=0x7f06001c;
-        public static final int tab_title_sum=0x7f06001d;
-        public static final int tab_title_tips=0x7f06001e;
-        public static final int tv_publish_date=0x7f06000b;
-        public static final int tv_user_login=0x7f06000a;
-        public static final int user_img=0x7f060009;
+        public static final int round_progressbar=0x7f060010;
+        public static final int tab_title=0x7f060027;
+        public static final int tab_title_sum=0x7f060028;
+        public static final int tab_title_tips=0x7f060029;
+        public static final int tv_publish_date=0x7f06000d;
+        public static final int tv_user_login=0x7f06000c;
+        public static final int txt_operation_coments=0x7f06001c;
+        public static final int txt_operation_down=0x7f060016;
+        public static final int txt_operation_share=0x7f060019;
+        public static final int txt_operation_up=0x7f060013;
+        public static final int user_img=0x7f06000b;
     }
     public static final class layout {
         public static final int content_item_img_layout=0x7f030000;
@@ -786,6 +881,156 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           @attr name com.qiubaiclient.main:vpiUnderlinePageIndicatorStyle
         */
         public static final int PullToRefresh_vpiUnderlinePageIndicatorStyle = 19;
+        /** 自定义控件，滚动进度条，带数字  
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #RoundProgressBar_max com.qiubaiclient.main:max}</code></td><td></td></tr>
+           <tr><td><code>{@link #RoundProgressBar_process_textColor com.qiubaiclient.main:process_textColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #RoundProgressBar_roundColor com.qiubaiclient.main:roundColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #RoundProgressBar_roundProgressColor com.qiubaiclient.main:roundProgressColor}</code></td><td></td></tr>
+           <tr><td><code>{@link #RoundProgressBar_roundWidth com.qiubaiclient.main:roundWidth}</code></td><td></td></tr>
+           <tr><td><code>{@link #RoundProgressBar_style com.qiubaiclient.main:style}</code></td><td></td></tr>
+           <tr><td><code>{@link #RoundProgressBar_textIsDisplayable com.qiubaiclient.main:textIsDisplayable}</code></td><td></td></tr>
+           <tr><td><code>{@link #RoundProgressBar_textSize com.qiubaiclient.main:textSize}</code></td><td></td></tr>
+           </table>
+           @see #RoundProgressBar_max
+           @see #RoundProgressBar_process_textColor
+           @see #RoundProgressBar_roundColor
+           @see #RoundProgressBar_roundProgressColor
+           @see #RoundProgressBar_roundWidth
+           @see #RoundProgressBar_style
+           @see #RoundProgressBar_textIsDisplayable
+           @see #RoundProgressBar_textSize
+         */
+        public static final int[] RoundProgressBar = {
+            0x7f010017, 0x7f010018, 0x7f010019, 0x7f01001a,
+            0x7f01001b, 0x7f01001c, 0x7f01001d, 0x7f01001e
+        };
+        /**
+          <p>This symbol is the offset where the {@link com.qiubaiclient.main.R.attr#max}
+          attribute's value can be found in the {@link #RoundProgressBar} array.
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.qiubaiclient.main:max
+        */
+        public static final int RoundProgressBar_max = 5;
+        /**
+          <p>This symbol is the offset where the {@link com.qiubaiclient.main.R.attr#process_textColor}
+          attribute's value can be found in the {@link #RoundProgressBar} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.qiubaiclient.main:process_textColor
+        */
+        public static final int RoundProgressBar_process_textColor = 3;
+        /**
+          <p>This symbol is the offset where the {@link com.qiubaiclient.main.R.attr#roundColor}
+          attribute's value can be found in the {@link #RoundProgressBar} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.qiubaiclient.main:roundColor
+        */
+        public static final int RoundProgressBar_roundColor = 0;
+        /**
+          <p>This symbol is the offset where the {@link com.qiubaiclient.main.R.attr#roundProgressColor}
+          attribute's value can be found in the {@link #RoundProgressBar} array.
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.qiubaiclient.main:roundProgressColor
+        */
+        public static final int RoundProgressBar_roundProgressColor = 1;
+        /**
+          <p>This symbol is the offset where the {@link com.qiubaiclient.main.R.attr#roundWidth}
+          attribute's value can be found in the {@link #RoundProgressBar} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.qiubaiclient.main:roundWidth
+        */
+        public static final int RoundProgressBar_roundWidth = 2;
+        /**
+          <p>This symbol is the offset where the {@link com.qiubaiclient.main.R.attr#style}
+          attribute's value can be found in the {@link #RoundProgressBar} array.
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>STROKE</code></td><td>0</td><td></td></tr>
+<tr><td><code>FILL</code></td><td>1</td><td></td></tr>
+</table>
+          @attr name com.qiubaiclient.main:style
+        */
+        public static final int RoundProgressBar_style = 7;
+        /**
+          <p>This symbol is the offset where the {@link com.qiubaiclient.main.R.attr#textIsDisplayable}
+          attribute's value can be found in the {@link #RoundProgressBar} array.
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.qiubaiclient.main:textIsDisplayable
+        */
+        public static final int RoundProgressBar_textIsDisplayable = 6;
+        /**
+          <p>This symbol is the offset where the {@link com.qiubaiclient.main.R.attr#textSize}
+          attribute's value can be found in the {@link #RoundProgressBar} array.
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name com.qiubaiclient.main:textSize
+        */
+        public static final int RoundProgressBar_textSize = 4;
         /** Attributes that can be used with a TitleIndicator.
            <p>Includes the following attributes:</p>
            <table>
@@ -809,8 +1054,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #TitleIndicator_titlePadding
          */
         public static final int[] TitleIndicator = {
-            0x7f010017, 0x7f010018, 0x7f010019, 0x7f01001a,
-            0x7f01001b, 0x7f01001c, 0x7f01001d
+            0x7f01001f, 0x7f010020, 0x7f010021, 0x7f010022,
+            0x7f010023, 0x7f010024, 0x7f010025
         };
         /**
           <p>
