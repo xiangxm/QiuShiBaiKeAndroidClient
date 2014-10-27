@@ -15,6 +15,11 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
+import com.nostra13.universalimageloader.core.assist.ImageSize;
 import com.polites.android.GestureImageView;
 import com.qiubaiclient.app.MyApplication;
 import com.qiubaiclient.utils.Common;
@@ -40,6 +45,10 @@ public class SaveImageActivity extends Activity implements OnClickListener {
 			.getExternalStorageDirectory() + "/QiuDaLe/IMG_CACHE";
 
 	public static DisplayImageOptions options;
+	/**
+	 * 图片下载器
+	 */
+	public static ImageLoader imageLoader;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -61,10 +70,46 @@ public class SaveImageActivity extends Activity implements OnClickListener {
 		gestureImageView = (GestureImageView) findViewById(R.id.image);
 		options = new DisplayImageOptions.Builder().cacheInMemory()
 				.cacheOnDisc().bitmapConfig(Bitmap.Config.RGB_565).build();
+		imageLoader = ImageLoader.getInstance();
+		imageLoader.init(ImageLoaderConfiguration.createDefault(this));
 		((ImageView) findViewById(R.id.btn_downloadimage))
 				.setOnClickListener(this);
-		MyApplication.imageLoader.displayImage(imageUrl, gestureImageView,
-				options);
+
+		// imageLoader.displayImage(imageUrl, gestureImageView, options);
+		int screen[] = Common.getScreenParams(this);
+		imageLoader.loadImage(imageUrl, new ImageSize(screen[0], screen[1]),
+				new ImageLoadingListener() {
+
+					@Override
+					public void onLoadingStarted(String imageUri, View view) {
+						// TODO Auto-generated method stub
+
+					}
+
+					@Override
+					public void onLoadingFailed(String imageUri, View view,
+							FailReason failReason) {
+						// TODO Auto-generated method stub
+
+					}
+
+					@Override
+					public void onLoadingComplete(String imageUri, View view,
+							Bitmap loadedImage) {
+						// TODO Auto-generated method stub
+
+						if (null != loadedImage) {
+
+							gestureImageView.setImageBitmap(loadedImage);
+						}
+					}
+
+					@Override
+					public void onLoadingCancelled(String imageUri, View view) {
+						// TODO Auto-generated method stub
+
+					}
+				});
 	}
 
 	@Override

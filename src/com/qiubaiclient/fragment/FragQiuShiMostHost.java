@@ -6,14 +6,18 @@ import java.util.List;
 import org.apache.http.Header;
 import org.json.JSONObject;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Handler.Callback;
+import android.os.HandlerThread;
+import android.os.Message;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.View.OnClickListener;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
@@ -83,6 +87,87 @@ public class FragQiuShiMostHost extends BaseFragment {
 	 */
 	private static AsyncHttpClient client = new AsyncHttpClient();
 
+	/**
+	 * 处理r
+	 */
+	private Handler mHandler;
+
+	private MyHandlerThread myHandlerThread;
+
+	private String responseStr;
+
+	/**
+	 * handlerThread处理数据
+	 * 
+	 * @author xiangxm
+	 * 
+	 */
+	private class MyHandlerThread extends HandlerThread implements Callback {
+
+		/**
+		 * 成功获取数据
+		 */
+		private static final int SUCCESS = 0x100;
+		/**
+		 * 恢复原状态
+		 */
+		private static final int RESET_STATUS = 0x101;
+
+		public MyHandlerThread(String name) {
+			super(name);
+			// TODO Auto-generated constructor stub
+		}
+
+		@Override
+		public boolean handleMessage(Message msg) {
+			// TODO Auto-generated method stub
+
+			switch (msg.what) {
+
+			case SUCCESS:
+				List<ItemBean> tempList = JSON.parseObject(
+						responseStr.toString(), ArticleBean.class).getItems();
+
+				dataList.addAll(tempList);
+				((Activity) mContext).runOnUiThread(new Runnable() {
+					public void run() {
+
+						// refresh UI
+						if (dataList != null && !dataList.isEmpty()) {
+
+							articleAdapter.setDataList(dataList);
+							articleAdapter.notifyDataSetChanged();
+							refreshListView.onRefreshComplete();
+						}
+					}
+				});
+
+				break;
+
+			case RESET_STATUS:
+
+				((Activity) mContext).runOnUiThread(new Runnable() {
+
+					@Override
+					public void run() {
+						// TODO Auto-generated method stub
+
+						// 停止刷新
+						if (refreshListView.isRefreshing()) {
+
+							refreshListView.onRefreshComplete();
+						}
+					}
+				});
+				break;
+
+			}
+
+			return false;
+		}
+
+	}
+
 	public FragQiuShiMostHost() {
 		super();
 	}
@@ -139,6 +224,10 @@ public class FragQiuShiMostHost extends BaseFragment {
 	 */
 	private void initView() {
 
+		myHandlerThread = new MyHandlerThread("HandlerThread");
+		myHandlerThread.start();
+		mHandler = new Handler(myHandlerThread.getLooper(), myHandlerThread);
+
 		View view = getView();
 		refreshListView = (PullToRefreshListView) view
 				.findViewById(R.id.content_listview);
@@ -155,9 +244,10 @@ public class FragQiuShiMostHost extends BaseFragment {
 				isLoadData = true;
 				refreshListView.setRefreshing(true);// 显示或者隐藏进度view
 			}
+		} else {
+
+			ToastUtil.show(mContext, "当前网络不可用，建议检查网络连接状态。", Toast.LENGTH_SHORT);
 		}
-		// 设置监听
-//		refreshListView.setOnItemClickListener(new MOnItemClickListener());
 
 	}
 
@@ -188,11 +278,9 @@ public class FragQiuShiMostHost extends BaseFragment {
 		} else {
 
 			ToastUtil.showShort(mContext, "当前网络不可用，建议检查网络连接状态。");
-			// 恢复原始状态。
-			if (refreshListView.isRefreshing()) {
+			// 恢复原始状态。这里必须要使用handler来处理，否则没有效果。
+			mHandler.sendEmptyMessage(MyHandlerThread.RESET_STATUS);
 
-				refreshListView.onRefreshComplete();
-			}
 		}
 	}
 
@@ -215,10 +303,7 @@ public class FragQiuShiMostHost extends BaseFragment {
 
 			ToastUtil.showShort(mContext, "当前网络不可用，建议检查网络连接状态。");
 			// 恢复原始状态。
-			if (refreshListView.isRefreshing()) {
-
-				refreshListView.onRefreshComplete();
-			}
+			mHandler.sendEmptyMessage(MyHandlerThread.RESET_STATUS);
 		}
 
 	}
@@ -249,78 +334,13 @@ public class FragQiuShiMostHost extends BaseFragment {
 				// TODO Auto-generated method stub
 				// super.onSuccess(statusCode, headers, response);
 				Log.i(TAG, response.toString());
-				List<ItemBean> tempList = JSON.parseObject(response.toString(),
-						ArticleBean.class).getItems();
-				dataList.addAll(tempList);
-				if (dataList != null && !dataList.isEmpty()) {
 
-					articleAdapter.setDataList(dataList);
-					articleAdapter.notifyDataSetChanged();
-					refreshListView.onRefreshComplete();
-				}
+				responseStr = response.toString();
+				// 获取数据成功，刷新UI
+				mHandler.sendEmptyMessage(MyHandlerThread.SUCCESS);
+
 			}
 
 		});
-	}
-
-	/**
-	 * ListView单独点击
-	 * 
-	 * @author xiangxm
-	 * 
-	 */
-	class MOnItemClickListener implements OnItemClickListener {
-
-		@Override
-		public void onItemClick(AdapterView<?> adapter, View view,
-				int position, long arg3) {
-			// position被点击的行数
-			int clickPosition = position;
-			ItemBean itemBean = dataList.get(clickPosition-1);
-
-			if (null == itemBean) {
-
-				return;
-			}
-		long id = 	adapter.getItemIdAtPosition(clickPosition) ;
-			switch (view.getId()) {
-
-			case R.id.content_img:
-
-				String imgUrl = itemBean.getImage();
-				if (null == imgUrl || imgUrl.equals("")) {
-
-					return;
-				}
-				Intent intent = new Intent();
-				intent.setClass(mContext, SaveImageActivity.class);
-				intent.putExtra("articleImgUrl", imgUrl);
-				mContext.startActivity(intent);
-				break;
-
-			case R.id.btn_opt_up:
-				// ToastUtil.show(mContext, "你点击了按钮", Toast.LENGTH_SHORT);
-				boolean bol = view instanceof CustomImageButton;
-				if (!bol) {
-					return;
-				}
-				String numStr = ((CustomImageButton) view).getOperationInfo();
-				numStr = String.valueOf(Integer.parseInt(numStr) + 1);
-				((CustomImageButton) view).setOperationInfo(numStr);
-				((CustomImageButton) view).setOptTextColor(Color
-						.parseColor("#F02D2B"));
-				((CustomImageButton) view).setImageResource(mContext
-						.getResources()
-						.getDrawable(R.drawable.ding_has_clicked));
-				break;
-			case R.id.btn_opt_down:
-				break;
-			case R.id.btn_opt_coments:
-				break;
-			case R.id.btn_opt_share:
-				break;
-			}
-
-		}
 	}
 }

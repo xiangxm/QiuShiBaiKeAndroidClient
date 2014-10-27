@@ -8,6 +8,10 @@ import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.Animation.AnimationListener;
+import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -27,19 +31,56 @@ public class CustomImageButton extends LinearLayout {
 		super(context, attrs, defStyle);
 		// TODO Auto-generated constructor stub
 		mContext = context;
-		LayoutInflater.from(context).inflate(R.layout.cust_imagebutton_layout,
+
+		TypedArray a = context.obtainStyledAttributes(attrs,
+				R.styleable.CircleImageView, defStyle, 0);
+		
+
+		initData(a) ;
+	}
+
+	private void initData(TypedArray a) {
+
+		LayoutInflater.from(mContext).inflate(R.layout.cust_imagebutton_layout,
 				this, true);
 
 		operationImageView = (ImageView) findViewById(R.id.operation_imgview);
 		operationTxtInfo = (TextView) findViewById(R.id.operation_txt);
 
-		TypedArray a = context.obtainStyledAttributes(attrs,
-				R.styleable.CircleImageView, defStyle, 0);
-
+		
 		Drawable resDrawable = a
 				.getDrawable(R.styleable.CustomImageButton_background_resource);
 		a.recycle();
 		this.setBackgroundDrawable(resDrawable);
+		// animation初始化
+		this.txtDingAddOne = (TextView) findViewById(R.id.txt_ding_addone);
+		animation = AnimationUtils.loadAnimation(mContext,
+				R.anim.ding_animation);
+		animation.setAnimationListener(new AnimationListener() {
+
+			@Override
+			public void onAnimationStart(Animation arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void onAnimationRepeat(Animation arg0) {
+				// TODO Auto-generated method stub
+
+			}
+
+			@Override
+			public void onAnimationEnd(Animation arg0) {
+				// TODO Auto-generated method stub
+
+				if (txtDingAddOne.getVisibility() == View.VISIBLE) {
+
+					txtDingAddOne.setVisibility(View.GONE);
+				}
+			}
+		});
+
 	}
 
 	/**
@@ -52,6 +93,10 @@ public class CustomImageButton extends LinearLayout {
 	private TextView operationTxtInfo;
 	private Context mContext;
 	/**
+	 * +1动画
+	 */
+	private Animation animation;
+	/**
 	 * +1数字
 	 */
 	private TextView txtDingAddOne;
@@ -61,19 +106,11 @@ public class CustomImageButton extends LinearLayout {
 		// TODO Auto-generated constructor stub
 
 		mContext = context;
-		LayoutInflater.from(context).inflate(R.layout.cust_imagebutton_layout,
-				this, true);
-
-		operationImageView = (ImageView) findViewById(R.id.operation_imgview);
-		operationTxtInfo = (TextView) findViewById(R.id.operation_txt);
-
 		TypedArray a = context.obtainStyledAttributes(attrs,
 				R.styleable.CircleImageView);
 
-		Drawable resDrawable = a
-				.getDrawable(R.styleable.CustomImageButton_background_resource);
-		a.recycle();
-		this.setBackgroundDrawable(resDrawable);
+		initData(a) ;
+
 	}
 
 	public CustomImageButton(Context context) {
@@ -188,6 +225,20 @@ public class CustomImageButton extends LinearLayout {
 			Bitmap bitmap = Common.drawableToBitmap(drawable);
 			this.operationImageView.setImageBitmap(bitmap);
 		}
+	}
+
+	public void startDingAnimation() {
+
+		if (null != this.txtDingAddOne) {
+
+			if (this.txtDingAddOne.getVisibility() == View.GONE
+					|| this.txtDingAddOne.getVisibility() == View.INVISIBLE) {
+				
+				this.txtDingAddOne.setVisibility(View.VISIBLE) ;
+				this.txtDingAddOne.startAnimation(animation);
+			}
+		}
+
 	}
 
 }

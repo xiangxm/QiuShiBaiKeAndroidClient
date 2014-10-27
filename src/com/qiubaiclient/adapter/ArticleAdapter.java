@@ -5,6 +5,7 @@ import java.util.List;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
 import android.graphics.Color;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,7 +16,9 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.qiubaiclient.app.MyApplication;
+import com.nostra13.universalimageloader.core.DisplayImageOptions;
+import com.nostra13.universalimageloader.core.ImageLoader;
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.qiubaiclient.customui.CircleImageView;
 import com.qiubaiclient.customui.CustomImageButton;
 import com.qiubaiclient.main.R;
@@ -39,6 +42,15 @@ public class ArticleAdapter extends BaseAdapter {
 	private LayoutInflater inflater;
 	private Resources rs;
 	private ViewHolder viewHolder = null;
+	/**
+	 * 图片下载器
+	 */
+	public static ImageLoader imageLoader;
+	/**
+	 * 图片下载器配置
+	 */
+	public static DisplayImageOptions contentOptions;
+	public static DisplayImageOptions loginOptions;
 
 	public ArticleAdapter(Context mContext, List<ItemBean> dataList) {
 
@@ -47,6 +59,25 @@ public class ArticleAdapter extends BaseAdapter {
 		this.mContext = mContext;
 		this.inflater = (LayoutInflater) mContext
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+
+		// 初始化图片缓存工具
+		contentOptions = new DisplayImageOptions.Builder()
+
+				.showStubImage(R.drawable.default_lazy_content_pic_loading)
+				// .showImageForEmptyUri(R.drawable.ic_launcher)
+				// .showImageOnFail(R.drawable.ic_launcher)
+				.cacheInMemory().cacheOnDisc()
+				.bitmapConfig(Bitmap.Config.RGB_565).build();
+		loginOptions = new DisplayImageOptions.Builder()
+
+				.showStubImage(R.drawable.default_users_avatar)
+				// .showImageForEmptyUri(R.drawable.ic_launcher)
+				// .showImageOnFail(R.drawable.ic_launcher)
+				.cacheInMemory().cacheOnDisc()
+				.bitmapConfig(Bitmap.Config.RGB_565).build();
+
+		imageLoader = ImageLoader.getInstance();
+		imageLoader.init(ImageLoaderConfiguration.createDefault(mContext));
 	}
 
 	public List<ItemBean> getDataList() {
@@ -119,8 +150,8 @@ public class ArticleAdapter extends BaseAdapter {
 			viewHolder = (ViewHolder) convertView.getTag();
 		}
 
-		viewHolder.userImageView.setVisibility(View.VISIBLE);
-		viewHolder.contentImageView.setVisibility(View.VISIBLE);
+		// 先恢复状态
+		resetStatus(viewHolder);
 		ItemBean itemBean = (ItemBean) getItem(position);
 		if (null != itemBean) {
 
@@ -132,9 +163,8 @@ public class ArticleAdapter extends BaseAdapter {
 				Log.i(TAG, articleImgUrl);
 				// 设置tag
 				viewHolder.contentImageView.setTag(articleImgUrl);
-				com.qiubaiclient.app.MyApplication.imageLoader.displayImage(
-						articleImgUrl, viewHolder.contentImageView,
-						MyApplication.options);
+				imageLoader.displayImage(articleImgUrl,
+						viewHolder.contentImageView, contentOptions);
 				viewHolder.contentImageView
 						.setOnClickListener(new OnClickListener() {
 
@@ -169,12 +199,12 @@ public class ArticleAdapter extends BaseAdapter {
 						+ "/thumb/" + user.getIcon();
 
 				Log.i(TAG, userImgUrl);
-				com.qiubaiclient.app.MyApplication.imageLoader.displayImage(
-						userImgUrl, viewHolder.userImageView,
-						MyApplication.options);
+				imageLoader.displayImage(userImgUrl, viewHolder.userImageView,
+						loginOptions);
 				viewHolder.txtLogin.setText((itemBean.getUser().getLogin()));
 			} else {
-
+				viewHolder.userImageView.setImageDrawable(rs
+						.getDrawable(R.drawable.users_avatar_light));
 				viewHolder.txtLogin.setText("糗百无名氏");
 			}
 
@@ -187,6 +217,7 @@ public class ArticleAdapter extends BaseAdapter {
 			// 显示支持数
 			viewHolder.btn_opt_up.setOperationInfo(String.valueOf(itemBean
 					.getVotes().getUp()));
+			// viewHolder.btn_opt_up.setTag(position);
 			// 显示不支持数
 			viewHolder.btn_opt_down.setOperationInfo(String.valueOf(itemBean
 					.getVotes().getDown()));
@@ -196,19 +227,28 @@ public class ArticleAdapter extends BaseAdapter {
 
 			// 设置监听
 
-			viewHolder.btn_opt_up.setOnClickListener(new OnClickListener() {
-
-				@Override
-				public void onClick(View arg0) {
-					// TODO Auto-generated method stub
-
-					String numStr = viewHolder.btn_opt_up.getOperationInfo();
-					numStr = String.valueOf(Integer.parseInt(numStr) + 1);
-					viewHolder.btn_opt_up.setOperationInfo(numStr) ;
-					viewHolder.btn_opt_up.setOptTextColor(Color.parseColor("#F02D2B")) ;
-					viewHolder.btn_opt_up.setImageResource(rs.getDrawable(R.drawable.ding_has_clicked)) ;
-				}
-			});
+			// viewHolder.btn_opt_up.setOnClickListener(new OnClickListener() {
+			//
+			// @Override
+			// public void onClick(View arg0) {
+			// // TODO Auto-generated method stub
+			//
+			// int position = Integer.parseInt(Common
+			// .object2String(viewHolder.btn_opt_up.getTag()));
+			// ItemBean itemBean = dataList.get(position);
+			// String numStr = String.valueOf(itemBean.getVotes().getUp()) + 1;
+			// viewHolder.btn_opt_up.setOperationInfo(numStr);
+			// viewHolder.btn_opt_up.setOptTextColor(Color
+			// .parseColor("#F02D2B"));
+			// viewHolder.btn_opt_up.setImageResource(rs
+			// .getDrawable(R.drawable.ding_has_clicked));
+			//
+			// // 设置list中的数据
+			// dataList.set(position, itemBean);
+			// // 显示动画
+			// viewHolder.btn_opt_up.startDingAnimation();
+			// }
+			// });
 
 		}
 		return convertView;
@@ -227,6 +267,31 @@ public class ArticleAdapter extends BaseAdapter {
 		CustomImageButton btn_opt_down;
 		CustomImageButton btn_opt_share;
 		CustomImageButton btn_opt_coments;
+	}
+
+	/**
+	 * 恢复状态
+	 * 
+	 * @param viewHolder
+	 */
+	public void resetStatus(ViewHolder viewHolder) {
+		if (null == viewHolder) {
+
+			return;
+		}
+		viewHolder.userImageView.setVisibility(View.VISIBLE);
+		viewHolder.contentImageView.setVisibility(View.VISIBLE);
+		viewHolder.btn_opt_coments.setOptTextColor(Color.parseColor("#777777"));
+		viewHolder.btn_opt_down.setOptTextColor(Color.parseColor("#777777"));
+		viewHolder.btn_opt_up.setOptTextColor(Color.parseColor("#777777"));
+		viewHolder.btn_opt_up.setImageResource(rs
+				.getDrawable(R.drawable.ding_not_clicked));
+		viewHolder.btn_opt_down.setImageResource(rs
+				.getDrawable(R.drawable.cai_not_clicked));
+		viewHolder.btn_opt_coments.setImageResource(rs
+				.getDrawable(R.drawable.commend));
+		viewHolder.btn_opt_share.setImageResource(rs
+				.getDrawable(R.drawable.forward));
 
 	}
 

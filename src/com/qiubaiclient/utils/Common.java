@@ -476,21 +476,23 @@ public class Common {
 	}
 
 	/**
-	 * 获取年月日时间  根据传入的格式
+	 * 获取年月日时间 根据传入的格式
+	 * 
 	 * @param time
 	 * @param pattern
 	 * @return
 	 */
 	public static String getDateFromLong(String time, String pattern) {
 
-		long timeMils = Long.parseLong(time) ;
+		long timeMils = Long.parseLong(time);
 		SimpleDateFormat dateFormat = new SimpleDateFormat(pattern);
-		return dateFormat.format(new Date(timeMils*1000));
+		return dateFormat.format(new Date(timeMils * 1000));
 
 	}
 
 	/**
 	 * 将drawable转化为Bitmap
+	 * 
 	 * @param drawable
 	 * @return
 	 */
@@ -511,4 +513,5 @@ public class Common {
 		drawable.draw(canvas);
 		return bitmap;
 	}
+
 }

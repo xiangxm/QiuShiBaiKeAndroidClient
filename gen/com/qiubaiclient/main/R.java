@@ -9,14 +9,15 @@ package com.qiubaiclient.main;
 
 public final class R {
     public static final class anim {
-        public static final int slide_in_from_bottom=0x7f040000;
-        public static final int slide_in_from_top=0x7f040001;
-        public static final int slide_left_in=0x7f040002;
-        public static final int slide_left_out=0x7f040003;
-        public static final int slide_out_to_bottom=0x7f040004;
-        public static final int slide_out_to_top=0x7f040005;
-        public static final int slide_right_in=0x7f040006;
-        public static final int slide_right_out=0x7f040007;
+        public static final int ding_animation=0x7f040000;
+        public static final int slide_in_from_bottom=0x7f040001;
+        public static final int slide_in_from_top=0x7f040002;
+        public static final int slide_left_in=0x7f040003;
+        public static final int slide_left_out=0x7f040004;
+        public static final int slide_out_to_bottom=0x7f040005;
+        public static final int slide_out_to_top=0x7f040006;
+        public static final int slide_right_in=0x7f040007;
+        public static final int slide_right_out=0x7f040008;
     }
     public static final class attr {
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
@@ -395,34 +396,35 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int cmt_pop_divider=0x7f020004;
         public static final int commend=0x7f020005;
         public static final int commend_press=0x7f020006;
-        public static final int default_ptr_flip=0x7f020007;
-        public static final int default_ptr_rotate=0x7f020008;
-        public static final int default_users_avatar=0x7f020009;
-        public static final int ding_has_clicked=0x7f02000a;
-        public static final int ding_not_clicked=0x7f02000b;
-        public static final int down_img_btn=0x7f02000c;
-        public static final int down_img_btn_pressed=0x7f02000d;
-        public static final int dx_main_screen_bkg=0x7f02000e;
-        public static final int dx_new_bkg=0x7f02000f;
-        public static final int dx_new_tips_small=0x7f020010;
-        public static final int flow_tab_bg=0x7f020011;
-        public static final int forward=0x7f020012;
-        public static final int forward_press=0x7f020013;
-        public static final int header_bg=0x7f020014;
-        public static final int ic_launcher=0x7f020015;
-        public static final int image_download_bg_selector=0x7f020016;
-        public static final int image_process_animation=0x7f020017;
-        public static final int indicator_arrow=0x7f020018;
-        public static final int indicator_bg_bottom=0x7f020019;
-        public static final int indicator_bg_top=0x7f02001a;
-        public static final int item_point_bg=0x7f02001b;
-        public static final int list_item_bg=0x7f02001c;
-        public static final int main_header_background=0x7f02001d;
-        public static final int qr_cover3=0x7f02001e;
-        public static final int save_imageact_bg=0x7f02001f;
-        public static final int tab_bg=0x7f020020;
-        public static final int transparent=0x7f020022;
-        public static final int users_avatar_light=0x7f020021;
+        public static final int default_lazy_content_pic_loading=0x7f020007;
+        public static final int default_ptr_flip=0x7f020008;
+        public static final int default_ptr_rotate=0x7f020009;
+        public static final int default_users_avatar=0x7f02000a;
+        public static final int ding_has_clicked=0x7f02000b;
+        public static final int ding_not_clicked=0x7f02000c;
+        public static final int down_img_btn=0x7f02000d;
+        public static final int down_img_btn_pressed=0x7f02000e;
+        public static final int dx_main_screen_bkg=0x7f02000f;
+        public static final int dx_new_bkg=0x7f020010;
+        public static final int dx_new_tips_small=0x7f020011;
+        public static final int flow_tab_bg=0x7f020012;
+        public static final int forward=0x7f020013;
+        public static final int forward_press=0x7f020014;
+        public static final int header_bg=0x7f020015;
+        public static final int ic_launcher=0x7f020016;
+        public static final int image_download_bg_selector=0x7f020017;
+        public static final int image_process_animation=0x7f020018;
+        public static final int indicator_arrow=0x7f020019;
+        public static final int indicator_bg_bottom=0x7f02001a;
+        public static final int indicator_bg_top=0x7f02001b;
+        public static final int item_point_bg=0x7f02001c;
+        public static final int list_item_bg=0x7f02001d;
+        public static final int main_header_background=0x7f02001e;
+        public static final int qr_cover3=0x7f02001f;
+        public static final int save_imageact_bg=0x7f020020;
+        public static final int tab_bg=0x7f020021;
+        public static final int transparent=0x7f020023;
+        public static final int users_avatar_light=0x7f020022;
     }
     public static final class id {
         public static final int FILL=0x7f06000a;
