@@ -2,16 +2,15 @@ package com.qiubaiclient.main;
 
 import java.io.File;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Environment;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.nostra13.universalimageloader.core.DisplayImageOptions;
@@ -21,19 +20,24 @@ import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.assist.ImageSize;
 import com.polites.android.GestureImageView;
-import com.qiubaiclient.app.MyApplication;
 import com.qiubaiclient.utils.Common;
 import com.qiubaiclient.utils.FileUtil;
 import com.qiubaiclient.utils.ToastUtil;
+import com.way.ui.swipeback.SwipeBackActivity;
 
 /**
  * @author 显示具体消息图片，并且提供下载衔接
  */
-public class SaveImageActivity extends Activity implements OnClickListener {
+public class SaveImageActivity extends SwipeBackActivity implements
+		OnClickListener {
 	/**
 	 * 图片网络路径
 	 */
 	private String imageUrl = null;
+	/**
+	 * 下载图片进度条
+	 */
+	private ProgressBar progressBar;
 	/**
 	 * 显示图片控件
 	 */
@@ -52,8 +56,8 @@ public class SaveImageActivity extends Activity implements OnClickListener {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
+//		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
-		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.save_image_activity);
 
 		Intent intent = getIntent();
@@ -67,6 +71,7 @@ public class SaveImageActivity extends Activity implements OnClickListener {
 			}
 
 		}
+		progressBar = (ProgressBar) findViewById(R.id.loadingprogressbar);
 		gestureImageView = (GestureImageView) findViewById(R.id.image);
 		options = new DisplayImageOptions.Builder().cacheInMemory()
 				.cacheOnDisc().bitmapConfig(Bitmap.Config.RGB_565).build();
@@ -142,12 +147,14 @@ public class SaveImageActivity extends Activity implements OnClickListener {
 			return;
 		}
 		gestureImageView.setDrawingCacheEnabled(true);
+		progressBar.setVisibility(View.VISIBLE);
 		if (FileUtil.writeBitmap2SDcard(imageUrl,
 				gestureImageView.getDrawingCache(), IMAGE_CACHE_PATH)) {
-
+			progressBar.setVisibility(View.GONE);
 			ToastUtil.show(this, "成功下载图片至本地!", Toast.LENGTH_SHORT);
 		} else {
 			ToastUtil.show(this, "图片下载失败!", Toast.LENGTH_SHORT);
+			progressBar.setVisibility(View.GONE);
 		}
 		gestureImageView.setDrawingCacheEnabled(false);
 

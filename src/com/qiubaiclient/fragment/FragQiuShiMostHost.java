@@ -269,6 +269,7 @@ public class FragQiuShiMostHost extends BaseFragment {
 
 			// 向下刷新默认获取第一页的数据
 			page.setDefaultPage();
+			dataList.clear() ;
 			String dataUrl = sectionAddress
 					+ String.format(AppConfig.PAGE_COUNT,
 							page.getCurrentPage(), perPageCount);
@@ -292,7 +293,6 @@ public class FragQiuShiMostHost extends BaseFragment {
 
 			// 向上刷新页数增加一页
 			page.addPage();
-
 			String dataUrl = sectionAddress
 					+ String.format(AppConfig.PAGE_COUNT,
 							page.getCurrentPage(), perPageCount);
