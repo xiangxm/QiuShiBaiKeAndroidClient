@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">FuLaiRy Client</string>
+    <string name="app_name">糗大了</string>
     <string name="fragment_one">热门</string>
     <string name="fragment_two">精华</string>
     <string name="fragment_three">最新</string>

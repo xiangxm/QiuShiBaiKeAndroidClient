@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <item name="sidemenu_category" type="drawable">#90000000</item>
+    <item name="sidemenu_item_normal" type="drawable">#30000000</item>
+
+</resources>

@@ -7,6 +7,9 @@ import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
+import net.simonvt.menudrawer.MenuDrawer;
+import net.simonvt.menudrawer.MenuDrawer.OnDrawerStateChangeListener;
+
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -19,11 +22,19 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
+import android.view.KeyEvent;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.widget.ListView;
+import android.widget.Toast;
 
+import com.qiubaiclient.adapter.SlideMenuAdapter;
 import com.qiubaiclient.customui.TitleIndicator;
 import com.qiubaiclient.fragment.FragQiuShiMostHost;
+import com.qiubaiclient.utils.AppConfig;
+import com.qiubaiclient.utils.Common;
 
 @SuppressWarnings("static-access")
 public abstract class IndicatorFragmentActivity extends FragmentActivity
@@ -35,6 +46,17 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 
 	protected int mCurrentTab = 0;
 	protected int mLastTab = -1;
+
+	/**
+	 * 侧边滑动菜单
+	 */
+	private MenuDrawer menuDrawer;
+	private ListView menuListView;
+	private SlideMenuAdapter menuAdapter;
+	/**
+	 * 滑动距离
+	 */
+	protected int mPagerOffsetPixels;
 
 	// 存放选项卡信息的列表
 	protected ArrayList<TabInfo> mTabs = new ArrayList<TabInfo>();
@@ -68,7 +90,7 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 			Fragment fragment = null;
 			if (tabs != null && pos < tabs.size()) {
 				TabInfo tab = tabs.get(pos);
-				
+
 				if (tab == null)
 					return null;
 				fragment = tab.createFragment();
@@ -102,8 +124,8 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-
-		setContentView(getMainViewResId());
+		initMenuDrawer();
+		menuDrawer.setContentView(getMainViewResId());
 		initViews();
 
 		// 设置viewpager内部页面之间的间距
@@ -160,7 +182,7 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 		myAdapter.notifyDataSetChanged();
 	}
 
-	/**	
+	/**
 	 * 从列表添加选项卡
 	 * 
 	 * @param tabs
@@ -175,6 +197,8 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 			int positionOffsetPixels) {
 		mIndicator.onScrolled((mPager.getWidth() + mPager.getPageMargin())
 				* position + positionOffsetPixels);
+		// 记录每次滑动的距离
+		mPagerOffsetPixels = positionOffsetPixels;
 	}
 
 	@Override
@@ -233,7 +257,18 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 	/**
 	 * 在这里提供要显示的选项卡数据
 	 */
-	protected abstract int supplyTabs(List<TabInfo> tabs);
+	// protected abstract int supplyTabs(List<TabInfo> tabs);
+	protected int supplyTabs(List<TabInfo> tabs) {
+		tabs.add(new TabInfo(AppConfig.SECTION_MOST_HOT,
+				getString(R.string.fragment_one), FragQiuShiMostHost.class));
+		tabs.add(new TabInfo(AppConfig.SECTION_MOST_ESSONCE,
+				getString(R.string.fragment_two), FragQiuShiMostHost.class));
+		tabs.add(new TabInfo(AppConfig.SECTION_LATEST,
+				getString(R.string.fragment_three), FragQiuShiMostHost.class));
+		tabs.add(new TabInfo(AppConfig.SECTION_TRUTH,
+				getString(R.string.fragment_four), FragQiuShiMostHost.class));
+		return AppConfig.SECTION_MOST_HOT;
+	}
 
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
@@ -343,4 +378,68 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 
 	}
 
+	private long exitTime = 0;
+
+	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+		if (keyCode == KeyEvent.KEYCODE_BACK
+				&& event.getAction() == KeyEvent.ACTION_DOWN) {
+			if ((System.currentTimeMillis() - exitTime) > 2000) {
+				Toast.makeText(getApplicationContext(), "再按一次退出程序",
+						Toast.LENGTH_SHORT).show();
+				exitTime = System.currentTimeMillis();
+			} else {
+				finish();
+				System.exit(0);
+			}
+			return true;
+		}
+		return super.onKeyDown(keyCode, event);
+	}
+
+	/**
+	 * 初始化侧边菜单
+	 */
+	private void initMenuDrawer() {
+		// TODO Auto-generated method stub
+
+		menuDrawer = MenuDrawer.attach(this, MenuDrawer.Type.OVERLAY);
+		menuDrawer.setMenuSize(Math.round(0.6f * Common.getDisplayWidth(this)));
+
+		View view = LayoutInflater.from(this).inflate(
+				R.layout.sidemenu_listview, null, false);
+		menuListView = (ListView) view.findViewById(R.id.menu_list);
+		menuDrawer.setMenuView(menuListView);
+		menuDrawer.setTouchMode(MenuDrawer.TOUCH_MODE_BEZEL);
+
+		menuDrawer
+				.setOnInterceptMoveEventListener(new MenuDrawer.OnInterceptMoveEventListener() {
+					@Override
+					public boolean isViewDraggable(View v, int dx, int x, int y) {
+						if (v == mPager) {
+							return !(mCurrentTab == 0 && mPagerOffsetPixels == 0)
+									|| dx < 0;
+						}
+						return false;
+					}
+				});
+		menuDrawer
+				.setOnDrawerStateChangeListener(new OnDrawerStateChangeListener() {
+
+					@Override
+					public void onDrawerStateChange(int oldState, int newState) {
+						// TODO Auto-generated method stub
+
+					}
+
+					@Override
+					public void onDrawerSlide(float openRatio, int offsetPixels) {
+						// TODO Auto-generated method stub
+						// changeBlurImageViewAlpha(openRatio);
+					}
+				});
+		menuAdapter = new SlideMenuAdapter(this);
+		menuListView.setAdapter(menuAdapter);
+		// menuListView.setOnItemClickListener(mItemClickListener);
+	}
 }

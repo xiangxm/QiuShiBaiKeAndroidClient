@@ -24,6 +24,7 @@ import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
+import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
@@ -512,6 +513,36 @@ public class Common {
 		// 把 drawable 内容画到画布中
 		drawable.draw(canvas);
 		return bitmap;
+	}
+	
+	/**
+	 * 获取手机屏幕高度
+	 * 
+	 * @param context
+	 * @return
+	 */
+	public static int getDisplayHeight(Context context) {
+		WindowManager wm = (WindowManager) context
+				.getSystemService(Context.WINDOW_SERVICE);
+		DisplayMetrics dm = new DisplayMetrics();
+		// 获取屏幕信息
+		wm.getDefaultDisplay().getMetrics(dm);
+		return dm.heightPixels;
+	}
+
+	/**
+	 * 获取手机屏幕宽度
+	 * 
+	 * @param context
+	 * @return
+	 */
+	public static int getDisplayWidth(Context context) {
+		WindowManager wm = (WindowManager) context
+				.getSystemService(Context.WINDOW_SERVICE);
+		DisplayMetrics dm = new DisplayMetrics();
+		// 获取屏幕信息
+		wm.getDefaultDisplay().getMetrics(dm);
+		return dm.widthPixels;
 	}
 
 }

@@ -3,7 +3,7 @@
 
     <drawable name="transparent">#00000000</drawable>
 
-    <color name="common_white">#ffffff</color> 
+    <color name="common_white">#ffffff</color>
     <color name="common_white_shadow">#414141</color>
     <color name="common_white_disabled">#e7e7e7</color>
     <!-- For main texts -->
@@ -18,11 +18,63 @@
     <!-- For warning cases, such as trashes... -->
     <color name="common_yellow">#f1930d</color>
     <!-- For safe cases -->
-    <color name="common_green">#60990c</color> 
+    <color name="common_green">#60990c</color>
     <!-- For suggestions -->
     <color name="common_blue">#4b8bbd</color>
     <color name="tab_indicator_text_selected">#FFFFFF</color>
     <color name="tab_indicator_text_unselected">#aac5d7</color>
     <color name="page_viewer_margin_color">#00000000</color>
+    <color name="sidebar_item_separator_dark">#ff212021</color>
+
+    <!-- MenuDrawer -->
+    <color name="sidebar_text_light">#ff000000</color>
+    <color name="sidebar_text_dark">#ffffffff</color>
+
+    <item name="sidebar_identity_text_color_light" type="color">@color/sidebar_text_light</item>
+
+    <color name="sidebar_identity_text_color_dark">#ffdedede</color>
+    <color name="sidebar_identity_subtitle_text_color_light">#ff565657</color>
+    <color name="sidebar_identity_subtitle_text_color_dark">#ffadadad</color>
+    <color name="sidebar_header_text_color_light">#ff4c4c4d</color>
+    <color name="sidebar_header_text_color_dark">#ff848484</color>
+
+    <item name="sidebar_item_text_color_light" type="color">@color/sidebar_text_light</item>
+    <item name="sidebar_item_text_color_dark" type="color">@color/sidebar_text_dark</item>
+
+    <color name="sidebar_badge_text_color_light">#ff4c4c4d</color>
+    <color name="sidebar_badge_text_color_dark">#ff848484</color>
+    <color name="sidebar_accessory_text_color_light">#ff4c4c4d</color>
+    <color name="sidebar_accessory_text_color_dark">#ff848484</color>
+    <color name="sidebar_footer_text_color_light">#ffabaeb7</color>
+
+    <item name="sidebar_footer_text_color_dark" type="color">@color/sidebar_text_dark</item>
+
+    <color name="sidebar_item_background_light">#ffffffff</color>
+    <color name="sidebar_item_background_dark">#ff272627</color>
+    <color name="sidebar_item_expanded_background_light">#fff6f5fb</color>
+    <color name="sidebar_item_expanded_background_dark">#ff1f1e1f</color>
+    <color name="sidebar_item_expanded_background_activated_light">#ffe7dcf0</color>
+    <color name="sidebar_item_expanded_background_activated_dark">#ff433151</color>
+    <color name="sidebar_item_separator_light">#ffe3e1e7</color>
+    <color name="sidebar_item_background_activated_light">#ffeae0f2</color>
+    <color name="sidebar_item_background_activated_dark">#ff4c365d</color>
+    <color name="sidebar_header_background_light">#fff2f0f6</color>
+    <color name="sidebar_header_background_dark">#ff121213</color>
+    <color name="sidebar_footer_background_light">#fff2f2f5</color>
+    <color name="sidebar_footer_background_dark">#ff1d1d1d</color>
+    <color name="sidebar_identity_background_light">#fff9f9fc</color>
+    <color name="sidebar_identity_background_dark">#ff121212</color>
+    <color name="sidebar_subnav_item_background_light">#ffffffff</color>
+    <color name="sidebar_subnav_item_background_dark">#ff272627</color>
+
+    <item name="sidebar_subnav_item_background_activated_light" type="color">@color/sidebar_item_background_activated_light</item>
+    <item name="sidebar_subnav_item_background_activated_dark" type="color">@color/sidebar_item_background_activated_dark</item>
+
+    <color name="sidebar_accessory_background_light">#00000000</color>
+    <color name="sidebar_accessory_background_dark">#00000000</color>
+    <color name="sidebar_header_accessory_background_light">#ffd5d5da</color>
+    <color name="sidebar_header_accessory_background_pressed_light">#ffc0c0c5</color>
+    <color name="sidebar_header_accessory_background_dark">#ff3b3a3b</color>
+    <color name="sidebar_header_accessory_background_pressed_dark">#ff1b1b1b</color>
 
 </resources>

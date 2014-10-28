@@ -23,11 +23,11 @@ public final class R {
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int SwipeBackLayoutStyle=0x7f010005;
+        public static final int SwipeBackLayoutStyle=0x7f010016;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int background_resource=0x7f010025;
+        public static final int background_resource=0x7f010036;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -36,7 +36,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int border_color=0x7f01001c;
+        public static final int border_color=0x7f01002d;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -46,7 +46,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int border_width=0x7f01001b;
+        public static final int border_width=0x7f01002c;
         /**  Left/right padding of not active view titles. 
          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
@@ -57,7 +57,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int clipPadding=0x7f010027;
+        public static final int clipPadding=0x7f010038;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -70,7 +70,7 @@ containing a value of this type.
 <tr><td><code>all</code></td><td>3</td><td></td></tr>
 </table>
          */
-        public static final int edge_flag=0x7f010001;
+        public static final int edge_flag=0x7f010012;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -80,7 +80,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int edge_size=0x7f010000;
+        public static final int edge_size=0x7f010011;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -89,7 +89,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int footerColor=0x7f01002c;
+        public static final int footerColor=0x7f01003d;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -99,7 +99,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int footerLineHeight=0x7f01002b;
+        public static final int footerLineHeight=0x7f01003c;
         /** <p>Must be an integer value, such as "<code>100</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -107,7 +107,150 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int max=0x7f010022;
+        public static final int max=0x7f010033;
+        /**  Drawable used as indicator for the active view. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int mdActiveIndicator=0x7f010004;
+        /**  Whether the indicator should be animated between active views. 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int mdAllowIndicatorAnimation=0x7f01000a;
+        /**  Drawable to use for the background of the content. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int mdContentBackground=0x7f010001;
+        /**  Whether an overlay should be drawn as the drawer is opened and closed 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int mdDrawOverlay=0x7f01000f;
+        /**  String to use as the up indicators content description when the drawer is closed 
+         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int mdDrawerClosedUpContentDescription=0x7f01000e;
+        /**  String to use as the up indicators content description when the drawer is open 
+         <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int mdDrawerOpenUpContentDescription=0x7f01000d;
+        /**  Drawable used for the drop shadow. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int mdDropShadow=0x7f010008;
+        /**  The color of the drop shadow. Default is #FF000000. 
+         <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int mdDropShadowColor=0x7f010007;
+        /**  Defines whether the content will have a dropshadow onto the menu. Default is true. 
+         <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int mdDropShadowEnabled=0x7f010005;
+        /**  The size of the drop shadow. Default is 6dp 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int mdDropShadowSize=0x7f010006;
+        /**  The maximum animation duration 
+         <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int mdMaxAnimationDuration=0x7f01000b;
+        /**  Drawable to use for the background of the menu. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int mdMenuBackground=0x7f010002;
+        /**  The size of the menu. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int mdMenuSize=0x7f010003;
+        /**  The position of the drawer 
+         <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>left</code></td><td>0</td><td></td></tr>
+<tr><td><code>top</code></td><td>1</td><td></td></tr>
+<tr><td><code>right</code></td><td>2</td><td></td></tr>
+<tr><td><code>bottom</code></td><td>3</td><td></td></tr>
+<tr><td><code>start</code></td><td>4</td><td></td></tr>
+<tr><td><code>end</code></td><td>5</td><td></td></tr>
+</table>
+         */
+        public static final int mdPosition=0x7f010010;
+        /**  Drawable that replaces the up indicator 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int mdSlideDrawable=0x7f01000c;
+        /**  The touch bezel size. 
+         <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int mdTouchBezelSize=0x7f010009;
+        /**  Reference to a style for the menu drawer. 
+         <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+         */
+        public static final int menuDrawerStyle=0x7f010000;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -116,14 +259,14 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int process_textColor=0x7f010020;
+        public static final int process_textColor=0x7f010031;
         /**  BELOW HERE ARE DEPRECEATED. DO NOT USE. 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int ptrAdapterViewBackground=0x7f010017;
+        public static final int ptrAdapterViewBackground=0x7f010028;
         /**  Style of Animation should be used displayed when pulling. 
          <p>Must be one or more (separated by '|') of the following constant values.</p>
 <table>
@@ -135,56 +278,56 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>flip</code></td><td>0x1</td><td></td></tr>
 </table>
          */
-        public static final int ptrAnimationStyle=0x7f010013;
+        public static final int ptrAnimationStyle=0x7f010024;
         /**  Drawable to use as Loading Indicator. Changes both Header and Footer. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ptrDrawable=0x7f01000d;
+        public static final int ptrDrawable=0x7f01001e;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ptrDrawableBottom=0x7f010019;
+        public static final int ptrDrawableBottom=0x7f01002a;
         /**  Drawable to use as Loading Indicator in the Footer View. Overrides value set in ptrDrawable. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ptrDrawableEnd=0x7f01000f;
+        public static final int ptrDrawableEnd=0x7f010020;
         /**  Drawable to use as Loading Indicator in the Header View. Overrides value set in ptrDrawable. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ptrDrawableStart=0x7f01000e;
+        public static final int ptrDrawableStart=0x7f01001f;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ptrDrawableTop=0x7f010018;
+        public static final int ptrDrawableTop=0x7f010029;
         /**  A drawable to use as the background of the Header and Footer Loading Views 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int ptrHeaderBackground=0x7f010008;
+        public static final int ptrHeaderBackground=0x7f010019;
         /**  Text Color of the Header and Footer Loading Views Sub Header 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int ptrHeaderSubTextColor=0x7f01000a;
+        public static final int ptrHeaderSubTextColor=0x7f01001b;
         /**  Base text color, typeface, size, and style for Header and Footer Loading Views 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ptrHeaderTextAppearance=0x7f010011;
+        public static final int ptrHeaderTextAppearance=0x7f010022;
         /**  Text Color of the Header and Footer Loading Views 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int ptrHeaderTextColor=0x7f010009;
+        public static final int ptrHeaderTextColor=0x7f01001a;
         /** 
         	Whether PullToRefreshListView has it's extras enabled. This allows the user to be 
         	able to scroll while refreshing, and behaves better. It acheives this by adding
@@ -194,7 +337,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
-        public static final int ptrListViewExtrasEnabled=0x7f010015;
+        public static final int ptrListViewExtrasEnabled=0x7f010026;
         /**  Mode of Pull-to-Refresh that should be used 
          <p>Must be one or more (separated by '|') of the following constant values.</p>
 <table>
@@ -211,20 +354,20 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>pullUpFromBottom</code></td><td>0x2</td><td></td></tr>
 </table>
          */
-        public static final int ptrMode=0x7f01000b;
+        public static final int ptrMode=0x7f01001c;
         /**  Whether Android's built-in Over Scroll should be utilised for Pull-to-Refresh. 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
-        public static final int ptrOverScroll=0x7f010010;
+        public static final int ptrOverScroll=0x7f010021;
         /**  A drawable to use as the background of the Refreshable View 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int ptrRefreshableViewBackground=0x7f010007;
+        public static final int ptrRefreshableViewBackground=0x7f010018;
         /** 
         	Whether the Drawable should be continually rotated as you pull. This only
         	takes effect when using the 'Rotate' Animation Style.
@@ -233,24 +376,24 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
-        public static final int ptrRotateDrawableWhilePulling=0x7f010016;
+        public static final int ptrRotateDrawableWhilePulling=0x7f010027;
         /**  Whether the user can scroll while the View is Refreshing 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
-        public static final int ptrScrollingWhileRefreshingEnabled=0x7f010014;
+        public static final int ptrScrollingWhileRefreshingEnabled=0x7f010025;
         /**  Whether the Indicator overlay(s) should be used 
          <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a boolean value, either "<code>true</code>" or "<code>false</code>".
          */
-        public static final int ptrShowIndicator=0x7f01000c;
+        public static final int ptrShowIndicator=0x7f01001d;
         /**  Base text color, typeface, size, and style for Header and Footer Loading Views Sub Header 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int ptrSubHeaderTextAppearance=0x7f010012;
+        public static final int ptrSubHeaderTextAppearance=0x7f010023;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -259,7 +402,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int roundColor=0x7f01001d;
+        public static final int roundColor=0x7f01002e;
         /** <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
 <p>This may also be a reference to a resource (in the form
@@ -268,7 +411,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int roundProgressColor=0x7f01001e;
+        public static final int roundProgressColor=0x7f01002f;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -278,19 +421,19 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int roundWidth=0x7f01001f;
+        public static final int roundWidth=0x7f010030;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int shadow_bottom=0x7f010004;
+        public static final int shadow_bottom=0x7f010015;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int shadow_left=0x7f010002;
+        public static final int shadow_left=0x7f010013;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int shadow_right=0x7f010003;
+        public static final int shadow_right=0x7f010014;
         /** <p>Must be one of the following constant values.</p>
 <table>
 <colgroup align="left" />
@@ -301,13 +444,13 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
 <tr><td><code>FILL</code></td><td>1</td><td></td></tr>
 </table>
          */
-        public static final int style=0x7f010024;
+        public static final int style=0x7f010035;
         /** <p>May be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
 <p>May be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
 "<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
          */
-        public static final int textColor=0x7f010028;
+        public static final int textColor=0x7f010039;
         /** <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
 <p>This may also be a reference to a resource (in the form
 "<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
@@ -315,7 +458,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int textIsDisplayable=0x7f010023;
+        public static final int textIsDisplayable=0x7f010034;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -325,7 +468,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int textSize=0x7f010021;
+        public static final int textSize=0x7f010032;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -335,7 +478,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int textSizeNormal=0x7f010029;
+        public static final int textSizeNormal=0x7f01003a;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -345,7 +488,7 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int textSizeSelected=0x7f01002a;
+        public static final int textSizeSelected=0x7f01003b;
         /** <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
 Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
 in (inches), mm (millimeters).
@@ -355,77 +498,124 @@ theme attribute (in the form
 "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
 containing a value of this type.
          */
-        public static final int titlePadding=0x7f010026;
+        public static final int titlePadding=0x7f010037;
         /**  Style of the tab indicator's tabs. 
          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int vpiTabPageIndicatorStyle=0x7f010006;
+        public static final int vpiTabPageIndicatorStyle=0x7f010017;
         /** <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
 or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
          */
-        public static final int vpiUnderlinePageIndicatorStyle=0x7f01001a;
+        public static final int vpiUnderlinePageIndicatorStyle=0x7f01002b;
     }
     public static final class color {
         /**  For suggestions 
          */
-        public static final int common_blue=0x7f08000b;
+        public static final int common_blue=0x7f07000c;
         /**  For main texts 
          */
-        public static final int common_dark=0x7f080003;
-        public static final int common_dark_disabled=0x7f080005;
-        public static final int common_dark_shadow=0x7f080004;
+        public static final int common_dark=0x7f070004;
+        public static final int common_dark_disabled=0x7f070006;
+        public static final int common_dark_shadow=0x7f070005;
         /**  For safe cases 
          */
-        public static final int common_green=0x7f08000a;
+        public static final int common_green=0x7f07000b;
         /**  For secondary texts 
          */
-        public static final int common_grey=0x7f080006;
-        public static final int common_grey_disabled=0x7f080007;
+        public static final int common_grey=0x7f070007;
+        public static final int common_grey_disabled=0x7f070008;
         /**  For danger cases, such as virus, file delete... 
          */
-        public static final int common_red=0x7f080008;
-        public static final int common_white=0x7f080000;
-        public static final int common_white_disabled=0x7f080002;
-        public static final int common_white_shadow=0x7f080001;
+        public static final int common_red=0x7f070009;
+        public static final int common_white=0x7f070001;
+        public static final int common_white_disabled=0x7f070003;
+        public static final int common_white_shadow=0x7f070002;
         /**  For warning cases, such as trashes... 
          */
-        public static final int common_yellow=0x7f080009;
-        public static final int page_viewer_margin_color=0x7f08000e;
-        public static final int tab_indicator_text=0x7f08000f;
-        public static final int tab_indicator_text_selected=0x7f08000c;
-        public static final int tab_indicator_text_unselected=0x7f08000d;
+        public static final int common_yellow=0x7f07000a;
+        /**  The default background of the menu. 
+         */
+        public static final int md__defaultBackground=0x7f070000;
+        public static final int page_viewer_margin_color=0x7f07000f;
+        public static final int sidebar_accessory_background_dark=0x7f070035;
+        public static final int sidebar_accessory_background_light=0x7f070034;
+        public static final int sidebar_accessory_text_color_dark=0x7f07001e;
+        public static final int sidebar_accessory_text_color_light=0x7f07001d;
+        public static final int sidebar_badge_text_color_dark=0x7f07001c;
+        public static final int sidebar_badge_text_color_light=0x7f07001b;
+        public static final int sidebar_footer_background_dark=0x7f07002d;
+        public static final int sidebar_footer_background_light=0x7f07002c;
+        public static final int sidebar_footer_text_color_dark=0x7f070020;
+        public static final int sidebar_footer_text_color_light=0x7f07001f;
+        public static final int sidebar_header_accessory_background_dark=0x7f070038;
+        public static final int sidebar_header_accessory_background_light=0x7f070036;
+        public static final int sidebar_header_accessory_background_pressed_dark=0x7f070039;
+        public static final int sidebar_header_accessory_background_pressed_light=0x7f070037;
+        public static final int sidebar_header_background_dark=0x7f07002b;
+        public static final int sidebar_header_background_light=0x7f07002a;
+        public static final int sidebar_header_text_color_dark=0x7f070018;
+        public static final int sidebar_header_text_color_light=0x7f070017;
+        public static final int sidebar_identity_background_dark=0x7f07002f;
+        public static final int sidebar_identity_background_light=0x7f07002e;
+        public static final int sidebar_identity_subtitle_text_color_dark=0x7f070016;
+        public static final int sidebar_identity_subtitle_text_color_light=0x7f070015;
+        public static final int sidebar_identity_text_color_dark=0x7f070014;
+        public static final int sidebar_identity_text_color_light=0x7f070013;
+        public static final int sidebar_item_background_activated_dark=0x7f070029;
+        public static final int sidebar_item_background_activated_light=0x7f070028;
+        public static final int sidebar_item_background_dark=0x7f070022;
+        public static final int sidebar_item_background_light=0x7f070021;
+        public static final int sidebar_item_expanded_background_activated_dark=0x7f070026;
+        public static final int sidebar_item_expanded_background_activated_light=0x7f070025;
+        public static final int sidebar_item_expanded_background_dark=0x7f070024;
+        public static final int sidebar_item_expanded_background_light=0x7f070023;
+        public static final int sidebar_item_separator_dark=0x7f070010;
+        public static final int sidebar_item_separator_light=0x7f070027;
+        public static final int sidebar_item_text_color_dark=0x7f07001a;
+        public static final int sidebar_item_text_color_light=0x7f070019;
+        public static final int sidebar_subnav_item_background_activated_dark=0x7f070033;
+        public static final int sidebar_subnav_item_background_activated_light=0x7f070032;
+        public static final int sidebar_subnav_item_background_dark=0x7f070031;
+        public static final int sidebar_subnav_item_background_light=0x7f070030;
+        public static final int sidebar_text_dark=0x7f070012;
+        /**  MenuDrawer 
+         */
+        public static final int sidebar_text_light=0x7f070011;
+        public static final int tab_indicator_text=0x7f07003a;
+        public static final int tab_indicator_text_selected=0x7f07000d;
+        public static final int tab_indicator_text_unselected=0x7f07000e;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
          */
-        public static final int activity_horizontal_margin=0x7f090000;
-        public static final int activity_vertical_margin=0x7f090001;
+        public static final int activity_horizontal_margin=0x7f0a0000;
+        public static final int activity_vertical_margin=0x7f0a0001;
         /**  滑动指示圆点的半径 
          */
-        public static final int circle_r=0x7f090009;
+        public static final int circle_r=0x7f0a0009;
         /**  For buttons 
          */
-        public static final int common_text_size_large=0x7f090002;
+        public static final int common_text_size_large=0x7f0a0002;
         /**  For list texts (top line) 
          */
-        public static final int common_text_size_middle=0x7f090003;
-        public static final int common_text_size_middle_2=0x7f090004;
+        public static final int common_text_size_middle=0x7f0a0003;
+        public static final int common_text_size_middle_2=0x7f0a0004;
         /**  For list texts (bottom line), summary texts, icon texts, descriptions, tag texts 
          */
-        public static final int common_text_size_small=0x7f090005;
-        public static final int common_text_size_small_2=0x7f090006;
-        public static final int common_text_size_small_3=0x7f090007;
-        public static final int header_footer_left_right_padding=0x7f09000d;
-        public static final int header_footer_top_bottom_padding=0x7f09000e;
-        public static final int indicator_corner_radius=0x7f09000b;
-        public static final int indicator_internal_padding=0x7f09000c;
+        public static final int common_text_size_small=0x7f0a0005;
+        public static final int common_text_size_small_2=0x7f0a0006;
+        public static final int common_text_size_small_3=0x7f0a0007;
+        public static final int header_footer_left_right_padding=0x7f0a000d;
+        public static final int header_footer_top_bottom_padding=0x7f0a000e;
+        public static final int indicator_corner_radius=0x7f0a000b;
+        public static final int indicator_internal_padding=0x7f0a000c;
         /**  下拉 
          */
-        public static final int indicator_right_padding=0x7f09000a;
-        public static final int listview_divider_height=0x7f09000f;
-        public static final int page_margin_width=0x7f090008;
-        public static final int text_size=0x7f090010;
+        public static final int indicator_right_padding=0x7f0a000a;
+        public static final int listview_divider_height=0x7f0a000f;
+        public static final int page_margin_width=0x7f0a0008;
+        public static final int text_size=0x7f0a0010;
     }
     public static final class drawable {
         public static final int base_loading_large_icon=0x7f020000;
@@ -477,55 +667,116 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int shadow_bottom=0x7f02002e;
         public static final int shadow_left=0x7f02002f;
         public static final int shadow_right=0x7f020030;
-        public static final int tab_bg=0x7f020031;
-        public static final int transparent=0x7f020033;
-        public static final int users_avatar_light=0x7f020032;
+        public static final int sidebar_icon=0x7f020031;
+        public static final int sidebar_icon_dragndrop=0x7f020032;
+        public static final int sidebar_icon_edit_dark=0x7f020033;
+        public static final int sidebar_icon_edit_light=0x7f020034;
+        public static final int sidebar_icon_help_dark=0x7f020035;
+        public static final int sidebar_icon_help_light=0x7f020036;
+        public static final int sidebar_icon_placeholder=0x7f020037;
+        public static final int sidebar_icon_rate_dark=0x7f020038;
+        public static final int sidebar_icon_rate_light=0x7f020039;
+        public static final int sidebar_icon_send_feedback_dark=0x7f02003a;
+        public static final int sidebar_icon_send_feedback_light=0x7f02003b;
+        public static final int sidebar_icon_settings_dark=0x7f02003c;
+        public static final int sidebar_icon_settings_light=0x7f02003d;
+        public static final int sidebar_icon_share_dark=0x7f02003e;
+        public static final int sidebar_icon_share_light=0x7f02003f;
+        public static final int sidebar_icon_systemstatus_dark=0x7f020040;
+        public static final int sidebar_icon_systemstatus_light=0x7f020041;
+        public static final int sidebar_identity_icon_anonymous_dark=0x7f020042;
+        public static final int sidebar_identity_icon_anonymous_light=0x7f020043;
+        public static final int sidebar_identity_icon_manage_dark=0x7f020044;
+        public static final int sidebar_identity_icon_manage_light=0x7f020045;
+        public static final int sidebar_identity_icon_signout_dark=0x7f020046;
+        public static final int sidebar_identity_icon_signout_light=0x7f020047;
+        public static final int sidebar_item_background_dark_selector=0x7f020048;
+        public static final int sidebar_item_background_light_selector=0x7f020049;
+        public static final int sidebar_item_selected_layerlist_dark=0x7f02004a;
+        public static final int sidebar_portfolio_navigation_icon_install_dark=0x7f02004b;
+        public static final int sidebar_portfolio_navigation_icon_install_light=0x7f02004c;
+        public static final int sidebar_portfolio_navigation_icon_more_sites_dark=0x7f02004d;
+        public static final int sidebar_portfolio_navigation_icon_more_sites_light=0x7f02004e;
+        public static final int sidebar_product_icon_show_dark=0x7f02004f;
+        public static final int sidebar_product_icon_show_light=0x7f020050;
+        public static final int sidebar_row_dark=0x7f020051;
+        public static final int sidebar_row_icon_search_dark=0x7f020052;
+        public static final int sidebar_row_icon_search_light=0x7f020053;
+        public static final int sidemenu_category=0x7f020057;
+        public static final int sidemenu_item_normal=0x7f020058;
+        public static final int tab_bg=0x7f020054;
+        public static final int transparent=0x7f020056;
+        public static final int users_avatar_light=0x7f020055;
     }
     public static final class id {
-        public static final int FILL=0x7f06000e;
-        public static final int STROKE=0x7f06000d;
-        public static final int all=0x7f060003;
-        public static final int both=0x7f060007;
-        public static final int bottom=0x7f060002;
-        public static final int btn_downloadimage=0x7f060026;
-        public static final int btn_opt_coments=0x7f060018;
-        public static final int btn_opt_down=0x7f060016;
-        public static final int btn_opt_share=0x7f060017;
-        public static final int btn_opt_up=0x7f060015;
-        public static final int container_view=0x7f060023;
-        public static final int content_img=0x7f060013;
-        public static final int content_listview=0x7f06001c;
-        public static final int content_txt=0x7f060012;
-        public static final int disabled=0x7f060004;
-        public static final int fl_inner=0x7f06001d;
-        public static final int flip=0x7f06000c;
-        public static final int image=0x7f060025;
+        public static final int FILL=0x7f060019;
+        public static final int STROKE=0x7f060018;
+        public static final int all=0x7f06000e;
+        public static final int both=0x7f060012;
+        public static final int bottom=0x7f060003;
+        public static final int btn_downloadimage=0x7f060031;
+        public static final int btn_opt_coments=0x7f060023;
+        public static final int btn_opt_down=0x7f060021;
+        public static final int btn_opt_share=0x7f060022;
+        public static final int btn_opt_up=0x7f060020;
+        public static final int container_view=0x7f06002e;
+        public static final int content_img=0x7f06001e;
+        public static final int content_listview=0x7f060027;
+        public static final int content_txt=0x7f06001d;
+        public static final int disabled=0x7f06000f;
+        public static final int end=0x7f060005;
+        public static final int fl_inner=0x7f060028;
+        public static final int flip=0x7f060017;
+        public static final int image=0x7f060030;
         public static final int left=0x7f060000;
-        public static final int loadingprogressbar=0x7f060027;
-        public static final int manualOnly=0x7f060008;
-        public static final int operation_imgview=0x7f060019;
-        public static final int operation_txt=0x7f06001a;
-        public static final int pager=0x7f060024;
-        public static final int pagerindicator=0x7f060022;
-        public static final int pullDownFromTop=0x7f060009;
-        public static final int pullFromEnd=0x7f060006;
-        public static final int pullFromStart=0x7f060005;
-        public static final int pullUpFromBottom=0x7f06000a;
-        public static final int pull_to_refresh_image=0x7f06001e;
-        public static final int pull_to_refresh_progress=0x7f06001f;
-        public static final int pull_to_refresh_sub_text=0x7f060021;
-        public static final int pull_to_refresh_text=0x7f060020;
-        public static final int right=0x7f060001;
-        public static final int rotate=0x7f06000b;
-        public static final int round_progressbar=0x7f060014;
-        public static final int swipe=0x7f060028;
-        public static final int tab_title=0x7f060029;
-        public static final int tab_title_sum=0x7f06002a;
-        public static final int tab_title_tips=0x7f06002b;
-        public static final int tv_publish_date=0x7f060011;
-        public static final int tv_user_login=0x7f060010;
-        public static final int txt_ding_addone=0x7f06001b;
-        public static final int user_img=0x7f06000f;
+        public static final int loadingprogressbar=0x7f060032;
+        public static final int manualOnly=0x7f060013;
+        /**  Used with View#setTag(int) to specify a position for the active view. 
+         */
+        public static final int mdActiveViewPosition=0x7f06000b;
+        /**  ID used when defining the content layout in XML. 
+         */
+        public static final int mdContent=0x7f060006;
+        /**  ID used when defining the menu layout in XML. 
+         */
+        public static final int mdMenu=0x7f060007;
+        /**  The ID of the content container. 
+         */
+        public static final int md__content=0x7f060008;
+        /**  The ID of the drawer. 
+         */
+        public static final int md__drawer=0x7f06000a;
+        /**  The ID of the menu container. 
+         */
+        public static final int md__menu=0x7f060009;
+        public static final int md__translationX=0x7f06000c;
+        public static final int md__translationY=0x7f06000d;
+        public static final int menu_list=0x7f060033;
+        public static final int operation_imgview=0x7f060024;
+        public static final int operation_txt=0x7f060025;
+        public static final int pager=0x7f06002f;
+        public static final int pagerindicator=0x7f06002d;
+        public static final int pullDownFromTop=0x7f060014;
+        public static final int pullFromEnd=0x7f060011;
+        public static final int pullFromStart=0x7f060010;
+        public static final int pullUpFromBottom=0x7f060015;
+        public static final int pull_to_refresh_image=0x7f060029;
+        public static final int pull_to_refresh_progress=0x7f06002a;
+        public static final int pull_to_refresh_sub_text=0x7f06002c;
+        public static final int pull_to_refresh_text=0x7f06002b;
+        public static final int right=0x7f060002;
+        public static final int rotate=0x7f060016;
+        public static final int round_progressbar=0x7f06001f;
+        public static final int start=0x7f060004;
+        public static final int swipe=0x7f060034;
+        public static final int tab_title=0x7f060035;
+        public static final int tab_title_sum=0x7f060036;
+        public static final int tab_title_tips=0x7f060037;
+        public static final int top=0x7f060001;
+        public static final int tv_publish_date=0x7f06001c;
+        public static final int tv_user_login=0x7f06001b;
+        public static final int txt_ding_addone=0x7f060026;
+        public static final int user_img=0x7f06001a;
     }
     public static final class layout {
         public static final int content_item_img_layout=0x7f030000;
@@ -535,46 +786,59 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int pull_to_refresh_header_vertical=0x7f030004;
         public static final int qiubaiclient_main_layout=0x7f030005;
         public static final int save_image_activity=0x7f030006;
-        public static final int swipeback_layout=0x7f030007;
-        public static final int title_flow_indicator=0x7f030008;
-        public static final int title_flow_indicator_v2=0x7f030009;
+        public static final int sidemenu_list_item_category=0x7f030007;
+        public static final int sidemenu_list_item_item=0x7f030008;
+        public static final int sidemenu_listview=0x7f030009;
+        public static final int swipeback_layout=0x7f03000a;
+        public static final int title_flow_indicator=0x7f03000b;
+        public static final int title_flow_indicator_v2=0x7f03000c;
     }
     public static final class raw {
         public static final int json=0x7f050000;
     }
     public static final class string {
-        public static final int app_name=0x7f0a0000;
-        public static final int desc_list_item_icon=0x7f0a0008;
-        public static final int fragment_four=0x7f0a0004;
-        public static final int fragment_one=0x7f0a0001;
-        public static final int fragment_three=0x7f0a0003;
-        public static final int fragment_two=0x7f0a0002;
-        public static final int pull_to_refresh_pull_label=0x7f0a0009;
-        public static final int pull_to_refresh_refreshing_label=0x7f0a000b;
-        public static final int pull_to_refresh_release_label=0x7f0a000a;
+        public static final int app_name=0x7f080002;
+        public static final int desc_list_item_icon=0x7f08000a;
+        public static final int fragment_four=0x7f080006;
+        public static final int fragment_one=0x7f080003;
+        public static final int fragment_three=0x7f080005;
+        public static final int fragment_two=0x7f080004;
+        public static final int md__drawerClosedIndicatorDesc=0x7f080001;
+        public static final int md__drawerOpenIndicatorDesc=0x7f080000;
+        public static final int pull_to_refresh_pull_label=0x7f08000b;
+        public static final int pull_to_refresh_refreshing_label=0x7f08000d;
+        public static final int pull_to_refresh_release_label=0x7f08000c;
         /**  PullToRefreshListView 
          */
-        public static final int refresh=0x7f0a0005;
-        public static final int search=0x7f0a0006;
-        public static final int sliding_title=0x7f0a0007;
+        public static final int refresh=0x7f080007;
+        public static final int search=0x7f080008;
+        public static final int sliding_title=0x7f080009;
     }
     public static final class style {
-        public static final int AppBaseTheme=0x7f070004;
-        public static final int AppTheme=0x7f070005;
-        public static final int MainTheme=0x7f070007;
-        public static final int MyTheme=0x7f070009;
-        public static final int MyWidget=0x7f070001;
+        public static final int AppBaseTheme=0x7f090006;
+        public static final int AppTheme=0x7f090007;
+        public static final int MainTheme=0x7f09000d;
+        public static final int MenuDrawer=0x7f090009;
+        public static final int MenuDrawer_Widget=0x7f09000a;
+        public static final int MenuDrawer_Widget_Category=0x7f09000b;
+        public static final int MenuDrawer_Widget_Title=0x7f09000c;
+        public static final int MyTheme=0x7f09000f;
+        public static final int MyWidget=0x7f090003;
         /**  Common list view styles 
          */
-        public static final int MyWidget_ListView=0x7f070003;
-        public static final int MyWidget_TabText=0x7f070002;
-        public static final int SecondAppTheme=0x7f070006;
+        public static final int MyWidget_ListView=0x7f090005;
+        public static final int MyWidget_TabText=0x7f090004;
+        public static final int SecondAppTheme=0x7f090008;
         /**  滑动返回主题 
          */
-        public static final int SwipeBackLayout=0x7f070000;
+        public static final int SwipeBackLayout=0x7f090002;
+        public static final int Widget=0x7f090000;
+        /**  Base theme for the menu drawer. 
+         */
+        public static final int Widget_MenuDrawer=0x7f090001;
         /**          <item name="android:windowAnimationStyle">@style/animationStyle</item> 
          */
-        public static final int animationStyle=0x7f070008;
+        public static final int animationStyle=0x7f09000e;
     }
     public static final class styleable {
         /**  圆形imageView 
@@ -590,7 +854,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #CircleImageView_border_width
          */
         public static final int[] CircleImageView = {
-            0x7f01001b, 0x7f01001c
+            0x7f01002c, 0x7f01002d
         };
         /**
           <p>This symbol is the offset where the {@link com.qiubaiclient.main.R.attr#border_color}
@@ -634,7 +898,7 @@ containing a value of this type.
            @see #CustomImageButton_background_resource
          */
         public static final int[] CustomImageButton = {
-            0x7f010025
+            0x7f010036
         };
         /**
           <p>This symbol is the offset where the {@link com.qiubaiclient.main.R.attr#background_resource}
@@ -646,6 +910,302 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
           @attr name com.qiubaiclient.main:background_resource
         */
         public static final int CustomImageButton_background_resource = 0;
+        /**  Styleables used for styling the menu drawer. 
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #MenuDrawer_mdActiveIndicator com.qiubaiclient.main:mdActiveIndicator}</code></td><td> Drawable used as indicator for the active view.</td></tr>
+           <tr><td><code>{@link #MenuDrawer_mdAllowIndicatorAnimation com.qiubaiclient.main:mdAllowIndicatorAnimation}</code></td><td> Whether the indicator should be animated between active views.</td></tr>
+           <tr><td><code>{@link #MenuDrawer_mdContentBackground com.qiubaiclient.main:mdContentBackground}</code></td><td> Drawable to use for the background of the content.</td></tr>
+           <tr><td><code>{@link #MenuDrawer_mdDrawOverlay com.qiubaiclient.main:mdDrawOverlay}</code></td><td> Whether an overlay should be drawn as the drawer is opened and closed </td></tr>
+           <tr><td><code>{@link #MenuDrawer_mdDrawerClosedUpContentDescription com.qiubaiclient.main:mdDrawerClosedUpContentDescription}</code></td><td> String to use as the up indicators content description when the drawer is closed </td></tr>
+           <tr><td><code>{@link #MenuDrawer_mdDrawerOpenUpContentDescription com.qiubaiclient.main:mdDrawerOpenUpContentDescription}</code></td><td> String to use as the up indicators content description when the drawer is open </td></tr>
+           <tr><td><code>{@link #MenuDrawer_mdDropShadow com.qiubaiclient.main:mdDropShadow}</code></td><td> Drawable used for the drop shadow.</td></tr>
+           <tr><td><code>{@link #MenuDrawer_mdDropShadowColor com.qiubaiclient.main:mdDropShadowColor}</code></td><td> The color of the drop shadow.</td></tr>
+           <tr><td><code>{@link #MenuDrawer_mdDropShadowEnabled com.qiubaiclient.main:mdDropShadowEnabled}</code></td><td> Defines whether the content will have a dropshadow onto the menu.</td></tr>
+           <tr><td><code>{@link #MenuDrawer_mdDropShadowSize com.qiubaiclient.main:mdDropShadowSize}</code></td><td> The size of the drop shadow.</td></tr>
+           <tr><td><code>{@link #MenuDrawer_mdMaxAnimationDuration com.qiubaiclient.main:mdMaxAnimationDuration}</code></td><td> The maximum animation duration </td></tr>
+           <tr><td><code>{@link #MenuDrawer_mdMenuBackground com.qiubaiclient.main:mdMenuBackground}</code></td><td> Drawable to use for the background of the menu.</td></tr>
+           <tr><td><code>{@link #MenuDrawer_mdMenuSize com.qiubaiclient.main:mdMenuSize}</code></td><td> The size of the menu.</td></tr>
+           <tr><td><code>{@link #MenuDrawer_mdPosition com.qiubaiclient.main:mdPosition}</code></td><td> The position of the drawer </td></tr>
+           <tr><td><code>{@link #MenuDrawer_mdSlideDrawable com.qiubaiclient.main:mdSlideDrawable}</code></td><td> Drawable that replaces the up indicator </td></tr>
+           <tr><td><code>{@link #MenuDrawer_mdTouchBezelSize com.qiubaiclient.main:mdTouchBezelSize}</code></td><td> The touch bezel size.</td></tr>
+           </table>
+           @see #MenuDrawer_mdActiveIndicator
+           @see #MenuDrawer_mdAllowIndicatorAnimation
+           @see #MenuDrawer_mdContentBackground
+           @see #MenuDrawer_mdDrawOverlay
+           @see #MenuDrawer_mdDrawerClosedUpContentDescription
+           @see #MenuDrawer_mdDrawerOpenUpContentDescription
+           @see #MenuDrawer_mdDropShadow
+           @see #MenuDrawer_mdDropShadowColor
+           @see #MenuDrawer_mdDropShadowEnabled
+           @see #MenuDrawer_mdDropShadowSize
+           @see #MenuDrawer_mdMaxAnimationDuration
+           @see #MenuDrawer_mdMenuBackground
+           @see #MenuDrawer_mdMenuSize
+           @see #MenuDrawer_mdPosition
+           @see #MenuDrawer_mdSlideDrawable
+           @see #MenuDrawer_mdTouchBezelSize
+         */
+        public static final int[] MenuDrawer = {
+            0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004,
+            0x7f010005, 0x7f010006, 0x7f010007, 0x7f010008,
+            0x7f010009, 0x7f01000a, 0x7f01000b, 0x7f01000c,
+            0x7f01000d, 0x7f01000e, 0x7f01000f, 0x7f010010
+        };
+        /**
+          <p>
+          @attr description
+           Drawable used as indicator for the active view. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.qiubaiclient.main:mdActiveIndicator
+        */
+        public static final int MenuDrawer_mdActiveIndicator = 3;
+        /**
+          <p>
+          @attr description
+           Whether the indicator should be animated between active views. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.qiubaiclient.main:mdAllowIndicatorAnimation
+        */
+        public static final int MenuDrawer_mdAllowIndicatorAnimation = 9;
+        /**
+          <p>
+          @attr description
+           Drawable to use for the background of the content. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.qiubaiclient.main:mdContentBackground
+        */
+        public static final int MenuDrawer_mdContentBackground = 0;
+        /**
+          <p>
+          @attr description
+           Whether an overlay should be drawn as the drawer is opened and closed 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.qiubaiclient.main:mdDrawOverlay
+        */
+        public static final int MenuDrawer_mdDrawOverlay = 14;
+        /**
+          <p>
+          @attr description
+           String to use as the up indicators content description when the drawer is closed 
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.qiubaiclient.main:mdDrawerClosedUpContentDescription
+        */
+        public static final int MenuDrawer_mdDrawerClosedUpContentDescription = 13;
+        /**
+          <p>
+          @attr description
+           String to use as the up indicators content description when the drawer is open 
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.qiubaiclient.main:mdDrawerOpenUpContentDescription
+        */
+        public static final int MenuDrawer_mdDrawerOpenUpContentDescription = 12;
+        /**
+          <p>
+          @attr description
+           Drawable used for the drop shadow. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.qiubaiclient.main:mdDropShadow
+        */
+        public static final int MenuDrawer_mdDropShadow = 7;
+        /**
+          <p>
+          @attr description
+           The color of the drop shadow. Default is #FF000000. 
+
+
+          <p>Must be a color value, in the form of "<code>#<i>rgb</i></code>", "<code>#<i>argb</i></code>",
+"<code>#<i>rrggbb</i></code>", or "<code>#<i>aarrggbb</i></code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.qiubaiclient.main:mdDropShadowColor
+        */
+        public static final int MenuDrawer_mdDropShadowColor = 6;
+        /**
+          <p>
+          @attr description
+           Defines whether the content will have a dropshadow onto the menu. Default is true. 
+
+
+          <p>Must be a boolean value, either "<code>true</code>" or "<code>false</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.qiubaiclient.main:mdDropShadowEnabled
+        */
+        public static final int MenuDrawer_mdDropShadowEnabled = 4;
+        /**
+          <p>
+          @attr description
+           The size of the drop shadow. Default is 6dp 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.qiubaiclient.main:mdDropShadowSize
+        */
+        public static final int MenuDrawer_mdDropShadowSize = 5;
+        /**
+          <p>
+          @attr description
+           The maximum animation duration 
+
+
+          <p>Must be an integer value, such as "<code>100</code>".
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.qiubaiclient.main:mdMaxAnimationDuration
+        */
+        public static final int MenuDrawer_mdMaxAnimationDuration = 10;
+        /**
+          <p>
+          @attr description
+           Drawable to use for the background of the menu. 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.qiubaiclient.main:mdMenuBackground
+        */
+        public static final int MenuDrawer_mdMenuBackground = 1;
+        /**
+          <p>
+          @attr description
+           The size of the menu. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.qiubaiclient.main:mdMenuSize
+        */
+        public static final int MenuDrawer_mdMenuSize = 2;
+        /**
+          <p>
+          @attr description
+           The position of the drawer 
+
+
+          <p>Must be one of the following constant values.</p>
+<table>
+<colgroup align="left" />
+<colgroup align="left" />
+<colgroup align="left" />
+<tr><th>Constant</th><th>Value</th><th>Description</th></tr>
+<tr><td><code>left</code></td><td>0</td><td></td></tr>
+<tr><td><code>top</code></td><td>1</td><td></td></tr>
+<tr><td><code>right</code></td><td>2</td><td></td></tr>
+<tr><td><code>bottom</code></td><td>3</td><td></td></tr>
+<tr><td><code>start</code></td><td>4</td><td></td></tr>
+<tr><td><code>end</code></td><td>5</td><td></td></tr>
+</table>
+          <p>This is a private symbol.
+          @attr name com.qiubaiclient.main:mdPosition
+        */
+        public static final int MenuDrawer_mdPosition = 15;
+        /**
+          <p>
+          @attr description
+           Drawable that replaces the up indicator 
+
+
+          <p>Must be a reference to another resource, in the form "<code>@[+][<i>package</i>:]<i>type</i>:<i>name</i></code>"
+or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>".
+          <p>This is a private symbol.
+          @attr name com.qiubaiclient.main:mdSlideDrawable
+        */
+        public static final int MenuDrawer_mdSlideDrawable = 11;
+        /**
+          <p>
+          @attr description
+           The touch bezel size. 
+
+
+          <p>Must be a dimension value, which is a floating point number appended with a unit such as "<code>14.5sp</code>".
+Available units are: px (pixels), dp (density-independent pixels), sp (scaled pixels based on preferred font size),
+in (inches), mm (millimeters).
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          <p>This is a private symbol.
+          @attr name com.qiubaiclient.main:mdTouchBezelSize
+        */
+        public static final int MenuDrawer_mdTouchBezelSize = 8;
         /** Attributes that can be used with a PullToRefresh.
            <p>Includes the following attributes:</p>
            <table>
@@ -697,11 +1257,11 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #PullToRefresh_vpiUnderlinePageIndicatorStyle
          */
         public static final int[] PullToRefresh = {
-            0x7f010007, 0x7f010008, 0x7f010009, 0x7f01000a,
-            0x7f01000b, 0x7f01000c, 0x7f01000d, 0x7f01000e,
-            0x7f01000f, 0x7f010010, 0x7f010011, 0x7f010012,
-            0x7f010013, 0x7f010014, 0x7f010015, 0x7f010016,
-            0x7f010017, 0x7f010018, 0x7f010019, 0x7f01001a
+            0x7f010018, 0x7f010019, 0x7f01001a, 0x7f01001b,
+            0x7f01001c, 0x7f01001d, 0x7f01001e, 0x7f01001f,
+            0x7f010020, 0x7f010021, 0x7f010022, 0x7f010023,
+            0x7f010024, 0x7f010025, 0x7f010026, 0x7f010027,
+            0x7f010028, 0x7f010029, 0x7f01002a, 0x7f01002b
         };
         /**
           <p>
@@ -1003,8 +1563,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #RoundProgressBar_textSize
          */
         public static final int[] RoundProgressBar = {
-            0x7f01001d, 0x7f01001e, 0x7f01001f, 0x7f010020,
-            0x7f010021, 0x7f010022, 0x7f010023, 0x7f010024
+            0x7f01002e, 0x7f01002f, 0x7f010030, 0x7f010031,
+            0x7f010032, 0x7f010033, 0x7f010034, 0x7f010035
         };
         /**
           <p>This symbol is the offset where the {@link com.qiubaiclient.main.R.attr#max}
@@ -1147,8 +1707,8 @@ containing a value of this type.
            @see #SwipeBackLayout_shadow_right
          */
         public static final int[] SwipeBackLayout = {
-            0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003,
-            0x7f010004
+            0x7f010011, 0x7f010012, 0x7f010013, 0x7f010014,
+            0x7f010015
         };
         /**
           <p>This symbol is the offset where the {@link com.qiubaiclient.main.R.attr#edge_flag}
@@ -1238,8 +1798,8 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
            @see #TitleIndicator_titlePadding
          */
         public static final int[] TitleIndicator = {
-            0x7f010026, 0x7f010027, 0x7f010028, 0x7f010029,
-            0x7f01002a, 0x7f01002b, 0x7f01002c
+            0x7f010037, 0x7f010038, 0x7f010039, 0x7f01003a,
+            0x7f01003b, 0x7f01003c, 0x7f01003d
         };
         /**
           <p>
@@ -1361,7 +1921,7 @@ containing a value of this type.
            @see #ViewPagerIndicator_vpiTabPageIndicatorStyle
          */
         public static final int[] ViewPagerIndicator = {
-            0x7f010006
+            0x7f010017
         };
         /**
           <p>
