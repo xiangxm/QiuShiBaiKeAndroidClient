@@ -1,13 +1,19 @@
 package com.qiubaiclient.model;
 
+import java.io.Serializable;
+
 /**
  * 照片尺寸
  * 
  * @author xiangxm
  * 
  */
-public class ImageSize {
+public class ImageSize implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int[] s;
 	private int[] m;
 

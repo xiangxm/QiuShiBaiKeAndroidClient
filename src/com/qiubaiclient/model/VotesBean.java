@@ -1,13 +1,19 @@
 package com.qiubaiclient.model;
 
+import java.io.Serializable;
+
 /**
  * 点赞与不点赞的数据
  * 
  * @author xiangxm
  * 
  */
-public class VotesBean {
+public class VotesBean implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 不点赞
 	 */

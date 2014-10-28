@@ -1,13 +1,19 @@
 package com.qiubaiclient.model;
 
+import java.io.Serializable;
+
 /**
  * JSON五级数据 用户信息
  * 
  * @author xiangxm
  * 
  */
-public class UserBean {
+public class UserBean implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 状态标志位，暂时不知道什么用
 	 */

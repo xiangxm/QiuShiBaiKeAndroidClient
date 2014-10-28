@@ -124,8 +124,8 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		initMenuDrawer();
-		menuDrawer.setContentView(getMainViewResId());
+//		initMenuDrawer();
+		setContentView(getMainViewResId());
 		initViews();
 
 		// 设置viewpager内部页面之间的间距

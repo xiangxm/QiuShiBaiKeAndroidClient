@@ -75,7 +75,7 @@ public class SaveImageActivity extends SwipeBackActivity implements
 			}
 			this.imageUrl = AppConfig.ARTICLE_BIG_IMG
 					+ itemBean.getId().substring(0, 4) + "/" + itemBean.getId()
-					+ "/" + itemBean.getImage();
+					+ "/medium/" + itemBean.getImage();
 			
 			Log.d(TAG, this.imageUrl);
 
