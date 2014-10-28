@@ -33,7 +33,7 @@
         </activity>
         <activity
             android:name=".SaveImageActivity"
-            android:windowAnimationStyle="@null" >
+            android:theme="@style/SecondAppTheme" >
         </activity>
     </application>
 

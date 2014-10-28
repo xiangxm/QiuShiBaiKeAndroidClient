@@ -1,14 +1,21 @@
 package com.qiubaiclient.model;
 
+import java.io.Serializable;
+
 /**
  * ItemBean JSON三级数据
+ * 
  * @author xiangxm
- *
+ * 
  */
-public class ItemBean {
+public class ItemBean implements Serializable {
 
 	/**
-	 * 文章附带的图片福建
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	/**
+	 * 文章附带的图片附件
 	 */
 	private String image;
 	/**
@@ -46,13 +53,13 @@ public class ItemBean {
 	/**
 	 * 用户信息
 	 */
-	private UserBean user ;
+	private UserBean user;
 	/**
 	 * 点赞信息
 	 */
-	private VotesBean votes ;
-	
-	private ImageSize image_size ;
+	private VotesBean votes;
+
+	private ImageSize image_size;
 
 	public ImageSize getImage_size() {
 		return image_size;
@@ -159,6 +166,5 @@ public class ItemBean {
 				+ allow_comment + ", user=" + user + ", votes=" + votes
 				+ ", image_size=" + image_size + "]";
 	}
-	
 
 }

@@ -40,6 +40,10 @@ import com.qiubaiclient.utils.AppConfig;
 import com.qiubaiclient.utils.Common;
 import com.qiubaiclient.utils.ToastUtil;
 
+import de.keyboardsurfer.android.widget.crouton.Configuration;
+import de.keyboardsurfer.android.widget.crouton.Crouton;
+import de.keyboardsurfer.android.widget.crouton.Style;
+
 /**
  * 
  * 糗事百科中模块：最热的部分
@@ -129,6 +133,7 @@ public class FragQiuShiMostHost extends BaseFragment {
 						responseStr.toString(), ArticleBean.class).getItems();
 
 				dataList.addAll(tempList);
+				final int num = tempList.size();
 				((Activity) mContext).runOnUiThread(new Runnable() {
 					public void run() {
 
@@ -138,6 +143,8 @@ public class FragQiuShiMostHost extends BaseFragment {
 							articleAdapter.setDataList(dataList);
 							articleAdapter.notifyDataSetChanged();
 							refreshListView.onRefreshComplete();
+							Crouton.showText((Activity) mContext, "刷新了" + num
+									+ "条糗事.", Style.INFO,R.id.container_view);
 						}
 					}
 				});
@@ -269,7 +276,7 @@ public class FragQiuShiMostHost extends BaseFragment {
 
 			// 向下刷新默认获取第一页的数据
 			page.setDefaultPage();
-			dataList.clear() ;
+			dataList.clear();
 			String dataUrl = sectionAddress
 					+ String.format(AppConfig.PAGE_COUNT,
 							page.getCurrentPage(), perPageCount);

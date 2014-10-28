@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Environment;
+import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -20,6 +21,8 @@ import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.assist.ImageLoadingListener;
 import com.nostra13.universalimageloader.core.assist.ImageSize;
 import com.polites.android.GestureImageView;
+import com.qiubaiclient.model.ItemBean;
+import com.qiubaiclient.utils.AppConfig;
 import com.qiubaiclient.utils.Common;
 import com.qiubaiclient.utils.FileUtil;
 import com.qiubaiclient.utils.ToastUtil;
@@ -30,6 +33,7 @@ import com.way.ui.swipeback.SwipeBackActivity;
  */
 public class SaveImageActivity extends SwipeBackActivity implements
 		OnClickListener {
+	private static final String TAG = "SaveImageActivity";
 	/**
 	 * 图片网络路径
 	 */
@@ -56,14 +60,24 @@ public class SaveImageActivity extends SwipeBackActivity implements
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
-//		requestWindowFeature(Window.FEATURE_NO_TITLE);
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.save_image_activity);
 
 		Intent intent = getIntent();
 		if (null != intent) {
 
-			this.imageUrl = intent.getStringExtra("articleImgUrl");
+			ItemBean itemBean = (ItemBean) intent
+					.getSerializableExtra("itembean");
+
+			if (null == itemBean) {
+
+				itemBean = new ItemBean();
+			}
+			this.imageUrl = AppConfig.ARTICLE_BIG_IMG
+					+ itemBean.getId().substring(0, 4) + "/" + itemBean.getId()
+					+ "/" + itemBean.getImage();
+			
+			Log.d(TAG, this.imageUrl);
 
 			if (null == imageUrl || imageUrl.equals("")) {
 

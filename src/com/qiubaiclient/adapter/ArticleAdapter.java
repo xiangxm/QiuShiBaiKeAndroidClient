@@ -162,7 +162,7 @@ public class ArticleAdapter extends BaseAdapter {
 						+ itemBean.getId() + "/medium/" + itemBean.getImage();
 				Log.i(TAG, articleImgUrl);
 				// 设置tag
-				viewHolder.contentImageView.setTag(articleImgUrl);
+				viewHolder.contentImageView.setTag(itemBean);
 				imageLoader.displayImage(articleImgUrl,
 						viewHolder.contentImageView, contentOptions);
 				viewHolder.contentImageView
@@ -172,15 +172,12 @@ public class ArticleAdapter extends BaseAdapter {
 							public void onClick(View v) {
 								// TODO Auto-generated method stub
 
-								// ToastUtil.show(mContext, "你点击了图片",
-								// Toast.LENGTH_SHORT) ;
-
-								String imgUrl = (String) (v.getTag() != null ? v
-										.getTag() : "");
+								ItemBean itemBean = (ItemBean) v.getTag();
 								Intent intent = new Intent();
 								intent.setClass(mContext,
 										SaveImageActivity.class);
-								intent.putExtra("articleImgUrl", imgUrl);
+								intent.putExtra("itembean", itemBean);
+
 								mContext.startActivity(intent);
 
 							}

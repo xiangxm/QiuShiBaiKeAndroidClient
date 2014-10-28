@@ -174,17 +174,6 @@ public class TitleIndicator extends LinearLayout implements
 		return title;
 	}
 
-	/**
-	 * 获取指定下标的选项卡的图标资源id（如果设置了图标的话）
-	 */
-	private int getIcon(int pos) {
-		int ret = 0;
-		if (mTabs != null && mTabs.size() > pos) {
-			ret = mTabs.get(pos).getIcon();
-		}
-		return ret;
-	}
-
 	private boolean hasTips(int pos) {
 		boolean ret = false;
 		if (mTabs != null && mTabs.size() > pos) {
@@ -215,7 +204,7 @@ public class TitleIndicator extends LinearLayout implements
 		this.mTabs = tabs;
 		this.mTotal = tabs.size();
 		for (int i = 0; i < mTotal; i++) {
-			add(i, getTitle(i), getIcon(i), hasTips(i));
+			add(i, getTitle(i), hasTips(i));
 		}
 		setCurrentTab(startPos);
 		invalidate();
@@ -232,7 +221,7 @@ public class TitleIndicator extends LinearLayout implements
 		}
 	}
 
-	protected void add(int index, String label, int icon, boolean hasTips) {
+	protected void add(int index, String label, boolean hasTips) {
 		View tabIndicator;
 		if (index < 2) {
 			tabIndicator = mInflater.inflate(R.layout.title_flow_indicator,
@@ -252,9 +241,7 @@ public class TitleIndicator extends LinearLayout implements
 			tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSizeNormal);
 		}
 		tv.setText(label);
-		if (icon > 0) {
-			tv.setCompoundDrawablesWithIntrinsicBounds(0, icon, 0, 0);
-		}
+	
 		if (hasTips) {
 			tips.setVisibility(View.VISIBLE);
 		} else {

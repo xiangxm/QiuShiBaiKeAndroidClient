@@ -13,16 +13,22 @@
         android:background="#083636"
         app:footerColor="@color/tab_indicator_text_selected"
         app:textColor="@color/tab_indicator_text"
-        app:textSizeNormal="@dimen/common_text_size_middle_2"
+        app:textSizeNormal="@dimen/common_text_size_middle"
         app:textSizeSelected="@dimen/common_text_size_middle_2" />
 
     <!-- Don't set background for ViewPager. It doesn't work because of page margin -->
 
-    <com.qiubaiclient.customui.ViewPagerCompat
-        android:id="@+id/pager"
-        android:layout_width="fill_parent"
+    <FrameLayout
+        android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:duplicateParentState="true" />
+        android:id="@+id/container_view" >
+
+        <com.qiubaiclient.customui.ViewPagerCompat
+            android:id="@+id/pager"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:duplicateParentState="true" />
+    </FrameLayout>
 
 </LinearLayout>

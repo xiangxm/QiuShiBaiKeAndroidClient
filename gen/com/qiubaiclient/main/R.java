@@ -487,24 +487,25 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int all=0x7f060003;
         public static final int both=0x7f060007;
         public static final int bottom=0x7f060002;
-        public static final int btn_downloadimage=0x7f060025;
+        public static final int btn_downloadimage=0x7f060026;
         public static final int btn_opt_coments=0x7f060018;
         public static final int btn_opt_down=0x7f060016;
         public static final int btn_opt_share=0x7f060017;
         public static final int btn_opt_up=0x7f060015;
+        public static final int container_view=0x7f060023;
         public static final int content_img=0x7f060013;
         public static final int content_listview=0x7f06001c;
         public static final int content_txt=0x7f060012;
         public static final int disabled=0x7f060004;
         public static final int fl_inner=0x7f06001d;
         public static final int flip=0x7f06000c;
-        public static final int image=0x7f060024;
+        public static final int image=0x7f060025;
         public static final int left=0x7f060000;
-        public static final int loadingprogressbar=0x7f060026;
+        public static final int loadingprogressbar=0x7f060027;
         public static final int manualOnly=0x7f060008;
         public static final int operation_imgview=0x7f060019;
         public static final int operation_txt=0x7f06001a;
-        public static final int pager=0x7f060023;
+        public static final int pager=0x7f060024;
         public static final int pagerindicator=0x7f060022;
         public static final int pullDownFromTop=0x7f060009;
         public static final int pullFromEnd=0x7f060006;
@@ -517,10 +518,10 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int right=0x7f060001;
         public static final int rotate=0x7f06000b;
         public static final int round_progressbar=0x7f060014;
-        public static final int swipe=0x7f060027;
-        public static final int tab_title=0x7f060028;
-        public static final int tab_title_sum=0x7f060029;
-        public static final int tab_title_tips=0x7f06002a;
+        public static final int swipe=0x7f060028;
+        public static final int tab_title=0x7f060029;
+        public static final int tab_title_sum=0x7f06002a;
+        public static final int tab_title_tips=0x7f06002b;
         public static final int tv_publish_date=0x7f060011;
         public static final int tv_user_login=0x7f060010;
         public static final int txt_ding_addone=0x7f06001b;
@@ -558,19 +559,22 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int sliding_title=0x7f0a0007;
     }
     public static final class style {
-        public static final int MainTheme=0x7f070004;
-        public static final int MyTheme=0x7f070006;
+        public static final int AppBaseTheme=0x7f070004;
+        public static final int AppTheme=0x7f070005;
+        public static final int MainTheme=0x7f070007;
+        public static final int MyTheme=0x7f070009;
         public static final int MyWidget=0x7f070001;
         /**  Common list view styles 
          */
         public static final int MyWidget_ListView=0x7f070003;
         public static final int MyWidget_TabText=0x7f070002;
+        public static final int SecondAppTheme=0x7f070006;
         /**  滑动返回主题 
          */
         public static final int SwipeBackLayout=0x7f070000;
         /**          <item name="android:windowAnimationStyle">@style/animationStyle</item> 
          */
-        public static final int animationStyle=0x7f070005;
+        public static final int animationStyle=0x7f070008;
     }
     public static final class styleable {
         /**  圆形imageView 
