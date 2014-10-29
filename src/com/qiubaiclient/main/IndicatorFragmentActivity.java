@@ -32,12 +32,12 @@ import android.widget.Toast;
 
 import com.qiubaiclient.adapter.SlideMenuAdapter;
 import com.qiubaiclient.customui.TitleIndicator;
-import com.qiubaiclient.fragment.FragQiuShiMostHost;
+import com.qiubaiclient.fragment.QiuShiFragment;
 import com.qiubaiclient.utils.AppConfig;
 import com.qiubaiclient.utils.Common;
 
 @SuppressWarnings("static-access")
-public abstract class IndicatorFragmentActivity extends FragmentActivity
+public  class IndicatorFragmentActivity extends FragmentActivity
 		implements OnPageChangeListener {
 	private static final String TAG = "DxFragmentActivity";
 
@@ -124,7 +124,7 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-//		initMenuDrawer();
+		initMenuDrawer();
 		setContentView(getMainViewResId());
 		initViews();
 
@@ -260,13 +260,13 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 	// protected abstract int supplyTabs(List<TabInfo> tabs);
 	protected int supplyTabs(List<TabInfo> tabs) {
 		tabs.add(new TabInfo(AppConfig.SECTION_MOST_HOT,
-				getString(R.string.fragment_one), FragQiuShiMostHost.class));
+				getString(R.string.fragment_one), QiuShiFragment.class));
 		tabs.add(new TabInfo(AppConfig.SECTION_MOST_ESSONCE,
-				getString(R.string.fragment_two), FragQiuShiMostHost.class));
+				getString(R.string.fragment_two), QiuShiFragment.class));
 		tabs.add(new TabInfo(AppConfig.SECTION_LATEST,
-				getString(R.string.fragment_three), FragQiuShiMostHost.class));
+				getString(R.string.fragment_three), QiuShiFragment.class));
 		tabs.add(new TabInfo(AppConfig.SECTION_TRUTH,
-				getString(R.string.fragment_four), FragQiuShiMostHost.class));
+				getString(R.string.fragment_four), QiuShiFragment.class));
 		return AppConfig.SECTION_MOST_HOT;
 	}
 
@@ -347,9 +347,9 @@ public abstract class IndicatorFragmentActivity extends FragmentActivity
 				}
 			}
 			// 设置模块id
-			if (fragment instanceof FragQiuShiMostHost) {
+			if (fragment instanceof QiuShiFragment) {
 
-				((FragQiuShiMostHost) fragment).setSectionName(this.id);
+				((QiuShiFragment) fragment).setSectionName(this.id);
 			}
 			return fragment;
 		}

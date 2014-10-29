@@ -51,7 +51,7 @@ import de.keyboardsurfer.android.widget.crouton.Style;
  * @author xiangxm
  * 
  */
-public class FragQiuShiMostHost extends BaseFragment {
+public class QiuShiFragment extends BaseFragment {
 
 	private static final String TAG = "FragQiuShi_MostHost";
 
@@ -175,7 +175,7 @@ public class FragQiuShiMostHost extends BaseFragment {
 
 	}
 
-	public FragQiuShiMostHost() {
+	public QiuShiFragment() {
 		super();
 	}
 
