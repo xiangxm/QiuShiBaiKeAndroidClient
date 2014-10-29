@@ -7,8 +7,6 @@ import org.apache.http.Header;
 import org.json.JSONObject;
 
 import android.app.Activity;
-import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Handler.Callback;
@@ -18,8 +16,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -27,9 +23,7 @@ import com.alibaba.fastjson.JSON;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.qiubaiclient.adapter.ArticleAdapter;
-import com.qiubaiclient.customui.CustomImageButton;
 import com.qiubaiclient.main.R;
-import com.qiubaiclient.main.SaveImageActivity;
 import com.qiubaiclient.model.ArticleBean;
 import com.qiubaiclient.model.ItemBean;
 import com.qiubaiclient.model.Page;
@@ -40,7 +34,6 @@ import com.qiubaiclient.utils.AppConfig;
 import com.qiubaiclient.utils.Common;
 import com.qiubaiclient.utils.ToastUtil;
 
-import de.keyboardsurfer.android.widget.crouton.Configuration;
 import de.keyboardsurfer.android.widget.crouton.Crouton;
 import de.keyboardsurfer.android.widget.crouton.Style;
 
