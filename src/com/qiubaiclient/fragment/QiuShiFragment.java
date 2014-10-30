@@ -137,7 +137,7 @@ public class QiuShiFragment extends BaseFragment {
 							articleAdapter.notifyDataSetChanged();
 							refreshListView.onRefreshComplete();
 							Crouton.showText((Activity) mContext, "刷新了" + num
-									+ "条糗事.", Style.INFO,R.id.container_view);
+									+ "条糗事.", Style.INFO, R.id.container_view);
 						}
 					}
 				});
@@ -180,24 +180,23 @@ public class QiuShiFragment extends BaseFragment {
 
 		switch (sectionId) {
 
-		case AppConfig.SECTION_MOST_HOT:
-			// 最热
-			sectionAddress = AppConfig.MOST_HOT;
+		case AppConfig.SECTION_ONLY_TEXT:
+			// 纯文
+			sectionAddress = AppConfig.ONLY_TEXT;
+			break;
+		case AppConfig.SECTION_ONLY_IMAGE:
+			// 纯图
+			sectionAddress = AppConfig.ONLY_IMG;
 			break;
 
-		case AppConfig.SECTION_MOST_ESSONCE:
-			// 精华
-			sectionAddress = AppConfig.MOST_ESSONCE;
+		case AppConfig.TEXT_AND_IMAGE:
+			// 图文
+			sectionAddress = AppConfig.IMAGE_TEXT;
 			break;
 
 		case AppConfig.SECTION_LATEST:
 			// 最新
 			sectionAddress = AppConfig.LATEST;
-			break;
-
-		case AppConfig.SECTION_TRUTH:
-			// 真相
-			sectionAddress = AppConfig.TRUTH;
 			break;
 
 		}

@@ -502,6 +502,10 @@ public class Common {
 		int w = drawable.getIntrinsicWidth();
 		int h = drawable.getIntrinsicHeight();
 
+		if (w < 0 || h < 0) {
+
+			return null;
+		}
 		// 取 drawable 的颜色格式
 		Bitmap.Config config = drawable.getOpacity() != PixelFormat.OPAQUE ? Bitmap.Config.ARGB_8888
 				: Bitmap.Config.RGB_565;
@@ -514,7 +518,7 @@ public class Common {
 		drawable.draw(canvas);
 		return bitmap;
 	}
-	
+
 	/**
 	 * 获取手机屏幕高度
 	 * 

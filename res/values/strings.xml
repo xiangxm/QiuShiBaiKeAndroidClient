@@ -2,10 +2,10 @@
 <resources>
 
     <string name="app_name">糗大了</string>
-    <string name="fragment_one">热门</string>
-    <string name="fragment_two">精华</string>
-    <string name="fragment_three">最新</string>
-    <string name="fragment_four">真相</string>
+    <string name="fragment_one">纯文</string>
+    <string name="fragment_two">纯图</string>
+    <string name="fragment_three">图文</string>
+    <string name="fragment_four">最新</string>
     <!-- PullToRefreshListView -->
     <string name="refresh">刷新</string>
     <string name="search">搜索</string>
@@ -14,4 +14,5 @@
     <string name="pull_to_refresh_pull_label">下拉刷新…</string>
     <string name="pull_to_refresh_release_label">松开以刷新…</string>
     <string name="pull_to_refresh_refreshing_label">数据加载中…</string>
+
 </resources>

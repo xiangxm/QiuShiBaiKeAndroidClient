@@ -7,9 +7,6 @@ import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
-import net.simonvt.menudrawer.MenuDrawer;
-import net.simonvt.menudrawer.MenuDrawer.OnDrawerStateChangeListener;
-
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -30,7 +27,6 @@ import android.view.Window;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import com.qiubaiclient.adapter.SlideMenuAdapter;
 import com.qiubaiclient.customui.TitleIndicator;
 import com.qiubaiclient.fragment.QiuShiFragment;
 import com.qiubaiclient.utils.AppConfig;
@@ -47,12 +43,7 @@ public  class IndicatorFragmentActivity extends FragmentActivity
 	protected int mCurrentTab = 0;
 	protected int mLastTab = -1;
 
-	/**
-	 * 侧边滑动菜单
-	 */
-	private MenuDrawer menuDrawer;
 	private ListView menuListView;
-	private SlideMenuAdapter menuAdapter;
 	/**
 	 * 滑动距离
 	 */
@@ -124,10 +115,10 @@ public  class IndicatorFragmentActivity extends FragmentActivity
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-		initMenuDrawer();
+//		initMenuDrawer();
 		setContentView(getMainViewResId());
 		initViews();
-
+		
 		// 设置viewpager内部页面之间的间距
 		mPager.setPageMargin(getResources().getDimensionPixelSize(
 				R.dimen.page_margin_width));
@@ -149,6 +140,7 @@ public  class IndicatorFragmentActivity extends FragmentActivity
 	}
 
 	private final void initViews() {
+		
 		// 这里初始化界面
 		mCurrentTab = supplyTabs(mTabs);
 		Intent intent = getIntent();
@@ -259,15 +251,16 @@ public  class IndicatorFragmentActivity extends FragmentActivity
 	 */
 	// protected abstract int supplyTabs(List<TabInfo> tabs);
 	protected int supplyTabs(List<TabInfo> tabs) {
-		tabs.add(new TabInfo(AppConfig.SECTION_MOST_HOT,
+		tabs.add(new TabInfo(AppConfig.SECTION_ONLY_TEXT,
 				getString(R.string.fragment_one), QiuShiFragment.class));
-		tabs.add(new TabInfo(AppConfig.SECTION_MOST_ESSONCE,
+		tabs.add(new TabInfo(AppConfig.SECTION_ONLY_IMAGE,
 				getString(R.string.fragment_two), QiuShiFragment.class));
-		tabs.add(new TabInfo(AppConfig.SECTION_LATEST,
+		tabs.add(new TabInfo(AppConfig.TEXT_AND_IMAGE,
 				getString(R.string.fragment_three), QiuShiFragment.class));
-		tabs.add(new TabInfo(AppConfig.SECTION_TRUTH,
+		tabs.add(new TabInfo(AppConfig.SECTION_LATEST,
 				getString(R.string.fragment_four), QiuShiFragment.class));
-		return AppConfig.SECTION_MOST_HOT;
+
+		return AppConfig.SECTION_ONLY_TEXT;
 	}
 
 	@Override
@@ -397,49 +390,4 @@ public  class IndicatorFragmentActivity extends FragmentActivity
 		return super.onKeyDown(keyCode, event);
 	}
 
-	/**
-	 * 初始化侧边菜单
-	 */
-	private void initMenuDrawer() {
-		// TODO Auto-generated method stub
-
-		menuDrawer = MenuDrawer.attach(this, MenuDrawer.Type.OVERLAY);
-		menuDrawer.setMenuSize(Math.round(0.6f * Common.getDisplayWidth(this)));
-
-		View view = LayoutInflater.from(this).inflate(
-				R.layout.sidemenu_listview, null, false);
-		menuListView = (ListView) view.findViewById(R.id.menu_list);
-		menuDrawer.setMenuView(menuListView);
-		menuDrawer.setTouchMode(MenuDrawer.TOUCH_MODE_BEZEL);
-
-		menuDrawer
-				.setOnInterceptMoveEventListener(new MenuDrawer.OnInterceptMoveEventListener() {
-					@Override
-					public boolean isViewDraggable(View v, int dx, int x, int y) {
-						if (v == mPager) {
-							return !(mCurrentTab == 0 && mPagerOffsetPixels == 0)
-									|| dx < 0;
-						}
-						return false;
-					}
-				});
-		menuDrawer
-				.setOnDrawerStateChangeListener(new OnDrawerStateChangeListener() {
-
-					@Override
-					public void onDrawerStateChange(int oldState, int newState) {
-						// TODO Auto-generated method stub
-
-					}
-
-					@Override
-					public void onDrawerSlide(float openRatio, int offsetPixels) {
-						// TODO Auto-generated method stub
-						// changeBlurImageViewAlpha(openRatio);
-					}
-				});
-		menuAdapter = new SlideMenuAdapter(this);
-		menuListView.setAdapter(menuAdapter);
-		// menuListView.setOnItemClickListener(mItemClickListener);
-	}
 }
