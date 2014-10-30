@@ -127,10 +127,7 @@ int drawable transparent 0x7f020026
 int drawable users_avatar_light 0x7f020025
 int id FILL 0x7f06000e
 int id STROKE 0x7f06000d
-int id action_share 0x7f060031
-int id action_sort 0x7f06002c
-int id action_sort_alpha 0x7f06002e
-int id action_sort_size 0x7f06002d
+int id action_share 0x7f06002d
 int id all 0x7f060003
 int id both 0x7f060007
 int id bottom 0x7f060002
@@ -150,8 +147,7 @@ int id image 0x7f060025
 int id left 0x7f060000
 int id loadingprogressbar 0x7f060027
 int id manualOnly 0x7f060008
-int id menu_delete 0x7f06002f
-int id menu_settings 0x7f060030
+int id menu_settings 0x7f06002c
 int id operation_imgview 0x7f060019
 int id operation_txt 0x7f06001a
 int id pager 0x7f060024

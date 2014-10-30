@@ -472,10 +472,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
     public static final class id {
         public static final int FILL=0x7f06000e;
         public static final int STROKE=0x7f06000d;
-        public static final int action_share=0x7f060031;
-        public static final int action_sort=0x7f06002c;
-        public static final int action_sort_alpha=0x7f06002e;
-        public static final int action_sort_size=0x7f06002d;
+        public static final int action_share=0x7f06002d;
         public static final int all=0x7f060003;
         public static final int both=0x7f060007;
         public static final int bottom=0x7f060002;
@@ -495,8 +492,7 @@ or to a theme attribute in the form "<code>?[<i>package</i>:][<i>type</i>:]<i>na
         public static final int left=0x7f060000;
         public static final int loadingprogressbar=0x7f060027;
         public static final int manualOnly=0x7f060008;
-        public static final int menu_delete=0x7f06002f;
-        public static final int menu_settings=0x7f060030;
+        public static final int menu_settings=0x7f06002c;
         public static final int operation_imgview=0x7f060019;
         public static final int operation_txt=0x7f06001a;
         public static final int pager=0x7f060024;
