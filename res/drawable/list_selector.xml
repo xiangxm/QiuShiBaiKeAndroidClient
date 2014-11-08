@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:drawable="@color/xiaomi_selected_color" android:state_selected="true"><shape>
+            <corners android:radius="8dp" />
+
+            <stroke android:width="1dp" android:color="#D7D7D7" />
+
+            <solid android:color="@color/white" />
+        </shape></item>
+    <item android:drawable="@color/xiaomi_selected_color" android:state_focused="true"/>
+    <item android:drawable="@color/xiaomi_selected_color" android:state_pressed="true"/>
+    <item android:drawable="@color/white" android:state_enabled="true"/>
+    <item android:drawable="@color/white" android:state_enabled="false"/>
+    <item android:drawable="@color/white" android:state_window_focused="false"/>
+    <item android:drawable="@color/white"/>
+
+</selector>

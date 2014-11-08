@@ -23,8 +23,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.qiubaiclient.main.IndicatorFragmentActivity.TabInfo;
 import com.qiubaiclient.main.R;
+import com.qiubaiclient.model.TabInfo;
 
 /**
  * 这是个选项卡式的控件，会随着viewpager的滑动而滑动
@@ -241,7 +241,8 @@ public class TitleIndicator extends LinearLayout implements
 			tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSizeNormal);
 		}
 		tv.setText(label);
-	
+		tv.setAlpha(0.6f) ;
+
 		if (hasTips) {
 			tips.setVisibility(View.VISIBLE);
 		} else {
@@ -302,6 +303,14 @@ public class TitleIndicator extends LinearLayout implements
 		TextView tv = (TextView) tab.findViewById(R.id.tab_title);
 		tv.setTextSize(TypedValue.COMPLEX_UNIT_PX, selected ? mTextSizeSelected
 				: mTextSizeNormal);
+		//设置透明度
+		if (!selected) {
+
+			tv.setAlpha(0.6f);
+		} else {
+
+			tv.setAlpha(1.0f);
+		}
 	}
 
 	@Override

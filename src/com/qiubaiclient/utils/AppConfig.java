@@ -16,7 +16,7 @@ public class AppConfig {
 	 * 图文
 	 */
 	public static final String IMAGE_TEXT = "http://m2.qiushibaike.com/article/list/suggest?";// page=1&count=30&rqcnt=223
-
+//http://m2.qiushibaike.com/article/list/suggest?page=1&count=30&rqcnt=223
 	/**
 	 * 最热
 	 */
@@ -55,7 +55,7 @@ public class AppConfig {
 	/**
 	 * 获取评论内容
 	 */
-	public static final String DISCUSS_COTENT = "http://m2.qiushibaike.com/article/";// 85115999/comments?page=1&count=30
+	public static final String DISCUSS_COTENT = "http://m2.qiushibaike.com/article/%d/comments?page=%d&count=%d";// 85115999/comments?page=1&count=30
 
 	/**
 	 * 喜欢（点赞）

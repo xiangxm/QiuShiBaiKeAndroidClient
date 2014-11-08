@@ -2,6 +2,7 @@ package com.qiubaiclient.adapter;
 
 import java.util.List;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -21,10 +22,12 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
 import com.qiubaiclient.customui.CircleImageView;
 import com.qiubaiclient.customui.CustomImageButton;
+import com.qiubaiclient.main.CommentsActivity;
 import com.qiubaiclient.main.R;
 import com.qiubaiclient.main.SaveImageActivity;
 import com.qiubaiclient.model.ItemBean;
 import com.qiubaiclient.model.UserBean;
+import com.qiubaiclient.model.VotesBean;
 import com.qiubaiclient.utils.AppConfig;
 import com.qiubaiclient.utils.Common;
 
@@ -47,10 +50,13 @@ public class ArticleAdapter extends BaseAdapter {
 	 */
 	public static ImageLoader imageLoader;
 	/**
+	 * 用户头像config
+	 */
+	public static DisplayImageOptions loginOptions;
+	/**
 	 * 图片下载器配置
 	 */
 	public static DisplayImageOptions contentOptions;
-	public static DisplayImageOptions loginOptions;
 
 	public ArticleAdapter(Context mContext, List<ItemBean> dataList) {
 
@@ -148,6 +154,7 @@ public class ArticleAdapter extends BaseAdapter {
 		} else {
 
 			viewHolder = (ViewHolder) convertView.getTag();
+
 		}
 
 		// 先恢复状态
@@ -179,7 +186,10 @@ public class ArticleAdapter extends BaseAdapter {
 								intent.putExtra("itembean", itemBean);
 
 								mContext.startActivity(intent);
-
+								((Activity) mContext)
+										.overridePendingTransition(
+												R.anim.slide_right_in,
+												R.anim.slide_left_out);
 							}
 						});
 
@@ -212,40 +222,172 @@ public class ArticleAdapter extends BaseAdapter {
 			viewHolder.txtPublishDate.setText(Common.getDateFromLong(
 					itemBean.getPublished_at(), "yyyy-MM-dd HH:mm:ss"));
 			// 显示支持数
-			viewHolder.btn_opt_up.setOperationInfo(String.valueOf(itemBean
-					.getVotes().getUp()));
-			// viewHolder.btn_opt_up.setTag(position);
-			// 显示不支持数
-			viewHolder.btn_opt_down.setOperationInfo(String.valueOf(itemBean
-					.getVotes().getDown()));
+			VotesBean votesBean = itemBean.getVotes();
+			if (votesBean != null) {
+
+				viewHolder.btn_opt_up.setOperationInfo(String.valueOf(votesBean
+						.getUp()));
+				viewHolder.btn_opt_up.setTag(position);
+				// 显示不支持数
+				viewHolder.btn_opt_down.setOperationInfo(String
+						.valueOf(votesBean.getDown()));
+			}
+			viewHolder.btn_opt_down.setTag(position);
 			// 显示评论数
 			viewHolder.btn_opt_coments.setOperationInfo(String.valueOf(itemBean
 					.getComments_count()));
+			viewHolder.btn_opt_coments.setTag(position);
+			viewHolder.btn_opt_share.setTag(position);
+
+			// 设置点击后的效果
+			if (itemBean.isClicked()) {
+
+				// 设置是否点击过
+				switch (itemBean.getVotes().getWhoClicked()) {
+
+				case VotesBean.UP_CLICKED:
+
+					viewHolder.btn_opt_up.setImageResource(rs
+							.getDrawable(R.drawable.ding_has_clicked));
+					viewHolder.btn_opt_up.setOptTextColor(Color
+							.parseColor("#F02D2B"));
+					break;
+				case VotesBean.DOWN_CLICKED:
+					viewHolder.btn_opt_down.setImageResource(rs
+							.getDrawable(R.drawable.cai_has_clicked));
+					viewHolder.btn_opt_down.setOptTextColor(Color
+							.parseColor("#F02D2B"));
+					break;
+				case VotesBean.SHARE_CLICKED:
+					viewHolder.btn_opt_share.setImageResource(rs
+							.getDrawable(R.drawable.forward));
+					viewHolder.btn_opt_share.setOptTextColor(Color
+							.parseColor("#F02D2B"));
+					break;
+
+				}
+			}
 
 			// 设置监听
 
-			// viewHolder.btn_opt_up.setOnClickListener(new OnClickListener() {
-			//
-			// @Override
-			// public void onClick(View arg0) {
-			// // TODO Auto-generated method stub
-			//
-			// int position = Integer.parseInt(Common
-			// .object2String(viewHolder.btn_opt_up.getTag()));
-			// ItemBean itemBean = dataList.get(position);
-			// String numStr = String.valueOf(itemBean.getVotes().getUp()) + 1;
-			// viewHolder.btn_opt_up.setOperationInfo(numStr);
-			// viewHolder.btn_opt_up.setOptTextColor(Color
-			// .parseColor("#F02D2B"));
-			// viewHolder.btn_opt_up.setImageResource(rs
-			// .getDrawable(R.drawable.ding_has_clicked));
-			//
-			// // 设置list中的数据
-			// dataList.set(position, itemBean);
-			// // 显示动画
-			// viewHolder.btn_opt_up.startDingAnimation();
-			// }
-			// });
+			viewHolder.btn_opt_up.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View view) {
+					// TODO Auto-generated method stub
+					int position = Integer.parseInt(Common
+							.object2String(((CustomImageButton) view).getTag()));
+					ItemBean itemBean = dataList.get(position);
+					// 判断是否点击过
+					if (itemBean.isClicked()) {
+
+						return;
+					}
+					itemBean.setClicked(true, VotesBean.UP_CLICKED);
+					int up = itemBean.getVotes().getUp() + 1;
+					String numStr = String.valueOf(up);
+					((CustomImageButton) view).setOperationInfo(numStr);
+					((CustomImageButton) view).setOptTextColor(Color
+							.parseColor("#F02D2B"));
+					((CustomImageButton) view).setImageResource(rs
+							.getDrawable(R.drawable.ding_has_clicked));
+
+					itemBean.getVotes().setUp(up);
+					// 设置list中的数据
+					dataList.set(position, itemBean);
+					// 显示动画
+					((CustomImageButton) view)
+							.startDingAnimation(CustomImageButton.ACTION_UP);
+				}
+			});
+			// 设置踩监听
+			viewHolder.btn_opt_down.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View view) {
+					// TODO Auto-generated method stub
+
+					int position = Integer.parseInt(Common
+							.object2String(((CustomImageButton) view).getTag()));
+					ItemBean itemBean = dataList.get(position);
+					// 判断是否点击过
+					if (itemBean.isClicked()) {
+
+						return;
+					}
+					itemBean.setClicked(true, VotesBean.DOWN_CLICKED);
+					int down = itemBean.getVotes().getDown() - 1;
+					String numStr = String.valueOf(down);
+					((CustomImageButton) view).setOperationInfo(numStr);
+					((CustomImageButton) view).setOptTextColor(Color
+							.parseColor("#F02D2B"));
+					((CustomImageButton) view).setImageResource(rs
+							.getDrawable(R.drawable.cai_has_clicked));
+
+					itemBean.getVotes().setDown(down);
+					// 设置list中的数据
+					dataList.set(position, itemBean);
+					// 显示动画
+					((CustomImageButton) view)
+							.startDingAnimation(CustomImageButton.ACTION_DOWN);
+				}
+			});
+
+			// 设置分享
+			viewHolder.btn_opt_share.setOnClickListener(new OnClickListener() {
+
+				@Override
+				public void onClick(View view) {
+
+					// TODO Auto-generated method stub
+					int position = Integer.parseInt(Common
+							.object2String(((CustomImageButton) view).getTag()));
+					ItemBean itemBean = dataList.get(position);
+
+					itemBean.setClicked(true, VotesBean.SHARE_CLICKED);
+					// ((CustomImageButton) view).setOptTextColor(Color
+					// .parseColor("#F02D2B"));
+					((CustomImageButton) view).setImageResource(rs
+							.getDrawable(R.drawable.forward));
+
+					// 分享
+					Common.shareTo((Activity) mContext, itemBean.getContent());
+					// Common.initShareTools(mContext);
+				}
+			});
+			// 设置评论
+			viewHolder.btn_opt_coments
+					.setOnClickListener(new OnClickListener() {
+
+						@Override
+						public void onClick(View view) {
+
+							// TODO Auto-generated method stub
+							int position = Integer.parseInt(Common
+									.object2String(((CustomImageButton) view)
+											.getTag()));
+							ItemBean itemBean = dataList.get(position);
+
+							// itemBean.setClicked(true,-1);
+							// ((CustomImageButton) view).setOptTextColor(Color
+							// .parseColor("#F02D2B"));
+							// ((CustomImageButton) view).setImageResource(rs
+							// .getDrawable(R.drawable.commend_press));
+							Intent intent = new Intent();
+							intent.setClass(mContext, CommentsActivity.class);
+							if (null != itemBean) {
+
+								intent.putExtra("ItemBean", itemBean);
+							} else {
+
+								return;
+							}
+							mContext.startActivity(intent);
+							((Activity) mContext).overridePendingTransition(
+									R.anim.slide_right_in,
+									R.anim.slide_left_out);
+						}
+					});
 
 		}
 		return convertView;
@@ -289,6 +431,8 @@ public class ArticleAdapter extends BaseAdapter {
 				.getDrawable(R.drawable.commend));
 		viewHolder.btn_opt_share.setImageResource(rs
 				.getDrawable(R.drawable.forward));
+		viewHolder.btn_opt_share.setOperationInfo("分享");
+		// 设置是否可以点击
 
 	}
 

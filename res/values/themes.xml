@@ -7,9 +7,13 @@
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowBackground">@null</item>
     </style>
-<!--         <item name="android:windowAnimationStyle">@style/animationStyle</item> -->
+    <!-- <item name="android:windowAnimationStyle">@style/animationStyle</item> -->
 
     <style name="animationStyle" parent="@android:style/Animation">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@null</item>
         <item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>
         <item name="android:activityOpenExitAnimation">@anim/slide_left_out</item>
         <item name="android:activityCloseEnterAnimation">@anim/slide_left_in</item>

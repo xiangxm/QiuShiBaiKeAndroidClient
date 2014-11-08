@@ -9,6 +9,7 @@ import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
@@ -34,9 +35,8 @@ public class CustomImageButton extends LinearLayout {
 
 		TypedArray a = context.obtainStyledAttributes(attrs,
 				R.styleable.CircleImageView, defStyle, 0);
-		
 
-		initData(a) ;
+		initData(a);
 	}
 
 	private void initData(TypedArray a) {
@@ -47,7 +47,6 @@ public class CustomImageButton extends LinearLayout {
 		operationImageView = (ImageView) findViewById(R.id.operation_imgview);
 		operationTxtInfo = (TextView) findViewById(R.id.operation_txt);
 
-		
 		Drawable resDrawable = a
 				.getDrawable(R.styleable.CustomImageButton_background_resource);
 		a.recycle();
@@ -93,7 +92,8 @@ public class CustomImageButton extends LinearLayout {
 	private TextView operationTxtInfo;
 	private Context mContext;
 	/**
-	 * +1动画
+	 * +1动画 外部调用startDingAnimation()方法会添加动画。
+	 * 也可以将onClick事件注册到本地，外部调用直接用回调IOnClickCallBack的方式。
 	 */
 	private Animation animation;
 	/**
@@ -109,7 +109,7 @@ public class CustomImageButton extends LinearLayout {
 		TypedArray a = context.obtainStyledAttributes(attrs,
 				R.styleable.CircleImageView);
 
-		initData(a) ;
+		initData(a);
 
 	}
 
@@ -227,18 +227,70 @@ public class CustomImageButton extends LinearLayout {
 		}
 	}
 
-	public void startDingAnimation() {
+	/**
+	 * 用户赞的动作
+	 */
+	public static final int ACTION_UP = 0;
+	/**
+	 * 用户踩的动作
+	 */
+	public static final int ACTION_DOWN = 1;
 
+	/**
+	 * 根据action来判断是赞还是不赞
+	 * 
+	 * @param action
+	 *            动作
+	 */
+	public void startDingAnimation(int action) {
+
+		if (action == ACTION_UP) {
+			txtDingAddOne.setText("+1");
+		} else {
+
+			txtDingAddOne.setText("-1");
+		}
 		if (null != this.txtDingAddOne) {
 
 			if (this.txtDingAddOne.getVisibility() == View.GONE
 					|| this.txtDingAddOne.getVisibility() == View.INVISIBLE) {
-				
-				this.txtDingAddOne.setVisibility(View.VISIBLE) ;
+
+				this.txtDingAddOne.setVisibility(View.VISIBLE);
 				this.txtDingAddOne.startAnimation(animation);
 			}
 		}
 
 	}
+
+	// public IOnClickCallBack onClickCallBack;
+	//
+	// public void setOnClickCallBack(IOnClickCallBack onClickCallBack) {
+	// this.onClickCallBack = onClickCallBack;
+	// }
+	//
+	// /**
+	// * 点击事件回调
+	// *
+	// * @author xiangxm
+	// *
+	// */
+	// public interface IOnClickCallBack {
+	//
+	// /**
+	// * 点击事件监听
+	// */
+	// void mOnClick();
+	// }
+	//
+	// @Override
+	// public void onClick(View v) {
+	// // TODO Auto-generated method stub
+	// //外部直接回调
+	// if (this.onClickCallBack != null) {
+	// this.startAnimation(animation);
+	// onClickCallBack.mOnClick();
+	// }
+	//
+	// }
 
 }

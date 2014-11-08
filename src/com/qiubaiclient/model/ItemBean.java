@@ -10,6 +10,33 @@ import java.io.Serializable;
  */
 public class ItemBean implements Serializable {
 
+	private int blog_type;
+
+	public int getBlog_type() {
+		return blog_type;
+	}
+
+	public void setBlog_type(int blog_type) {
+		this.blog_type = blog_type;
+	}
+
+	/**
+	 * 是否点击过
+	 */
+	private boolean isClicked = false;
+
+	public boolean isClicked() {
+		return isClicked;
+	}
+
+	public void setClicked(boolean isClicked, int whoClicked) {
+		this.isClicked = isClicked;
+		if (null != votes) {
+
+			votes.setWhoClicked(whoClicked);
+		}
+	}
+
 	/**
 	 * 
 	 */
@@ -159,7 +186,8 @@ public class ItemBean implements Serializable {
 
 	@Override
 	public String toString() {
-		return "ItemBean [image=" + image + ", published_at=" + published_at
+		return "ItemBean [blog_type=" + blog_type + ", isClicked=" + isClicked
+				+ ", image=" + image + ", published_at=" + published_at
 				+ ", tag=" + tag + ", id=" + id + ", created_at=" + created_at
 				+ ", content=" + content + ", state=" + state
 				+ ", comments_count=" + comments_count + ", allow_comment="

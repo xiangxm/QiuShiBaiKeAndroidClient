@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.Header;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import android.app.Activity;
@@ -23,6 +24,7 @@ import com.alibaba.fastjson.JSON;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.JsonHttpResponseHandler;
 import com.qiubaiclient.adapter.ArticleAdapter;
+import com.qiubaiclient.db.DataBaseHelper;
 import com.qiubaiclient.main.R;
 import com.qiubaiclient.model.ArticleBean;
 import com.qiubaiclient.model.ItemBean;
@@ -91,7 +93,14 @@ public class QiuShiFragment extends BaseFragment {
 
 	private MyHandlerThread myHandlerThread;
 
+	/**
+	 * 获取道的json字符串
+	 */
 	private String responseStr;
+	/**
+	 * 数据库操作
+	 */
+	private DataBaseHelper dbh;
 
 	/**
 	 * handlerThread处理数据
@@ -122,9 +131,10 @@ public class QiuShiFragment extends BaseFragment {
 			switch (msg.what) {
 
 			case SUCCESS:
-				List<ItemBean> tempList = JSON.parseObject(
-						responseStr.toString(), ArticleBean.class).getItems();
+				List<ItemBean> tempList = JSON.parseObject(responseStr,
+						ArticleBean.class).getItems();
 
+				setType(tempList);
 				dataList.addAll(tempList);
 				final int num = tempList.size();
 				((Activity) mContext).runOnUiThread(new Runnable() {
@@ -138,6 +148,8 @@ public class QiuShiFragment extends BaseFragment {
 							refreshListView.onRefreshComplete();
 							Crouton.showText((Activity) mContext, "刷新了" + num
 									+ "条糗事.", Style.INFO, R.id.container_view);
+							dbh.insert(articleAdapter.getDataList());
+
 						}
 					}
 				});
@@ -166,11 +178,28 @@ public class QiuShiFragment extends BaseFragment {
 			return false;
 		}
 
+		/**
+		 * 设置type
+		 */
+		private void setType(List<ItemBean> list) {
+			// TODO Auto-generated method stub
+
+			for (ItemBean item : list) {
+
+				item.setBlog_type(mSectionId);
+			}
+		}
+
 	}
 
 	public QiuShiFragment() {
 		super();
 	}
+
+	/**
+	 * 模块对应的id
+	 */
+	private int mSectionId = 0;
 
 	/**
 	 * 设定版块获取数据地址
@@ -183,20 +212,33 @@ public class QiuShiFragment extends BaseFragment {
 		case AppConfig.SECTION_ONLY_TEXT:
 			// 纯文
 			sectionAddress = AppConfig.ONLY_TEXT;
+			if (sectionId != -1) {
+				mSectionId = AppConfig.SECTION_ONLY_TEXT;
+			}
 			break;
 		case AppConfig.SECTION_ONLY_IMAGE:
 			// 纯图
 			sectionAddress = AppConfig.ONLY_IMG;
+			if (sectionId != -1) {
+				mSectionId = AppConfig.SECTION_ONLY_IMAGE;
+			}
 			break;
 
 		case AppConfig.TEXT_AND_IMAGE:
 			// 图文
 			sectionAddress = AppConfig.IMAGE_TEXT;
+			if (sectionId != -1) {
+				mSectionId = AppConfig.TEXT_AND_IMAGE;
+			}
+
 			break;
 
 		case AppConfig.SECTION_LATEST:
 			// 最新
 			sectionAddress = AppConfig.LATEST;
+			if (sectionId != -1) {
+				mSectionId = AppConfig.SECTION_LATEST;
+			}
 			break;
 
 		}
@@ -223,6 +265,7 @@ public class QiuShiFragment extends BaseFragment {
 	 */
 	private void initView() {
 
+		dbh = new DataBaseHelper(getActivity());
 		myHandlerThread = new MyHandlerThread("HandlerThread");
 		myHandlerThread.start();
 		mHandler = new Handler(myHandlerThread.getLooper(), myHandlerThread);
@@ -244,6 +287,13 @@ public class QiuShiFragment extends BaseFragment {
 				refreshListView.setRefreshing(true);// 显示或者隐藏进度view
 			}
 		} else {
+
+			if (mSectionId == -1) {
+				return;
+			}
+			List<ItemBean> list = dbh.query(mSectionId);
+			articleAdapter.setDataList(list);
+			articleAdapter.notifyDataSetChanged();
 
 			ToastUtil.show(mContext, "当前网络不可用，建议检查网络连接状态。", Toast.LENGTH_SHORT);
 		}
@@ -269,6 +319,8 @@ public class QiuShiFragment extends BaseFragment {
 			// 向下刷新默认获取第一页的数据
 			page.setDefaultPage();
 			dataList.clear();
+			//清空之前的数据
+			dbh.delete(mSectionId);
 			String dataUrl = sectionAddress
 					+ String.format(AppConfig.PAGE_COUNT,
 							page.getCurrentPage(), perPageCount);
@@ -332,8 +384,8 @@ public class QiuShiFragment extends BaseFragment {
 					JSONObject response) {
 				// TODO Auto-generated method stub
 				// super.onSuccess(statusCode, headers, response);
-				Log.i(TAG, response.toString());
 
+				Log.i(TAG, response.toString());
 				responseStr = response.toString();
 				// 获取数据成功，刷新UI
 				mHandler.sendEmptyMessage(MyHandlerThread.SUCCESS);

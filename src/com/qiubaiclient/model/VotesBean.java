@@ -43,5 +43,23 @@ public class VotesBean implements Serializable{
 	public String toString() {
 		return "VotesBean [down=" + down + ", up=" + up + "]";
 	}
+	
+	/**
+	 * 身份识别，看是up被点击了还是其他的被点击了。
+	 */
+	private int whoClicked = 0 ;
+	
+	public int getWhoClicked() {
+		return whoClicked;
+	}
+
+	public void setWhoClicked(int whoClicked) {
+		this.whoClicked = whoClicked;
+	}
+
+	public static final int UP_CLICKED = 0 ;
+	public static final int DOWN_CLICKED = 1 ;
+	public static final int SHARE_CLICKED = 2 ;
+	
 
 }

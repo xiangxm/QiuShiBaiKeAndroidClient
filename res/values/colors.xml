@@ -22,8 +22,18 @@
     <!-- For suggestions -->
     <color name="common_blue">#4b8bbd</color>
     <color name="tab_indicator_text_selected">#FFFFFF</color>
-    <color name="tab_indicator_text_unselected">#aac5d7</color>
+    <color name="tab_indicator_text_unselected">#f0f0f0</color>
+    <!-- <color name="tab_indicator_text_unselected">#aac5d7</color> -->
     <color name="page_viewer_margin_color">#00000000</color>
     <color name="sidebar_item_separator_dark">#ff212021</color>
+    <color name="black">#000000</color>
+    <!-- xiangxiangming 20141107 add CustomListView begin -->
+    <!-- drop down list header font color -->
+    <color name="drop_down_list_header_font_color">#000000</color>
+    <!-- drop down list header second font color -->
+    <color name="drop_down_list_header_second_font_color">#000000</color>
+    <!-- drop down list footer font color -->
+    <color name="drop_down_list_footer_font_color">#000000</color>
+    <!-- xiangxiangming 20141107 add CustomListView end -->
 
 </resources>

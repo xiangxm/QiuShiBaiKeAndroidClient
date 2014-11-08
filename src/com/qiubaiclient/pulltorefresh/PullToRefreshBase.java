@@ -1365,7 +1365,8 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout
 		FLIP;
 
 		static AnimationStyle getDefault() {
-			return FLIP;
+			//设置默认的滚动为动画方式
+			return ROTATE;
 		}
 
 		/**

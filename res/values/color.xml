@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="wangyimusic_red_color">#BD2211</color>
+    <color name="xiaomi_selected_color">#E96925</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="transparent">#00000000</color>
+    <color name="wangyibg">#f0f0f0</color>
+</resources>

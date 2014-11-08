@@ -15,7 +15,6 @@
         app:textColor="@color/tab_indicator_text"
         app:textSizeNormal="@dimen/common_text_size_middle"
         app:textSizeSelected="@dimen/common_text_size_middle_2" />
-    <!-- Don't set background for ViewPager. It doesn't work because of page margin -->
 
     <FrameLayout
         android:id="@+id/container_view"

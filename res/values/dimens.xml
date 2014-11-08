@@ -6,7 +6,7 @@
     <!-- For buttons -->
     <dimen name="common_text_size_large">18dp</dimen>
     <!-- For list texts (top line) -->
-    <dimen name="common_text_size_middle">18dp</dimen>
+    <dimen name="common_text_size_middle">20dp</dimen>
     <dimen name="common_text_size_middle_2">20dp</dimen>
     <!-- For list texts (bottom line), summary texts, icon texts, descriptions, tag texts -->
     <dimen name="common_text_size_small">13dp</dimen>
@@ -15,7 +15,7 @@
     <dimen name="page_margin_width">5dp</dimen>
     <!-- 滑动指示圆点的半径 -->
     <dimen name="circle_r">4dp</dimen>
-    
+
     <!-- 下拉 -->
     <dimen name="indicator_right_padding">10dp</dimen>
     <dimen name="indicator_corner_radius">12dp</dimen>
@@ -24,4 +24,16 @@
     <dimen name="header_footer_top_bottom_padding">12dp</dimen>
     <dimen name="listview_divider_height">1dp</dimen>
     <dimen name="text_size">6sp</dimen>
+    <!-- SlidingMenu -->
+    <dimen name="shadow_width">1dp</dimen>
+    <dimen name="slidingmenu_offset">100dp</dimen>
+    <!-- listview -->
+    <dimen name="drop_down_list_header_padding_top">12dp</dimen>
+    <dimen name="drop_down_list_header_padding_bottom">15dp</dimen>
+    <dimen name="drop_down_list_header_release_min_distance">20dp</dimen>
+    <dimen name="drop_down_list_header_progress_bar_height">32dp</dimen>
+    <dimen name="drop_down_list_footer_progress_bar_height">32dp</dimen>
+    <dimen name="drop_down_list_footer_button_margin_left">8dp</dimen>
+    <dimen name="drop_down_list_footer_button_height">48dp</dimen>
+
 </resources>

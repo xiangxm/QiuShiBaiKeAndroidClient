@@ -11,11 +11,14 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.ActivityManager;
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
+import android.graphics.Bitmap.Config;
 import android.graphics.BitmapFactory;
 import android.graphics.BitmapFactory.Options;
 import android.graphics.Canvas;
@@ -24,10 +27,28 @@ import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
+import android.renderscript.Allocation;
+import android.renderscript.Element;
+import android.renderscript.RenderScript;
+import android.renderscript.ScriptIntrinsicBlur;
 import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
+
+import com.qiubaiclient.main.R;
+import com.qiubaiclient.model.UserBean;
+import com.umeng.socialize.controller.UMServiceFactory;
+import com.umeng.socialize.controller.UMSocialService;
+import com.umeng.socialize.media.QQShareContent;
+import com.umeng.socialize.media.QZoneShareContent;
+import com.umeng.socialize.media.UMImage;
+import com.umeng.socialize.sso.QZoneSsoHandler;
+import com.umeng.socialize.sso.RenrenSsoHandler;
+import com.umeng.socialize.sso.SinaSsoHandler;
+import com.umeng.socialize.sso.SmsHandler;
+import com.umeng.socialize.sso.TencentWBSsoHandler;
+import com.umeng.socialize.sso.UMQQSsoHandler;
 
 /**
  * 提供公共方法的工具类
@@ -36,6 +57,14 @@ import android.view.inputmethod.InputMethodManager;
  */
 public class Common {
 
+	/**
+	 * 存储一些信息
+	 */
+	public static SharePreferenceUtils preferenceUtils;
+	/**
+	 * 
+	 */
+	public static UserBean userBean;
 	/**
 	 * 手机唯一识别码
 	 */
@@ -549,4 +578,177 @@ public class Common {
 		return dm.widthPixels;
 	}
 
+	/**
+	 * 分享
+	 * 
+	 * @param ctx
+	 */
+	public static void shareTo(Activity ctx, String str) {
+		if (str == null || str.equals("")) {
+
+			return;
+		}
+		Intent intent;
+		// 分享的intent
+		intent = new Intent(Intent.ACTION_SEND);
+		// 分享的数据类型
+		intent.setType("text/plain");
+		// 分享的主题
+		intent.putExtra(Intent.EXTRA_SUBJECT, "快捷分享");
+		// 分享的内容
+		intent.putExtra(Intent.EXTRA_TEXT, str);
+		// 允许启动新的Activity
+		intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+		// 目标应用寻找对话框的标题
+		ctx.startActivity(Intent.createChooser(intent, "分享给好友"));
+	}
+
+	/**
+	 * 初始化分享组建
+	 */
+	public static void initShareTools(Context ctx) {
+		// TODO Auto-generated method stub
+
+		UMSocialService mController = UMServiceFactory
+				.getUMSocialService("com.umeng.share");
+
+		// 设置分享的内容
+		String mShareContent = "test";
+		// 设置分享内容
+		mController.setShareContent(mShareContent);
+		Bitmap bitmap = BitmapFactory.decodeResource(ctx.getResources(),
+				R.drawable.blur_background);
+		UMImage mUMImgBitmap;
+		// 设置分享的图片
+		mUMImgBitmap = new UMImage(ctx, bitmap);
+		mController.setShareImage(mUMImgBitmap);
+		mController.setAppWebSite("http://www.qiushibaike.com"); // 设置应用地址
+
+		// 添加新浪和qq空间的SSO授权支持
+		mController.getConfig().setSsoHandler(new SinaSsoHandler());
+		// 添加腾讯微博SSO支持
+		mController.getConfig().setSsoHandler(new TencentWBSsoHandler());
+
+		// wx967daebe835fbeac是你在微信开发平台注册应用的AppID, 这里需要替换成你注册的AppID
+		// String appID = "";
+		// // 添加微信平台
+		// UMWXHandler wxHandler = new UMWXHandler(getActivity(), appID);
+		// wxHandler.addToSocialSDK();
+		// // 支持微信朋友圈
+		// UMWXHandler wxCircleHandler = new UMWXHandler(getActivity(), appID);
+		// wxCircleHandler.setToCircle(true);
+		// wxCircleHandler.addToSocialSDK();
+		//
+		// // 设置微信好友分享内容
+		// WeiXinShareContent weixinContent = new WeiXinShareContent();
+		// // 设置分享文字
+		// weixinContent.setShareContent(mShareContent);
+		// // 设置title
+		// weixinContent.setTitle("糗大了Android客户端");
+		// // 设置分享内容跳转URL
+		// weixinContent.setTargetUrl("");
+		// // 设置分享图片
+		// weixinContent.setShareImage(mUMImgBitmap);
+		// mController.setShareMedia(weixinContent);
+		//
+		// // 设置微信朋友圈分享内容
+		// CircleShareContent circleMedia = new CircleShareContent();
+		// circleMedia.setShareContent(mShareContent);
+		// // 设置朋友圈title
+		// circleMedia.setTitle("糗大了Android客户端");
+		// circleMedia.setShareImage(mUMImgBitmap);
+		// circleMedia.setTargetUrl("");
+		// mController.setShareMedia(circleMedia);
+
+		// 参数1为当前Activity，参数2为开发者在QQ互联申请的APP ID，参数3为开发者在QQ互联申请的APP kEY.
+		UMQQSsoHandler qqSsoHandler = new UMQQSsoHandler((Activity) ctx,
+				"1103445196", "U0I3OCuMn5yeOwPm");
+		qqSsoHandler.addToSocialSDK();
+
+		// 参数1为当前Activity，参数2为开发者在QQ互联申请的APP ID，参数3为开发者在QQ互联申请的APP kEY.
+		QZoneSsoHandler qZoneSsoHandler = new QZoneSsoHandler((Activity) ctx,
+				"1103445196", "U0I3OCuMn5yeOwPm");
+		qZoneSsoHandler.addToSocialSDK();
+
+		// 添加人人网SSO授权功能
+		// APPID:273033
+		// API Key:8b7710d0cd0948c39aed43fd0d21ccb1
+		// Secret:1fa74f7f09cc4308a73c3bc267ba6f8d
+		RenrenSsoHandler renrenSsoHandler = new RenrenSsoHandler(
+				(Activity) ctx, "273033", "8b7710d0cd0948c39aed43fd0d21ccb1",
+				"1fa74f7f09cc4308a73c3bc267ba6f8d");
+		mController.getConfig().setSsoHandler(renrenSsoHandler);
+
+		// 添加短信
+		SmsHandler smsHandler = new SmsHandler();
+		smsHandler.addToSocialSDK();
+
+		// QQ分享
+		QQShareContent qqShareContent = new QQShareContent();
+		qqShareContent.setShareContent(mShareContent);
+		qqShareContent.setTitle("糗大了Android客户端");
+		qqShareContent.setShareImage(mUMImgBitmap);
+		// qqShareContent.setTargetUrl("http://www.qiushibaike.com");
+		mController.setShareMedia(qqShareContent);
+		//
+		// QQ空间分享
+		QZoneShareContent qzone = new QZoneShareContent();
+		// 设置分享文字
+		qzone.setShareContent(mShareContent);
+		// 设置点击消息的跳转URL
+		// qzone.setTargetUrl("http://www.qiushibaike.com");
+		// 设置分享内容的标题
+		qzone.setTitle("糗大了Android客户端");
+		// 设置分享图片
+		qzone.setShareImage(mUMImgBitmap);
+		mController.setShareMedia(qzone);
+
+		mController.openShare((Activity) ctx, false);
+	}
+
+	/**
+	 * 处理高斯模糊
+	 * @param bitmap
+	 * @param ctx
+	 * @return
+	 */
+	@SuppressLint("NewApi")
+	public static Bitmap blurBitmap(Bitmap bitmap,Context ctx) {
+
+		// Let's create an empty bitmap with the same size of the bitmap we want
+		// to blur
+		Bitmap outBitmap = Bitmap.createBitmap(bitmap.getWidth(),
+				bitmap.getHeight(), Config.ARGB_8888);
+
+		// Instantiate a new Renderscript
+		RenderScript rs = RenderScript.create(ctx);
+
+		// Create an Intrinsic Blur Script using the Renderscript
+		ScriptIntrinsicBlur blurScript = ScriptIntrinsicBlur.create(rs,
+				Element.U8_4(rs));
+
+		// Create the Allocations (in/out) with the Renderscript and the in/out
+		// bitmaps
+		Allocation allIn = Allocation.createFromBitmap(rs, bitmap);
+		Allocation allOut = Allocation.createFromBitmap(rs, outBitmap);
+
+		// Set the radius of the blur
+		blurScript.setRadius(25.f);
+
+		// Perform the Renderscript
+		blurScript.setInput(allIn);
+		blurScript.forEach(allOut);
+
+		// Copy the final bitmap created by the out Allocation to the outBitmap
+		allOut.copyTo(outBitmap);
+
+		// recycle the original bitmap
+		bitmap.recycle();
+
+		// After finishing everything, we destroy the Renderscript.
+		rs.destroy();
+
+		return outBitmap;
+
+	}
 }

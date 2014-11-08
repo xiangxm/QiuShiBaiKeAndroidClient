@@ -3,37 +3,27 @@
  */
 package com.qiubaiclient.main;
 
-import java.lang.reflect.Constructor;
 import java.util.ArrayList;
 import java.util.List;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcel;
-import android.os.Parcelable;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.util.Log;
-import android.view.KeyEvent;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.qiubaiclient.customui.TitleIndicator;
-import com.qiubaiclient.fragment.QiuShiFragment;
-import com.qiubaiclient.utils.AppConfig;
-import com.qiubaiclient.utils.Common;
+import com.qiubaiclient.model.TabInfo;
 
 @SuppressWarnings("static-access")
-public  class IndicatorFragmentActivity extends FragmentActivity
+public abstract class IndicatorFragmentActivity extends SlidingFragmentActivity
 		implements OnPageChangeListener {
 	private static final String TAG = "DxFragmentActivity";
 
@@ -115,10 +105,9 @@ public  class IndicatorFragmentActivity extends FragmentActivity
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		requestWindowFeature(Window.FEATURE_NO_TITLE);
-//		initMenuDrawer();
 		setContentView(getMainViewResId());
 		initViews();
-		
+
 		// 设置viewpager内部页面之间的间距
 		mPager.setPageMargin(getResources().getDimensionPixelSize(
 				R.dimen.page_margin_width));
@@ -140,7 +129,7 @@ public  class IndicatorFragmentActivity extends FragmentActivity
 	}
 
 	private final void initViews() {
-		
+
 		// 这里初始化界面
 		mCurrentTab = supplyTabs(mTabs);
 		Intent intent = getIntent();
@@ -149,7 +138,7 @@ public  class IndicatorFragmentActivity extends FragmentActivity
 		}
 		Log.d(TAG, "mTabs.size() == " + mTabs.size() + ", cur: " + mCurrentTab);
 		myAdapter = new MyAdapter(this, getSupportFragmentManager(), mTabs);
-
+		
 		mPager = (ViewPager) findViewById(R.id.pager);
 		mPager.setAdapter(myAdapter);
 		mPager.setOnPageChangeListener(this);
@@ -187,14 +176,21 @@ public  class IndicatorFragmentActivity extends FragmentActivity
 	@Override
 	public void onPageScrolled(int position, float positionOffset,
 			int positionOffsetPixels) {
+		onScrollCheckPosition(position) ;
 		mIndicator.onScrolled((mPager.getWidth() + mPager.getPageMargin())
 				* position + positionOffsetPixels);
 		// 记录每次滑动的距离
 		mPagerOffsetPixels = positionOffsetPixels;
 	}
 
+	
+	/**
+	 * 检查滚动
+	 */
+	public abstract void onScrollCheckPosition(int position) ;
 	@Override
 	public void onPageSelected(int position) {
+
 		mIndicator.onSwitched(position);
 		mCurrentTab = position;
 	}
@@ -249,19 +245,7 @@ public  class IndicatorFragmentActivity extends FragmentActivity
 	/**
 	 * 在这里提供要显示的选项卡数据
 	 */
-	// protected abstract int supplyTabs(List<TabInfo> tabs);
-	protected int supplyTabs(List<TabInfo> tabs) {
-		tabs.add(new TabInfo(AppConfig.SECTION_ONLY_TEXT,
-				getString(R.string.fragment_one), QiuShiFragment.class));
-		tabs.add(new TabInfo(AppConfig.SECTION_ONLY_IMAGE,
-				getString(R.string.fragment_two), QiuShiFragment.class));
-		tabs.add(new TabInfo(AppConfig.TEXT_AND_IMAGE,
-				getString(R.string.fragment_three), QiuShiFragment.class));
-		tabs.add(new TabInfo(AppConfig.SECTION_LATEST,
-				getString(R.string.fragment_four), QiuShiFragment.class));
-
-		return AppConfig.SECTION_ONLY_TEXT;
-	}
+	protected abstract int supplyTabs(List<TabInfo> tabs);
 
 	@Override
 	protected void onSaveInstanceState(Bundle outState) {
@@ -272,122 +256,6 @@ public  class IndicatorFragmentActivity extends FragmentActivity
 		super.onSaveInstanceState(outState);
 	}
 
-	/**
-	 * 单个选项卡类，每个选项卡包含名字，图标以及提示（可选，默认不显示）
-	 */
-	public static class TabInfo implements Parcelable {
-
-		private int id;
-		private String name = null;
-		public boolean hasTips = false;
-		public Fragment fragment = null;
-		public boolean notifyChange = false;
-		@SuppressWarnings("rawtypes")
-		public Class fragmentClass = null;
-
-		@SuppressWarnings("rawtypes")
-		public TabInfo(int id, String name, Class clazz) {
-			this(id, name, 0, clazz);
-		}
-
-		@SuppressWarnings("rawtypes")
-		public TabInfo(int id, String name, boolean hasTips, Class clazz) {
-			this(id, name, 0, clazz);
-			this.hasTips = hasTips;
-		}
-
-		@SuppressWarnings("rawtypes")
-		public TabInfo(int id, String name, int iconid, Class clazz) {
-			super();
-
-			this.name = name;
-			this.id = id;
-			fragmentClass = clazz;
-		}
-
-		public TabInfo(Parcel p) {
-			this.id = p.readInt();
-			this.name = p.readString();
-			this.notifyChange = p.readInt() == 1;
-		}
-
-		public int getId() {
-			return id;
-		}
-
-		public void setId(int id) {
-			this.id = id;
-		}
-
-		public String getName() {
-			return name;
-		}
-
-		public void setName(String name) {
-			this.name = name;
-		}
-
-		@SuppressWarnings({ "rawtypes", "unchecked" })
-		public Fragment createFragment() {
-			if (fragment == null) {
-				Constructor constructor;
-				try {
-					constructor = fragmentClass.getConstructor(new Class[0]);
-					fragment = (Fragment) constructor
-							.newInstance(new Object[0]);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-			// 设置模块id
-			if (fragment instanceof QiuShiFragment) {
-
-				((QiuShiFragment) fragment).setSectionName(this.id);
-			}
-			return fragment;
-		}
-
-		public static final Parcelable.Creator<TabInfo> CREATOR = new Parcelable.Creator<TabInfo>() {
-			public TabInfo createFromParcel(Parcel p) {
-				return new TabInfo(p);
-			}
-
-			public TabInfo[] newArray(int size) {
-				return new TabInfo[size];
-			}
-		};
-
-		@Override
-		public int describeContents() {
-			return 0;
-		}
-
-		@Override
-		public void writeToParcel(Parcel p, int flags) {
-			p.writeInt(id);
-			p.writeString(name);
-			p.writeInt(notifyChange ? 1 : 0);
-		}
-
-	}
-
-	private long exitTime = 0;
-
-	@Override
-	public boolean onKeyDown(int keyCode, KeyEvent event) {
-		if (keyCode == KeyEvent.KEYCODE_BACK
-				&& event.getAction() == KeyEvent.ACTION_DOWN) {
-			if ((System.currentTimeMillis() - exitTime) > 2000) {
-				Toast.makeText(getApplicationContext(), "再按一次退出程序",
-						Toast.LENGTH_SHORT).show();
-				exitTime = System.currentTimeMillis();
-			} else {
-				finish();
-				System.exit(0);
-			}
-			return true;
-		}
-		return super.onKeyDown(keyCode, event);
-	}
+	
 
 }

@@ -14,5 +14,16 @@
     <string name="pull_to_refresh_pull_label">下拉刷新…</string>
     <string name="pull_to_refresh_release_label">松开以刷新…</string>
     <string name="pull_to_refresh_refreshing_label">数据加载中…</string>
+    <string name="all_rights_reserved">Copyright © 2012-2014 xiangxm. All Rights Reserved.</string>
+    <!-- xiangxiangming 20141107 add CustomListView begin -->
+    <string name="drop_down_list_header_default_text">Click to refresh&#8230;</string>
+    <string name="drop_down_list_header_pull_text">Drop Down to refresh&#8230;</string>
+    <string name="drop_down_list_header_release_text">Release to refresh&#8230;</string>
+    <string name="drop_down_list_header_loading_text">正在加载...&#8230;</string>
+    <string name="drop_down_list_footer_default_text">点击查看更多</string>
+    <string name="drop_down_list_footer_loading_text">评论加载中...&#8230;</string>
+    <string name="drop_down_list_footer_no_more_text">没有了</string>
+    <string name="image_content">Image</string>
+    <!-- xiangxiangming 20141107 add CustomListView begin -->
 
 </resources>
